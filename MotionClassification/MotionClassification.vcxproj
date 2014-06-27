@@ -88,6 +88,7 @@
     <ClCompile Include="MotionClassifier.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationCurve.h" />
     <ClInclude Include="DataConvertor.h" />
     <ClInclude Include="FbxSceneExporter.h" />
     <ClInclude Include="FbxSceneLoader.h" />

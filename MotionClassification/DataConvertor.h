@@ -108,15 +108,39 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 	
 	FbxNode* fbxRoot = scene->GetRootNode();
 
-	if(fbxRoot) {
+	if(fbxRoot && skeleton->getRoot()) {
 		for(int i = 0; i < fbxRoot->GetChildCount(); i++) {
 			if (fbxRoot->GetChild(i)->GetName() == skeleton->getRoot()->getName()) {
 				std::vector<FbxNode*> nodes;
 				getAllSkeletonFbxNodes(fbxRoot->GetChild(i), nodes);
+
 				FbxTimeSpan interval;
+				fbxRoot->GetChild(i)->GetAnimationInterval(interval, NULL, 0);
+
+//				FbxAnimLayer* animLayer = pAnimStack->GetMember<FbxAnimLayer>(0);
+
+				for (int n = 0; n < nodes.size(); n++) {
+					FbxNode* currentNode = nodes[n];
+					AnimationCurve* curve = new AnimationCurve(currentNode->GetName());
+					int frameNumber = interval.GetDuration().GetFieldCount();
+					curve->reserve(frameNumber);
+/*
+					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_TRANSLATION);
+					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_ROTATION);
+					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_SCALING);
+*/
+					for (int f = 0; f < frameNumber; f++){
+						FbxVector4 rotation = currentNode->EvaluateLocalRotation(interval.GetStart(), currentNode->eSourcePivot, false, false);
+						FbxVector4 translation = currentNode->EvaluateLocalTranslation(interval.GetStart(), currentNode->eSourcePivot, false, false);
+						FbxVector4 scaling = currentNode->EvaluateLocalScaling(interval.GetStart(), currentNode->eSourcePivot, false, false);
+						curve->setTranslation(f, translation.mData);
+						curve->setRotation(f, rotation.mData);
+						curve->setScaling(f, scaling.mData);
+					}
+					motion->addMotionCurve(curve->getName(), curve);
+				}
 /*
 				FbxAnimStack* stack = new FbxAnimStack(fbxRoot->GetFbxManager, fbxRoot->GetName());
-				fbxRoot->GetChild(i)->GetAnimationInterval(interval, NULL, 0);
 				for (int l = 0; l < stack->GetMemberCount(); l++) {
 					FbxAnimLayer* layer = (FbxAnimLayer*)stack->GetMember(l);
 					std::cout << layer->GetName() << '\t';
@@ -130,15 +154,16 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 						}
 					}
 				}
-*/
 				FbxAnimEvaluator* animEvaluator = fbxRoot->GetChild(i)->GetAnimationEvaluator();
 				nodes[0]->GetAnimationInterval(interval, NULL, 0);
 				for (int f = 0; f < interval.GetDuration().GetFieldCount(); f++){
 					MotionFrame* frame = new MotionFrame();
 					for (int n = 0; n < nodes.size(); n++) {
 						animEvaluator->GetNodeLocalRotation(nodes[n], interval.GetStart(), nodes[n]->eSourcePivot, false, false);
+						
 					}					
 				}
+*/
 			}
 		}
 	}

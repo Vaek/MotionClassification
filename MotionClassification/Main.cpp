@@ -29,7 +29,8 @@ glm::quat g_Rotation = glm::quat(0.06f, -0.69f, -0.64f, -0.33f);
 
 // data
 std::string dirPath = "./";
-std::string fileName = "skeleton.fbx";
+//std::string fileName = "skeleton.fbx";
+std::string fileName = "pepe_mocap.fbx";
 int showFrame;
 
 // Clean up function called on end of program
@@ -164,7 +165,7 @@ static void initFbxManager() {
 int main(int argc, char** argv) {
 
 	// Initialize GLUT
-	//glutInit(&argc, argv);
+	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
 	glutInitWindowSize(DEFAULT_WINDOW_WIDTH, DEFAULT_WINDOW_HEIGHT);
 	glutCreateWindow("MotionClassification");

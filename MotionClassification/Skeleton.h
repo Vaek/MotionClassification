@@ -16,7 +16,7 @@ private:
 	SkeletonNode* root;
 };
 
-Skeleton::Skeleton() {
+Skeleton::Skeleton() : root(NULL) {
 }
 
 Skeleton::~Skeleton() {
