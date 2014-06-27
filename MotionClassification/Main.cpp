@@ -205,18 +205,30 @@ int main(int argc, char** argv) {
 	FbxScene* scene = getScene(dirPath + fileName, manager);
 
 	Skeleton* skeleton = fbxToSkeleton(scene);
-	Motion* motion;
+	Motion* motion = nullptr;
 	if (skeleton) {
 		motion = fbxToMotion(scene, skeleton);
 	}
 	
-	std::ofstream myfile;
-	myfile.open("json.txt");
+	std::ofstream skeletonFile;
+	skeletonFile.open("skeleton.txt");
 	
-	if (myfile.is_open()) {
-		myfile << *skeleton->getRoot();
+	if (skeletonFile.is_open()) {
+		skeletonFile << *skeleton->getRoot();
 	}
-	myfile.close();
+	skeletonFile.close();
+	
+	if (motion) {
+		std::ofstream motionFile;
+		motionFile.open("motion.txt");
+	
+		if (motionFile.is_open()) {
+			if (motion->getMotionCurve("")) {
+				motionFile << *motion->getMotionCurve("");
+			}			
+		}
+		motionFile.close();
+	}
 
 	// export structure of scene
 //	exportToReadableFile(scene, fileName + ".txt");

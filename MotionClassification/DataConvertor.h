@@ -122,20 +122,24 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 				for (int n = 0; n < nodes.size(); n++) {
 					FbxNode* currentNode = nodes[n];
 					AnimationCurve* curve = new AnimationCurve(currentNode->GetName());
-					int frameNumber = interval.GetDuration().GetFieldCount();
+					const int frameNumber = interval.GetDuration().GetFieldCount();
 					curve->reserve(frameNumber);
 /*
 					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_TRANSLATION);
 					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_ROTATION);
 					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_SCALING);
 */
+					FbxTime currentTime = interval.GetStart();
+					const auto timeMode = FbxTime::GetGlobalTimeMode();
+					const auto timeStep = FbxTime::GetOneFrameValue(timeMode);
 					for (int f = 0; f < frameNumber; f++){
-						FbxVector4 rotation = currentNode->EvaluateLocalRotation(interval.GetStart(), currentNode->eSourcePivot, false, false);
-						FbxVector4 translation = currentNode->EvaluateLocalTranslation(interval.GetStart(), currentNode->eSourcePivot, false, false);
-						FbxVector4 scaling = currentNode->EvaluateLocalScaling(interval.GetStart(), currentNode->eSourcePivot, false, false);
-						curve->setTranslation(f, translation.mData);
-						curve->setRotation(f, rotation.mData);
-						curve->setScaling(f, scaling.mData);
+						FbxVector4 rotation = currentNode->EvaluateLocalRotation(currentTime, currentNode->eSourcePivot, true, false);
+						FbxVector4 translation = currentNode->EvaluateLocalTranslation(currentTime, currentNode->eSourcePivot, true, false);
+						FbxVector4 scaling = currentNode->EvaluateLocalScaling(currentTime, currentNode->eSourcePivot, true, false);
+						curve->setTranslation(f, translation.Buffer());
+						curve->setRotation(f, rotation.Buffer());
+						curve->setScaling(f, scaling.Buffer());
+						currentTime+=timeStep;
 					}
 					motion->addMotionCurve(curve->getName(), curve);
 				}

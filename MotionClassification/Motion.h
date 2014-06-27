@@ -21,6 +21,8 @@ public:
 	
 	MotionFrame* getFrame(int frame);
 	AnimationCurve* addMotionCurve(std::string nodeName, AnimationCurve* curve);
+	AnimationCurve* getMotionCurve(std::string nodeName);
+	AnimationCurve* getAllMotionCurves();
 
 private:
 	int motionLength;
@@ -53,6 +55,14 @@ AnimationCurve* Motion::addMotionCurve(std::string nodeName, AnimationCurve* cur
 	} else {
 		return NULL;
 	}
+}
+
+AnimationCurve* Motion::getMotionCurve(std::string nodeName) {
+	return this->curves.at(nodeName);
+}
+
+AnimationCurve* Motion::getAllMotionCurves() {
+	return this->curves.value_comp();
 }
 
 #endif MOTION_H
