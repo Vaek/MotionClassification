@@ -1,0 +1,165 @@
+<node name=Hips translation=(-0.165833, 95.6504, -0.872502) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+	<attribute type=null name=/>
+	<node name=LeftUpLeg translation=(8.64259, 1.95398, -2.38835) rotation=(135.533, 87.8437, -44.4872) scaling=(1, 1, 1)>
+		<attribute type=skeleton name=/>
+		<node name=LeftLeg translation=(43.7702, 7.03335e-006, 0) rotation=(-0.00088631, 0.00663211, -7.62632) scaling=(1, 1, 1)>
+			<attribute type=skeleton name=/>
+			<node name=LeftFoot translation=(40.6238, 1.43051e-006, 9.53674e-007) rotation=(9.60495e-007, -1.44074e-006, 63.146) scaling=(1, 1, 1)>
+				<attribute type=skeleton name=/>
+				<node name=LeftToeBase translation=(12.7242, 2.38419e-006, 9.53674e-007) rotation=(4.9092e-006, -1.68087e-006, 28.7808) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+				</node>
+			</node>
+		</node>
+	</node>
+	<node name=RightUpLeg translation=(-8.2249, 1.95398, -2.59336) rotation=(49.7068, 88.0102, -130.276) scaling=(1, 1, 1)>
+		<attribute type=skeleton name=/>
+		<node name=RightLeg translation=(43.5653, 7.27177e-006, 0) rotation=(-6.26456e-005, 0.000464453, -7.63342) scaling=(1, 1, 1)>
+			<attribute type=skeleton name=/>
+			<node name=RightFoot translation=(40.6238, 2.38419e-006, 9.53674e-007) rotation=(2.13443e-007, -0, 63.146) scaling=(1, 1, 1)>
+				<attribute type=skeleton name=/>
+				<node name=RightToeBase translation=(12.7242, -4.76837e-007, 0) rotation=(1.57948e-005, 3.06625e-005, 28.7808) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+				</node>
+			</node>
+		</node>
+	</node>
+	<node name=Spine translation=(0.165834, 0.87714, 6.61349) rotation=(90, -83.6598, -90.0001) scaling=(1, 1, 1)>
+		<attribute type=skeleton name=/>
+		<node name=Spine1 translation=(7.38963, 1.71661e-005, -9.72809e-008) rotation=(4.3381e-006, 4.07111e-013, 14.1935) scaling=(1, 1, 1)>
+			<attribute type=skeleton name=/>
+			<node name=Spine2 translation=(11.9445, 1.14441e-005, 6.65395e-008) rotation=(-3.71489e-012, -0, 2.5225) scaling=(1, 1, 1)>
+				<attribute type=skeleton name=/>
+				<node name=Spine3 translation=(14.7254, 4.19617e-005, 8.195e-008) rotation=(9.59253e-008, 8.14222e-013, -20.0126) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+					<node name=Spine4 translation=(10.9679, -9.53674e-006, 5.82672e-008) rotation=(6.10666e-013, -0, 0) scaling=(1, 1, 1)>
+						<attribute type=skeleton name=/>
+						<node name=RightShoulder translation=(2.46616, -1.6653, 3.69651) rotation=(-78.1445, -70.885, 178.418) scaling=(1, 1, 1)>
+							<attribute type=skeleton name=/>
+							<node name=RightArm translation=(13.0012, 0, 0) rotation=(-0.0933003, -1.48887, -15.1495) scaling=(1, 1, 1)>
+								<attribute type=skeleton name=/>
+								<node name=RightForeArm translation=(28.7848, 1.52588e-005, -1.19209e-007) rotation=(1.07584e-008, -5.77551, -3.27475) scaling=(1, 1, 1)>
+									<attribute type=skeleton name=/>
+									<node name=RightHand translation=(26.5688, 1.52588e-005, 4.76837e-007) rotation=(0, -1.75559e-007, -2.66804e-008) scaling=(1, 1, 1)>
+										<attribute type=skeleton name=/>
+										<node name=RightHandMiddle1 translation=(8.03675, -0.886581, 0.727868) rotation=(89.9837, 1.02901, -0.310391) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=RightHandMiddle2 translation=(2.78833, 2.38419e-007, 0) rotation=(-1.66753e-009, 1.56331e-010, -0.0604881) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=RightHandMiddle3 translation=(2.41155, 0, 0) rotation=(1.66753e-009, -0, -0.0639208) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=RightHandRing1 translation=(7.97966, -0.886765, -1.00486) rotation=(89.9837, 1.01882, -0.310391) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=RightHandRing2 translation=(2.86368, 0, 0) rotation=(0, -5.21102e-011, -1.15742) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=RightHandRing3 translation=(2.11079, 0, 0) rotation=(-1.66753e-009, -0, 2.576) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=RightHandPinky1 translation=(8.03707, -0.887527, -2.60696) rotation=(89.9837, 0.641861, -0.310267) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=RightHandPinky2 translation=(1.84628, 0, 0) rotation=(0, -0, -1.14578) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=RightHandPinky3 translation=(1.88434, 0, 0) rotation=(-1.66753e-009, -0, 1.14577) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=RightHandIndex1 translation=(7.92262, -0.885498, 2.31175) rotation=(89.9837, 1.05115, -0.310398) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=RightHandIndex2 translation=(2.63761, 4.76837e-007, 0) rotation=(0, 1.0422e-010, 0.409286) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=RightHandIndex3 translation=(2.16656, -2.38419e-007, 0) rotation=(0, 1.0422e-010, -0.6366) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=RightHandThumb1 translation=(3.4769, 0.0597992, 2.88789) rotation=(88.6243, -49.4836, 16.1729) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=RightHandThumb2 translation=(2.77686, 9.72748e-005, -1.52588e-005) rotation=(0.186228, -1.35044, -7.67342) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=RightHandThumb3 translation=(2.42058, -9.15527e-005, 0) rotation=(0, 6.65943e-005, -11.2634) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+						<node name=LeftShoulder translation=(2.38034, -1.29275, -3.7523) rotation=(-98.0858, 68.2011, -177.878) scaling=(1, 1, 1)>
+							<attribute type=skeleton name=/>
+							<node name=LeftArm translation=(16.3182, 6.10352e-005, 1.19209e-007) rotation=(0.0354027, -1.8827, 20.5248) scaling=(1, 1, 1)>
+								<attribute type=skeleton name=/>
+								<node name=LeftForeArm translation=(27.0901, 0, 0) rotation=(-0.0289327, -4.16149, 2.26577) scaling=(1, 1, 1)>
+									<attribute type=skeleton name=/>
+									<node name=LeftHand translation=(24.5451, 1.52588e-005, 0) rotation=(6.67011e-009, 2.8348e-008, 0) scaling=(1, 1, 1)>
+										<attribute type=skeleton name=/>
+										<node name=LeftHandMiddle1 translation=(9.21802, 0.665817, 0.545532) rotation=(-90, -2.17107, -1.18853) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=LeftHandMiddle2 translation=(2.66255, 0, 0) rotation=(0, -2.08441e-010, 3.40888) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=LeftHandMiddle3 translation=(2.2804, 0, 0) rotation=(-6.67011e-009, -4.16882e-010, -0.954861) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=LeftHandRing1 translation=(9.24775, 0.665192, -1.1267) rotation=(-90, -0.598461, -1.18853) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=LeftHandRing2 translation=(2.47041, -4.76837e-007, -1.52588e-005) rotation=(6.67011e-009, 2.60551e-010, 2.85637) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=LeftHandRing3 translation=(2.2054, 0, 0) rotation=(-6.67011e-009, -4.16882e-010, -3.16844) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=LeftHandPinky1 translation=(9.35384, 0.66301, -2.72332) rotation=(-90, 0.28295, -1.18853) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=LeftHandPinky2 translation=(1.63407, -4.76837e-007, 0) rotation=(0, 1.43303e-010, 2.54481) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=LeftHandPinky3 translation=(1.71176, 0, 0) rotation=(0, -0, -2.54482) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=LeftHandIndex1 translation=(8.73161, 0.675903, 2.06801) rotation=(-90, -3.80267, -1.18853) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=LeftHandIndex2 translation=(2.66689, -9.53674e-007, 0) rotation=(-6.67011e-009, 3.12661e-010, 6.13104) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=LeftHandIndex3 translation=(2.12946, 1.04308e-007, 1.52588e-005) rotation=(-6.67011e-009, -0, -2.04542) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+										<node name=LeftHandThumb1 translation=(4.96735, -0.62265, 3.39586) rotation=(-90.0806, -49.2758, -11.8429) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=LeftHandThumb2 translation=(2.15386, 1.52588e-005, 0) rotation=(0, 8.53774e-007, 10.0172) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+												<node name=LeftHandThumb3 translation=(2.19511, -3.43323e-005, 1.52588e-005) rotation=(0, -1.70755e-006, -2.66976) scaling=(1, 1, 1)>
+													<attribute type=skeleton name=/>
+												</node>
+											</node>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+						<node name=Neck translation=(5.0226, -0.0266342, -9.09495e-013) rotation=(8.88591e-006, 4.07111e-013, 1.75372) scaling=(1, 1, 1)>
+							<attribute type=skeleton name=/>
+							<node name=Head translation=(6.69363, 2.86102e-005, -1.09447e-007) rotation=(1.08225e-005, 2.60194e-006, -7.41091) scaling=(1, 1, 1)>
+								<attribute type=skeleton name=/>
+							</node>
+						</node>
+					</node>
+				</node>
+			</node>
+		</node>
+	</node>
+</node>
+<node name=Camera Interest translation=(-1.10769, 84.0003, -17.2497) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+	<attribute type=null name=/>
+</node>

@@ -1,0 +1,105 @@
+<node name=sub01 translation=(3.07875e-015, 50.3483, 0) rotation=(0, 0, 0) scaling=(2.65, 2.65, 2.65)>
+	<attribute type=mesh name=sub01mesh/>
+</node>
+<node name=sub02 translation=(3.07875e-015, 50.3483, 0) rotation=(0, 0, 0) scaling=(2.65, 2.65, 2.65)>
+	<attribute type=mesh name=sub02mesh/>
+</node>
+<node name=mixamorig:Hips translation=(-0.00319798, 89.304, 0.560295) rotation=(-9.303e-005, 0.000148301, -0.0189017) scaling=(2.65, 2.65, 2.65)>
+	<attribute type=skeleton name=/>
+	<node name=mixamorig:Spine translation=(0.0129144, 3.19253, -0.373456) rotation=(9.26661e-005, -0.00234305, 0.0187565) scaling=(1, 1, 1)>
+		<attribute type=skeleton name=/>
+		<node name=mixamorig:Spine1 translation=(-3.71125e-011, 3.75004, 1.89561e-008) rotation=(-7.95139e-016, 0, 0) scaling=(1, 1, 1)>
+			<attribute type=skeleton name=/>
+			<node name=mixamorig:Spine2 translation=(-1.74424e-010, 4.28576, -4.10401e-009) rotation=(-7.95139e-016, 0, 0) scaling=(1, 1, 1)>
+				<attribute type=skeleton name=/>
+				<node name=mixamorig:Neck translation=(-5.29333e-010, 4.82148, 9.38656e-008) rotation=(-3.79168e-008, 1.64434e-010, 2.72439e-008) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+					<node name=mixamorig:Head translation=(0, 2.95231, 0.613919) rotation=(0, 6.06643e-021, 1.9313e-021) scaling=(1, 1, 1)>
+						<attribute type=skeleton name=/>
+						<node name=mixamorig:HeadTop_End translation=(0, 8.41811, 1.75051) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+							<attribute type=skeleton name=/>
+						</node>
+					</node>
+				</node>
+				<node name=mixamorig:LeftShoulder translation=(2.24507, 4.16353, -0.147572) rotation=(-16.0696, -0.185481, 2.14395) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+					<node name=mixamorig:LeftArm translation=(-4.91354e-009, 4.68829, 1.82662e-009) rotation=(-58.4195, -1.20964, 5.071) scaling=(1, 1, 1)>
+						<attribute type=skeleton name=/>
+						<node name=mixamorig:LeftForeArm translation=(3.34602e-008, 10.6798, -8.42186e-008) rotation=(-12.1148, -2.05724, -19.2067) scaling=(1, 1, 1)>
+							<attribute type=skeleton name=/>
+							<node name=mixamorig:LeftHand translation=(1.79954e-007, 9.95041, 2.02867e-008) rotation=(0.735175, -0.0106904, 1.66601) scaling=(1, 1, 1)>
+								<attribute type=skeleton name=/>
+								<node name=mixamorig:LeftHandIndex1 translation=(-8.32696e-009, 3.64244, 2.90787e-009) rotation=(5.6937, -0.0586481, 1.17939) scaling=(1, 1, 1)>
+									<attribute type=skeleton name=/>
+									<node name=mixamorig:LeftHandIndex2 translation=(-3.24752e-009, 0.892271, -7.76048e-010) rotation=(-8.25963, 0.12233, 1.69414) scaling=(1, 1, 1)>
+										<attribute type=skeleton name=/>
+										<node name=mixamorig:LeftHandIndex3 translation=(0.0404734, 1.35512, 0.196772) rotation=(-7.39989, 0.400116, -2.26676) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=mixamorig:LeftHandIndex4 translation=(-0.0137049, 1.24602, 0.349164) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+											</node>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+				</node>
+				<node name=mixamorig:RightShoulder translation=(-2.27977, 4.12906, -0.0103917) rotation=(-16.0891, -0.725182, -1.73286) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+					<node name=mixamorig:RightArm translation=(4.30427e-009, 4.76526, -3.41186e-008) rotation=(-58.8102, 3.8551, -3.02068) scaling=(1, 1, 1)>
+						<attribute type=skeleton name=/>
+						<node name=mixamorig:RightForeArm translation=(4.28116e-009, 10.7424, 1.05206e-007) rotation=(-1.57894e-005, 5.45343e-006, 25.3319) scaling=(1, 1, 1)>
+							<attribute type=skeleton name=/>
+							<node name=mixamorig:RightHand translation=(2.55086e-008, 9.96742, 7.83665e-010) rotation=(-0.914326, -0.0200161, -2.5077) scaling=(1, 1, 1)>
+								<attribute type=skeleton name=/>
+								<node name=mixamorig:RightHandIndex1 translation=(3.22078e-009, 3.56603, -1.88471e-009) rotation=(4.45642, 0.174505, -4.48252) scaling=(1, 1, 1)>
+									<attribute type=skeleton name=/>
+									<node name=mixamorig:RightHandIndex2 translation=(6.31405e-009, 0.879584, 1.24006e-008) rotation=(-6.74119, 0.17792, 3.02022) scaling=(1, 1, 1)>
+										<attribute type=skeleton name=/>
+										<node name=mixamorig:RightHandIndex3 translation=(0.0724259, 1.36273, 0.161252) rotation=(-5.14157, -0.14129, 5.64438) scaling=(1, 1, 1)>
+											<attribute type=skeleton name=/>
+											<node name=mixamorig:RightHandIndex4 translation=(0.195525, 1.25847, 0.26614) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+												<attribute type=skeleton name=/>
+											</node>
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+				</node>
+			</node>
+		</node>
+	</node>
+	<node name=mixamorig:LeftUpLeg translation=(4.51604, -1.77363, -0.606412) rotation=(4.16206, 0.214645, 1.75676) scaling=(1, 1, 1)>
+		<attribute type=skeleton name=/>
+		<node name=mixamorig:LeftLeg translation=(-2.32186e-008, 18.6282, -6.36616e-009) rotation=(0.10423, 0.281509, 0.000336116) scaling=(1, 1, 1)>
+			<attribute type=skeleton name=/>
+			<node name=mixamorig:LeftFoot translation=(7.49773e-009, 18.3209, -2.99103e-009) rotation=(-4.50784, 0.917485, -0.0232732) scaling=(1, 1, 1)>
+				<attribute type=skeleton name=/>
+				<node name=mixamorig:LeftToeBase translation=(-1.2884e-009, 0.710984, -4.20346e-009) rotation=(1.86391e-006, 1.7885e-006, -7.12902e-007) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+					<node name=mixamorig:LeftToe_End translation=(4.84648e-009, 0.708003, -4.92399e-010) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+						<attribute type=skeleton name=/>
+					</node>
+				</node>
+			</node>
+		</node>
+	</node>
+	<node name=mixamorig:RightUpLeg translation=(-4.5075, -1.77363, -0.561981) rotation=(4.64359, -0.22743, -1.70468) scaling=(1, 1, 1)>
+		<attribute type=skeleton name=/>
+		<node name=mixamorig:RightLeg translation=(1.3819e-008, 18.6336, -1.95754e-008) rotation=(-0.279328, -0.30314, 0.0010251) scaling=(1, 1, 1)>
+			<attribute type=skeleton name=/>
+			<node name=mixamorig:RightFoot translation=(-4.82473e-009, 18.3307, -6.32628e-008) rotation=(-4.67063, -0.360082, 0.0237482) scaling=(1, 1, 1)>
+				<attribute type=skeleton name=/>
+				<node name=mixamorig:RightToeBase translation=(7.90617e-009, 0.90339, -3.5883e-009) rotation=(-1.07215e-005, -3.34647e-007, -4.85794e-006) scaling=(1, 1, 1)>
+					<attribute type=skeleton name=/>
+					<node name=mixamorig:RightToe_End translation=(-3.30028e-009, 0.773552, -3.45275e-009) rotation=(0, 0, 0) scaling=(1, 1, 1)>
+						<attribute type=skeleton name=/>
+					</node>
+				</node>
+			</node>
+		</node>
+	</node>
+</node>
