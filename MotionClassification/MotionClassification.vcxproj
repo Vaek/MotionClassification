@@ -82,10 +82,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationCurve.cpp" />
     <ClCompile Include="FbxSceneExporter.cpp" />
     <ClCompile Include="FbxSceneLoader.cpp" />
+    <ClCompile Include="JoinBaseData.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Motion.cpp" />
     <ClCompile Include="MotionClassifier.cpp" />
+    <ClCompile Include="MotionFrame.cpp" />
+    <ClCompile Include="Skeleton.cpp" />
+    <ClCompile Include="SkeletonNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationCurve.h" />

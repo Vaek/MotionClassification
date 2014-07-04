@@ -223,9 +223,7 @@ int main(int argc, char** argv) {
 		motionFile.open("motion.txt");
 	
 		if (motionFile.is_open()) {
-			if (motion->getMotionCurve("")) {
-				motionFile << *motion->getMotionCurve("");
-			}			
+			motionFile << *motion;
 		}
 		motionFile.close();
 	}

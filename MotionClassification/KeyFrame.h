@@ -5,19 +5,11 @@
 class KeyFrame
 {
 public:
-	KeyFrame();
-	~KeyFrame();
+	KeyFrame() {};
+	~KeyFrame() {};
 
 private:
 
 };
-
-KeyFrame::KeyFrame()
-{
-}
-
-KeyFrame::~KeyFrame()
-{
-}
 
 #endif //KEYFRAME_H

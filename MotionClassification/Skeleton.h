@@ -16,26 +16,4 @@ private:
 	SkeletonNode* root;
 };
 
-Skeleton::Skeleton() : root(NULL) {
-}
-
-Skeleton::~Skeleton() {
-	delete root;
-	this->root = NULL;
-}
-
-Skeleton* Skeleton::setRoot(SkeletonNode* root) {
-	this->root = root;
-	return this;
-}
-
-SkeletonNode* Skeleton::getRoot() {
-	return this->root;
-}
-
-std::ostream& operator<< (std::ostream& out, Skeleton& node) {
-	out << "{\"Skeleton\": " << *node.getRoot() << "}";
-	return out;
-}
-
 #endif SKELETON_H

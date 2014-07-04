@@ -22,47 +22,11 @@ public:
 	MotionFrame* getFrame(int frame);
 	AnimationCurve* addMotionCurve(std::string nodeName, AnimationCurve* curve);
 	AnimationCurve* getMotionCurve(std::string nodeName);
-	AnimationCurve* getAllMotionCurves();
+	AnimationCurveMap getAllMotionCurves();
 
 private:
 	int motionLength;
 	AnimationCurveMap curves;
 };
-
-Motion::Motion() {
-	this->motionLength = 0;
-}
-
-Motion::~Motion() {
-	for (AnimationCurveMap::iterator it = this->curves.begin(); it != this->curves.end(); ++it) {
-        delete it->second;
-    }
-	this->curves.clear();
-}
-
-int Motion::getMotionLength() {
-	return this->motionLength;
-}
-
-MotionFrame* Motion::getFrame(int frame) {
-	return NULL;
-}
-
-AnimationCurve* Motion::addMotionCurve(std::string nodeName, AnimationCurve* curve) {
-	std::pair<AnimationCurveMap::iterator, bool> ret = this->curves.insert(std::pair<std::string, AnimationCurve*>(nodeName, curve));
-	if (ret.second==false) {
-		return ret.first->second;
-	} else {
-		return NULL;
-	}
-}
-
-AnimationCurve* Motion::getMotionCurve(std::string nodeName) {
-	return this->curves.at(nodeName);
-}
-
-AnimationCurve* Motion::getAllMotionCurves() {
-	return this->curves.value_comp();
-}
 
 #endif MOTION_H
