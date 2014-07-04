@@ -22,18 +22,18 @@ JoinBaseData* JoinBaseData::setScaling(double* scaling) {
 	return this;
 }
 
-const std::string JoinBaseData::getName() {
+std::string JoinBaseData::getName() const {
 	return this->name;
 }
 
-double* JoinBaseData::getTranslation() {
+const double *JoinBaseData::getTranslation() const {
 	return this->translation;
 }
 
-double* JoinBaseData::getRotation() {
+const double* JoinBaseData::getRotation() const {
 	return this->rotation;
 }
 
-double* JoinBaseData::getScaling() {
+const double* JoinBaseData::getScaling() const {
 	return this->scaling;
 }

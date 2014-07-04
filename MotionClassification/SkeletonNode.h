@@ -18,6 +18,7 @@ public:
 	
 	SkeletonNode* addChild(SkeletonNode* child);
 	SkeletonNodeMap& getChildren();
+	const SkeletonNodeMap& getChildren() const;
 
 	friend std::ostream& operator<<(std::ostream& out, const SkeletonNode& node);
 private:

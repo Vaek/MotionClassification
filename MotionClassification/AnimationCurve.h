@@ -30,4 +30,6 @@ private:
 	std::vector<std::array<double,4>> translation, rotation, scaling;
 };
 
+std::ostream& operator<< (std::ostream& out, AnimationCurve& curve);
+
 #endif ANIMATIONCURVE_H

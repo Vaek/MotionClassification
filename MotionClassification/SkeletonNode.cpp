@@ -22,13 +22,16 @@ SkeletonNode* SkeletonNode::addChild(SkeletonNode* child) {
 SkeletonNodeMap& SkeletonNode::getChildren() {
 	return this->children;
 }
-
-std::ostream& operator<<(std::ostream& out, SkeletonNode& node) {
+const SkeletonNodeMap& SkeletonNode::getChildren() const
+{
+	return this->children;
+}
+std::ostream& operator<<(std::ostream& out, const SkeletonNode& node) {
 	out << "{" <<
 		   "name : " << node.getName() << ",\n";
-	double* t = node.getTranslation();
-	double* r = node.getRotation();
-	double* s = node.getScaling();
+	const double* t = node.getTranslation();
+	const double* r = node.getRotation();
+	const double* s = node.getScaling();
 	out << "translation : {" <<
 				"x:" << t[0] << ", " << 
 				"y:" << t[1] << ", " << 
@@ -46,9 +49,10 @@ std::ostream& operator<<(std::ostream& out, SkeletonNode& node) {
 		   "},\n";
 
 	out << "children: [";
-	for (SkeletonNodeMap::iterator it = node.getChildren().begin(); it != node.getChildren().end(); ++it) {
-        out << *(it->second) << ",\n";
-    }
+	for (const auto& child: node.getChildren()) {
+		out << *child.second << ",\n";
+	}
+
 	out << "]\n}";
 	return out;
 }

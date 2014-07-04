@@ -7,16 +7,16 @@
 class JoinBaseData {
 public:
 	JoinBaseData(std::string name);
-	virtual ~JoinBaseData();
+	virtual ~JoinBaseData() noexcept;
 	
 	JoinBaseData* setTranslation(double* translation);
 	JoinBaseData* setRotation(double* rotation);
 	JoinBaseData* setScaling(double* scaling);
 	
-	const std::string getName();
-	double* getTranslation();
-	double* getRotation();
-	double* getScaling();
+	std::string getName() const;
+	const double* getTranslation() const;
+	const double* getRotation() const;
+	const double* getScaling() const;
 
 private:
 	const std::string name;

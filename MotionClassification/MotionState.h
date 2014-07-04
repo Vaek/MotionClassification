@@ -7,16 +7,10 @@
 class MotionState : public JoinBaseData
 {
 public:
-	MotionState(std::string name);
-	~MotionState();
+	MotionState(std::string name): JoinBaseData(name) {}
+	~MotionState() noexcept {};
 	
 private:
 };
-
-MotionState::MotionState(std::string name) : JoinBaseData(name) {
-}
-
-MotionState::~MotionState() {
-}
 
 #endif MOTIONSTATE_H

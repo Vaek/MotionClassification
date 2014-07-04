@@ -76,6 +76,7 @@ Skeleton* fbxToSkeleton(FbxScene* scene) {
 			SkeletonNode* skeletonRoot = copyFbxNodeToSkeletonNode(fbxRoot->GetChild(i));
 
 			if (skeletonRoot) {
+				std::cout << "Found skeleton\n";
 				if (skeleton->getRoot()) {
 					std::cout << "Detected second skeleton " << fbxRoot->GetChild(i)->GetName() << ", stored only first." << std::endl;
 					continue;

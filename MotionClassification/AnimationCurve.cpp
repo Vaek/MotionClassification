@@ -1,5 +1,6 @@
 
 #include "AnimationCurve.h"
+#include <iostream>
 
 AnimationCurve::AnimationCurve(std::string name) : name(name) {
 }
@@ -53,7 +54,7 @@ int AnimationCurve::getLength() {
 
 std::ostream& operator<< (std::ostream& out, AnimationCurve& curve) {
 	out << "{\"" << curve.getName() << "\": " << std::endl;
-/*
+
 	for (int f = 0; f < curve.getLength(); f++) {
 		auto t = curve.getTranslation(f);
 		auto r = curve.getRotation(f);
@@ -74,7 +75,7 @@ std::ostream& operator<< (std::ostream& out, AnimationCurve& curve) {
 				"z:" << s[2] << ", " << 
 		   "}\n";
 	}
-*/
+
 	out << "}";
 	return out;
 }

@@ -29,4 +29,7 @@ private:
 	AnimationCurveMap curves;
 };
 
+
+std::ostream& operator<<(std::ostream& out, Motion& motion);
+
 #endif MOTION_H
