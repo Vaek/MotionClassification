@@ -8,7 +8,7 @@ class MotionState : public JoinBaseData
 {
 public:
 	MotionState(std::string name): JoinBaseData(name) {}
-	~MotionState() noexcept {};
+	~MotionState()  {};
 	
 private:
 };

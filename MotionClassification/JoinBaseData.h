@@ -7,7 +7,7 @@
 class JoinBaseData {
 public:
 	JoinBaseData(std::string name);
-	virtual ~JoinBaseData() noexcept;
+	virtual ~JoinBaseData() ;
 	
 	JoinBaseData* setTranslation(double* translation);
 	JoinBaseData* setRotation(double* rotation);

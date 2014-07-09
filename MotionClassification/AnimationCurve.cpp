@@ -1,6 +1,7 @@
 
 #include "AnimationCurve.h"
 #include <iostream>
+#include <string>
 
 AnimationCurve::AnimationCurve(std::string name) : name(name) {
 }

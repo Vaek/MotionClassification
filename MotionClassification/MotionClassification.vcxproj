@@ -60,7 +60,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib\vs2012\x86\release\libfbxsdk.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib\vs2012\x86\debug\libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -83,6 +83,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationCurve.cpp" />
+    <ClCompile Include="DataConvertor.cpp" />
     <ClCompile Include="FbxSceneExporter.cpp" />
     <ClCompile Include="FbxSceneLoader.cpp" />
     <ClCompile Include="JoinBaseData.cpp" />

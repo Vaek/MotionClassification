@@ -6,7 +6,7 @@
 #include <vector>
 #include <iostream>
 #include "JoinBaseData.h"
-
+#include <string>
 class SkeletonNode;
 
 typedef std::map<std::string, SkeletonNode*> SkeletonNodeMap;
