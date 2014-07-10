@@ -11,13 +11,13 @@ public:
 	AnimationCurve(std::string name);
 	~AnimationCurve();
 	
-	AnimationCurve* setTranslation(int frame, const double *translation);
-	AnimationCurve* setRotation(int frame, const double *rotation);
-	AnimationCurve* setScaling(int frame, const double *scaling);
+	AnimationCurve* setTranslation(int frame, const std::array<double,3> translation);
+	AnimationCurve* setRotation(int frame, const std::array<double,3> rotation);
+	AnimationCurve* setScaling(int frame, const std::array<double,3> scaling);
 
-	std::array<double,4> getTranslation(int frame);
-	std::array<double,4> getRotation(int frame);
-	std::array<double,4> getScaling(int frame);
+	std::array<double,3> getTranslation(int frame);
+	std::array<double,3> getRotation(int frame);
+	std::array<double,3> getScaling(int frame);
 
 	int getLength();
 
@@ -27,7 +27,7 @@ public:
 
 private:
 	std::string name;
-	std::vector<std::array<double,4>> translation, rotation, scaling;
+	std::vector<std::array<double,3>> translation, rotation, scaling;
 };
 
 std::ostream& operator<< (std::ostream& out, AnimationCurve& curve);

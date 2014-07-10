@@ -75,11 +75,29 @@ std::vector<std::string> getPathsAnnotatedNodes(const std::string filePath) {
 void loadScene(const std::string filePath, const std::string annotationPath) {
 	FbxScene* scene = getScene(filePath, manager);
 	
-	auto annotatedNodes = getPathsAnnotatedNodes(annotationPath);
-
+	auto pathsAnnotatedNodes = getPathsAnnotatedNodes(annotationPath);
+	auto annotatedNodes = findAnnotatedNodes(scene->GetRootNode(), pathsAnnotatedNodes);
 	Skeleton* skeleton = fbxToSkeleton(scene, annotatedNodes);
-
-
+	Motion* motion = fbxToMotion(scene, annotatedNodes);
+	
+	if (skeleton) {
+		std::ofstream skeletonFile;
+		skeletonFile.open("skeleton.txt");
+	
+		if (skeletonFile.is_open()) {
+			skeletonFile << *skeleton->getRoot();
+			skeletonFile.close();
+		}
+	}
+	if (motion) {
+		std::ofstream motionFile;
+		motionFile.open("motion.txt");
+	
+		if (motionFile.is_open()) {
+			motionFile << *motion;
+			motionFile.close();
+		}
+	}
 }
 
 // Main
@@ -97,7 +115,6 @@ int main(int argc, char** argv) {
 	case 2: {
 		fbxPath = argv[1];
 		std::string annotationPath = argv[2];
-		std::cout << "Not implemented part.\n";
 		loadScene(fbxPath, annotationPath);
 		break;
 			}
@@ -112,7 +129,6 @@ int main(int argc, char** argv) {
 	// load data
 	FbxScene* scene = getScene(fbxPath, manager);
 /*
-
 	for (auto&child_pair: nodes) {
 		auto child = child_pair.first;
 //		std::cout << child_pair.second << " is a " << child->GetTypeName();// << "\n";
@@ -126,30 +142,6 @@ int main(int argc, char** argv) {
 
 	return 0;
 */
-	Skeleton* skeleton = fbxToSkeleton(scene);
-	Motion* motion = nullptr;
-	if (skeleton) {
-		motion = fbxToMotion(scene, skeleton);
-	}
-
-	std::ofstream skeletonFile;
-	skeletonFile.open("skeleton.txt");
-	
-	if (skeletonFile.is_open()) {
-		skeletonFile << *skeleton->getRoot();
-	}
-	skeletonFile.close();
-	
-	if (motion) {
-		std::ofstream motionFile;
-		motionFile.open("motion.txt");
-	
-		if (motionFile.is_open()) {
-			motionFile << *motion;
-		}
-		motionFile.close();
-	}
-
 	cleanUp();	
 	
 	return 0;

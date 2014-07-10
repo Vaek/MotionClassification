@@ -34,7 +34,7 @@ SkeletonNode* copyFbxNodeToSkeletonNode(FbxNode* fbxNode) {
 	}
 }
 
-SkeletonNode* copyFbxNodeToSkeletonNode2(FbxNode* fbxNode) {
+SkeletonNode* copyFbxNodeToSkeletonNode2(FbxNode* fbxNode, std::vector<node_info> annotatedNodes) {
 	SkeletonNode* skeletonNode = new SkeletonNode(fbxNode->GetName());
 		
 	FbxDouble3 translation = fbxNode->LclTranslation.Get(); 
@@ -46,7 +46,15 @@ SkeletonNode* copyFbxNodeToSkeletonNode2(FbxNode* fbxNode) {
 				->setScaling(scaling.mData);
 
 	for(int i = 0; i < fbxNode->GetChildCount(); i++) {
-		SkeletonNode* child = copyFbxNodeToSkeletonNode(fbxNode->GetChild(i));
+		auto childFbxNode = fbxNode->GetChild(i);
+		SkeletonNode* child = nullptr;
+		for (auto annotatedNode : annotatedNodes) {
+			if (annotatedNode.first->GetName() == childFbxNode->GetName()) {
+				child = copyFbxNodeToSkeletonNode2(childFbxNode, annotatedNodes);
+				break;
+			}
+		}
+		
 		if (child) {
 			skeletonNode->addChild(child);
 		}
@@ -101,13 +109,13 @@ Skeleton* fbxToSkeleton(FbxScene* scene) {
 	return skeleton;
 }
 
-Skeleton* fbxToSkeleton(FbxScene* scene, std::vector<std::string> annotatedNodes) {	
+Skeleton* fbxToSkeleton(FbxScene* scene, std::vector<node_info> annotatedNodes) {	
 	Skeleton* skeleton = nullptr;
 	
 	FbxNode* skeletonRootNode = findRootSkeletonNode(scene->GetRootNode(), annotatedNodes);
 	if (skeletonRootNode) {
 		skeleton = new Skeleton();
-		skeleton->setRoot(copyFbxNodeToSkeletonNode2(skeletonRootNode));
+		skeleton->setRoot(copyFbxNodeToSkeletonNode2(skeletonRootNode, annotatedNodes));
 	}
 
 	return skeleton;
@@ -129,7 +137,6 @@ std::vector<FbxNode*> getAllSkeletonFbxNodes(FbxNode* root, std::vector<FbxNode*
 	return nodes;
 }
 
-typedef std::pair<FbxNode*, std::string> node_info;
 std::vector<node_info> getAllFbxNodesWithPaths(FbxNode* root) {
 	std::queue<node_info> queue;
 	std::vector<node_info> nodes;
@@ -154,8 +161,36 @@ std::vector<node_info> getAllFbxNodesWithPaths(FbxNode* root) {
 	return nodes;
 }
 
-FbxNode* findRootSkeletonNode(FbxNode* root, std::vector<std::string> annotatedNodes) {
+FbxNode* findRootSkeletonNode(FbxNode* root, std::vector<node_info> annotatedNodes) {
 	std::queue<node_info> queue;
+	queue.push(std::make_pair(root,""));
+
+	while (!queue.empty()) {
+		auto node_pair = queue.front();
+		queue.pop();
+
+		auto node = node_pair.first;
+		auto path = node_pair.second + "/" + node->GetName();
+
+		for (int i = 0; i < node->GetChildCount(); i++) {
+			auto child = node->GetChild(i);
+			queue.push(std::make_pair(child, path));
+		}
+
+		for (auto annotatedNode : annotatedNodes) {
+			if (annotatedNode.second + "/" + annotatedNode.first->GetName() == path) {
+				return node;
+			}
+		}
+	}
+
+	return nullptr;
+}
+
+std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::string> annotatedNodes) {
+	std::queue<node_info> queue;
+	std::vector<node_info> nodes;
+
 	queue.push(std::make_pair(root,""));
 
 	while (!queue.empty()) {
@@ -172,12 +207,12 @@ FbxNode* findRootSkeletonNode(FbxNode* root, std::vector<std::string> annotatedN
 
 		for (auto annotatedPath : annotatedNodes) {
 			if (annotatedPath == path) {
-				return node;
+				nodes.push_back(node_pair);
 			}
 		}
 	}
 
-	return nullptr;
+	return nodes;
 }
 
 Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
@@ -213,55 +248,108 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 						FbxVector4 rotation = currentNode->EvaluateLocalRotation(currentTime, currentNode->eSourcePivot, true, false);
 						FbxVector4 translation = currentNode->EvaluateLocalTranslation(currentTime, currentNode->eSourcePivot, true, false);
 						FbxVector4 scaling = currentNode->EvaluateLocalScaling(currentTime, currentNode->eSourcePivot, true, false);
-						curve->setTranslation(f, translation.Buffer());
-						curve->setRotation(f, rotation.Buffer());
-						curve->setScaling(f, scaling.Buffer());
+//						curve->setTranslation(f, translation.Buffer());
+//						curve->setRotation(f, rotation.Buffer());
+//						curve->setScaling(f, scaling.Buffer());
 						currentTime+=timeStep;
 					}
-					motion->addMotionCurve(curve->getName(), curve);
+					motion->addAnimationCurve(curve->getName(), curve);
 				}
 			}
 		}
 	}
-/*	
+
+	return motion;
+}
+
+enum Transformations {
+	ROTATION, TRANSLATION, SCALING
+};
+
+std::vector<std::array<double, 3>> getTransformations(FbxNode* node, FbxAnimLayer* layer, Transformations transformation) {
+	std::vector<std::array<double, 3>> transformations;
+	
+	FbxAnimCurve* curveX = nullptr;
+	FbxAnimCurve* curveY = nullptr;
+	FbxAnimCurve* curveZ = nullptr;
+
+	switch (transformation) {
+	case ROTATION:
+		curveX = node->LclRotation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_X, false);
+		curveY = node->LclRotation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Y, false);
+		curveZ = node->LclRotation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Z, false);
+		break;
+
+	case TRANSLATION:
+		curveX = node->LclTranslation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_X, false);
+		curveY = node->LclTranslation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Y, false);
+		curveZ = node->LclTranslation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Z, false);
+		break;
+
+	case SCALING:
+		curveX = node->LclScaling.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_X, false);
+		curveY = node->LclScaling.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Y, false);
+		curveZ = node->LclScaling.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Z, false);
+		break;
+
+	default:
+		break;
+	}
+
+	if (curveX && curveY && curveZ) {
+		int minKeys = std::min(std::min(curveX->KeyGetCount(), curveY->KeyGetCount()), curveZ->KeyGetCount());
+		transformations.resize(minKeys);
+		for(int k = 0; k<minKeys; ++k) {
+			FbxAnimCurveKey keyX = curveX->KeyGet(k);
+			FbxAnimCurveKey keyY = curveY->KeyGet(k);
+			FbxAnimCurveKey keyZ = curveZ->KeyGet(k);
+			std::array<double, 3> rotation = {keyX.GetValue(), keyY.GetValue(), keyZ.GetValue()};
+			transformations[k] = rotation;
+//			float lKeyValue = keyX.GetValue();
+//			std::cout << keyX.GetTime().Get() << ": " <<  lKeyValue << "\n";
+		}
+	}
+
+	return transformations;
+}
+
+Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes) {
+	Motion* motion = nullptr;
 	int numStacks = scene->GetSrcObjectCount<FbxAnimStack>();
 	std::cout << "stacks: " << numStacks << "\n";
-	auto root = scene->GetRootNode();
+//	auto root = scene->GetRootNode();
 	auto stack = scene->GetSrcObject<FbxAnimStack>(0);
 
 //	std::vector<FbxNode*> nodes;
-	const auto nodes = getAllSkeletonFbxNodes2(root);
+//	const auto nodes = getAllSkeletonFbxNodes2(root);
 	std::cout << "nodes " <<  nodes.size()<<"\n";
 	if (stack) {
 		std::cout << "got stack\n";
 
+		motion = new Motion();
 		for (int l = 0; l < stack->GetMemberCount(); l++) {
 			FbxAnimLayer* layer = (FbxAnimLayer*)stack->GetMember(l);
 			std::cout << layer->GetName() << '\n';
 
 			for (auto&child_pair: nodes) {
-
 				auto child=child_pair.first;
+				AnimationCurve* aCurve = new AnimationCurve(child->GetName());
 //				std::cout << "\t" << child->GetName()<<": ";
-				FbxAnimCurve* curve = child->LclRotation.GetCurve(layer, FBXSDK_CURVENODE_COMPONENT_Y,false);
-				if (!curve) {
-//					std::cout << "empty\n";
-					continue;
-				}
-//				std::cout << "\t" << child_pair.second<<": " << curve->KeyGetCount() << " keyframes\n";
+				std::vector<std::array<double, 3>> rotations = getTransformations(child, layer, ROTATION);
+				std::vector<std::array<double, 3>> translations = getTransformations(child, layer, TRANSLATION);
+				std::vector<std::array<double, 3>> scalings = getTransformations(child, layer, SCALING);
 
-				if (child_pair.second == "/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1") {
-					for(int k = 0; k<curve->KeyGetCount(); ++k) {
-						FbxAnimCurveKey key = curve->KeyGet(k);
-						float lKeyValue = key.GetValue();
-						std::cout << key.GetTime().Get() << ": " <<  lKeyValue << "\n";
-					}
+				int frames = std::min(std::min(rotations.size(), translations.size()), scalings.size());
+				aCurve->reserve(frames);
+
+				for (int f = 0; f < frames; f++) {
+					aCurve->setRotation(f, rotations[f]);
+					aCurve->setTranslation(f, translations[f]);
+					aCurve->setScaling(f, scalings[f]);
 				}
+				motion->addAnimationCurve(aCurve->getName(), aCurve);
 			}
 		}
-
 	}
-*/
-
 	return motion;
 }
