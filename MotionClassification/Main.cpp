@@ -10,6 +10,7 @@
 #include "FbxSceneLoader.h"
 #include "FbxSceneExporter.h"
 #include "DataConvertor.h"
+#include "KeyFrameExtractor.h"
 
 // memory manager for FBX files
 FbxManager* manager;
@@ -98,6 +99,9 @@ void loadScene(const std::string filePath, const std::string annotationPath) {
 			motionFile.close();
 		}
 	}
+
+	auto keyFrames = extractKeyFrames(motion);
+	
 }
 
 // Main

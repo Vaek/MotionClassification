@@ -17,9 +17,13 @@ SkeletonNode* copyFbxNodeToSkeletonNode(FbxNode* fbxNode) {
 		FbxDouble3 rotation = fbxNode->LclRotation.Get(); 
 		FbxDouble3 scaling = fbxNode->LclScaling.Get();
 		
-		skeletonNode->setTranslation(translation.mData)
-					->setRotation(rotation.mData)
-					->setScaling(scaling.mData);
+		std::array<double, 3> translationArray = {translation.mData[0], translation.mData[1], translation.mData[2]};
+		std::array<double, 3> rotationArray = {rotation.mData[0], rotation.mData[1], rotation.mData[2]};
+		std::array<double, 3> scalingArray = {scaling.mData[0], scaling.mData[1], scaling.mData[2]};
+
+		skeletonNode->setTranslation(translationArray)
+					->setRotation(rotationArray)
+					->setScaling(scalingArray);
 
 		for(int i = 0; i < fbxNode->GetChildCount(); i++) {
 			SkeletonNode* child = copyFbxNodeToSkeletonNode(fbxNode->GetChild(i));
@@ -41,9 +45,13 @@ SkeletonNode* copyFbxNodeToSkeletonNode2(FbxNode* fbxNode, std::vector<node_info
 	FbxDouble3 rotation = fbxNode->LclRotation.Get(); 
 	FbxDouble3 scaling = fbxNode->LclScaling.Get();
 		
-	skeletonNode->setTranslation(translation.mData)
-				->setRotation(rotation.mData)
-				->setScaling(scaling.mData);
+	std::array<double, 3> translationArray = {translation.mData[0], translation.mData[1], translation.mData[2]};
+	std::array<double, 3> rotationArray = {rotation.mData[0], rotation.mData[1], rotation.mData[2]};
+	std::array<double, 3> scalingArray = {scaling.mData[0], scaling.mData[1], scaling.mData[2]};
+
+	skeletonNode->setTranslation(translationArray)
+				->setRotation(rotationArray)
+				->setScaling(scalingArray);
 
 	for(int i = 0; i < fbxNode->GetChildCount(); i++) {
 		auto childFbxNode = fbxNode->GetChild(i);
@@ -72,9 +80,13 @@ std::vector<FbxNode*> getSkeletonFbxNodes(FbxNode* fbxNode) {
 		FbxDouble3 rotation = fbxNode->LclRotation.Get(); 
 		FbxDouble3 scaling = fbxNode->LclScaling.Get();
 		
-		skeletonNode->setTranslation(translation.mData)
-			->setRotation(rotation.mData)
-			->setScaling(scaling.mData);
+		std::array<double, 3> translationArray = {translation.mData[0], translation.mData[1], translation.mData[2]};
+		std::array<double, 3> rotationArray = {rotation.mData[0], rotation.mData[1], rotation.mData[2]};
+		std::array<double, 3> scalingArray = {scaling.mData[0], scaling.mData[1], scaling.mData[2]};
+
+		skeletonNode->setTranslation(translationArray)
+			->setRotation(rotationArray)
+			->setScaling(scalingArray);
 
 		for(int i = 0; i < fbxNode->GetChildCount(); i++) {
 			SkeletonNode* child = copyFbxNodeToSkeletonNode(fbxNode->GetChild(i));
@@ -262,11 +274,7 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 	return motion;
 }
 
-enum Transformations {
-	ROTATION, TRANSLATION, SCALING
-};
-
-std::vector<std::array<double, 3>> getTransformations(FbxNode* node, FbxAnimLayer* layer, Transformations transformation) {
+std::vector<std::array<double, 3>> getTransformations(FbxNode* node, FbxAnimLayer* layer, Transformation transformation) {
 	std::vector<std::array<double, 3>> transformations;
 	
 	FbxAnimCurve* curveX = nullptr;

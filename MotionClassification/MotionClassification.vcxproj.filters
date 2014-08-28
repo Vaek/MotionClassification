@@ -48,15 +48,18 @@
     <ClCompile Include="DataConvertor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KeyFrameExtractor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LearnDataContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FbxSceneExporter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FbxSceneLoader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="KeyFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MotionClassifier.h">
@@ -90,6 +93,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AnimationCurve.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyFrameExtractor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LearnDataContainer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

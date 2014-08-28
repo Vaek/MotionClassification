@@ -29,9 +29,9 @@ const SkeletonNodeMap& SkeletonNode::getChildren() const
 std::ostream& operator<<(std::ostream& out, const SkeletonNode& node) {
 	out << "{" <<
 		   "name : " << node.getName() << ",\n";
-	const double* t = node.getTranslation();
-	const double* r = node.getRotation();
-	const double* s = node.getScaling();
+	const auto t = node.getTranslation();
+	const auto r = node.getRotation();
+	const auto s = node.getScaling();
 	out << "translation : {" <<
 				"x:" << t[0] << ", " << 
 				"y:" << t[1] << ", " << 

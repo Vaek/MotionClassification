@@ -4,8 +4,9 @@
 
 #include <fbxsdk.h>
 #include <vector>
-#include "KeyFrame.h"
+#include "MotionFrame.h"
+#include "Motion.h"
 
-std::vector<KeyFrame> extractKeyFrames(FbxScene* scene);
+std::vector<MotionFrame> extractKeyFrames(Motion* Motion);
 
 #endif //KEYFRAMEEXTRACTOR_H

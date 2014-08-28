@@ -19,7 +19,7 @@ public:
 
 	int getMotionLength();
 	
-	MotionFrame* getFrame(int frame);
+	MotionFrame getFrame(int frame);
 	AnimationCurve* addAnimationCurve(std::string nodeName, AnimationCurve* curve);
 	AnimationCurve* getAnimationCurve(std::string nodeName);
 	AnimationCurveMap getAllAnimationCurves();

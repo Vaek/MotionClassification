@@ -26,4 +26,8 @@ Skeleton* fbxToSkeleton(FbxScene* scene, std::vector<node_info> annotatedNodes);
 Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton);
 Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> annotatedNodes);
 
+enum Transformation {
+	ROTATION, TRANSLATION, SCALING
+};
+
 #endif DATACONVERTOR_H

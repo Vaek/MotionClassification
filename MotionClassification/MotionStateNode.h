@@ -4,12 +4,12 @@
 
 #include <iostream>
 #include <vector>
-#include "KeyFrame.h"
+#include "MotionFrame.h"
 
 struct MotionStateNode
 {
 	std::vector<MotionStateNode*> children; 
-	KeyFrame state;
+	MotionFrame state;
 	std::string classification;
 
 	~MotionStateNode() {

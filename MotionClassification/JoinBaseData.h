@@ -3,24 +3,25 @@
 #define JOINBASEDATA_H
 
 #include <iostream>
+#include <array>
 
 class JoinBaseData {
 public:
 	JoinBaseData(std::string name);
 	virtual ~JoinBaseData() ;
 	
-	JoinBaseData* setTranslation(double* translation);
-	JoinBaseData* setRotation(double* rotation);
-	JoinBaseData* setScaling(double* scaling);
+	JoinBaseData* setTranslation(std::array<double,3> translation);
+	JoinBaseData* setRotation(std::array<double,3> rotation);
+	JoinBaseData* setScaling(std::array<double,3> scaling);
 	
 	std::string getName() const;
-	const double* getTranslation() const;
-	const double* getRotation() const;
-	const double* getScaling() const;
+	const std::array<double,3> getTranslation() const;
+	const std::array<double,3> getRotation() const;
+	const std::array<double,3> getScaling() const;
 
 private:
 	const std::string name;
-	double translation[3], rotation[3], scaling[3];
+	std::array<double,3> translation, rotation, scaling;
 };
 
 #endif JOINBASEDATA

@@ -6,15 +6,17 @@
 #include "SkeletonNode.h"
 #include "MotionState.h"
 
-typedef std::map<std::string, MotionState*> MotionStateMap;
+typedef std::map<std::string, MotionState> MotionStateMap;
 
 class MotionFrame {
 public:
 	MotionFrame();
 	~MotionFrame();
 	
-	MotionState* addMotionState(MotionState* state);
-	MotionState* getMotionState(std::string name);
+	void addMotionState(const MotionState state);
+	MotionState getMotionState(std::string name);
+
+	const MotionStateMap getAllStates();
 
 private:
 	MotionStateMap states;

@@ -13,6 +13,6 @@ MotionClassifier::~MotionClassifier()
 	root = nullptr;
 }
 
-void MotionClassifier::learnMotion(std::vector<KeyFrame> keyFrames, std::string classification) {
+void MotionClassifier::learnMotion(std::vector<MotionFrame> keyFrames, std::string classification) {
 
 }

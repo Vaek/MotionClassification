@@ -3,8 +3,8 @@
 #define MOTIONCLASSIFIER_H
 
 #include <vector>
-#include "KeyFrame.h"
 #include "MotionStateNode.h"
+#include "MotionFrame.h"
 
 class MotionClassifier
 {
@@ -14,7 +14,7 @@ public:
 
 	MotionStateNode* root;
 
-	void learnMotion(std::vector<KeyFrame> keyFrames, std::string classification);
+	void learnMotion(std::vector<MotionFrame> keyFrames, std::string classification);
 
 private:
 

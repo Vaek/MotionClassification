@@ -7,18 +7,18 @@ JoinBaseData::JoinBaseData(std::string name) : name(name) {
 JoinBaseData::~JoinBaseData() {
 }
 
-JoinBaseData* JoinBaseData::setTranslation(double* translation) {
-	std::copy(translation, translation+3, this->translation);
+JoinBaseData* JoinBaseData::setTranslation(std::array<double,3> translation) {
+	this->translation = translation;
 	return this;
 }
 
-JoinBaseData* JoinBaseData::setRotation(double* rotation) {
-	std::copy(rotation, rotation+3, this->rotation);
+JoinBaseData* JoinBaseData::setRotation(std::array<double,3> rotation) {
+	this->rotation = rotation;
 	return this;
 }
 
-JoinBaseData* JoinBaseData::setScaling(double* scaling) {
-	std::copy(scaling, scaling+3, this->scaling);
+JoinBaseData* JoinBaseData::setScaling(std::array<double,3> scaling) {
+	this->scaling = scaling;
 	return this;
 }
 
@@ -26,14 +26,14 @@ std::string JoinBaseData::getName() const {
 	return this->name;
 }
 
-const double *JoinBaseData::getTranslation() const {
+const std::array<double,3> JoinBaseData::getTranslation() const {
 	return this->translation;
 }
 
-const double* JoinBaseData::getRotation() const {
+const std::array<double,3> JoinBaseData::getRotation() const {
 	return this->rotation;
 }
 
-const double* JoinBaseData::getScaling() const {
+const std::array<double,3> JoinBaseData::getScaling() const {
 	return this->scaling;
 }

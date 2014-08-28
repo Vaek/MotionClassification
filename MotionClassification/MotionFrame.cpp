@@ -5,21 +5,20 @@ MotionFrame::MotionFrame() {
 }
 
 MotionFrame::~MotionFrame() {
-	for (MotionStateMap::iterator it = this->states.begin(); it != this->states.end(); ++it) {
-        delete it->second;
-    }
     this->states.clear();
 }
 
-MotionState* MotionFrame::addMotionState(MotionState* state) {
-	std::pair<MotionStateMap::iterator, bool> ret = this->states.insert(std::pair<std::string, MotionState*>(state->getName(), state));
-	if (ret.second==false) {
-		return ret.first->second;
-	} else {
-		return nullptr;
+void MotionFrame::addMotionState(const MotionState state) {
+	std::pair<MotionStateMap::iterator, bool> ret = this->states.insert(std::pair<std::string, MotionState>(state.getName(), state));
+	if (ret.second!=false) {
+		std::cout << "State already added";
 	}
 }
 
-MotionState* MotionFrame::getMotionState(std::string name) {
+MotionState MotionFrame::getMotionState(std::string name) {
 	return this->states.at(name);
+}
+
+const MotionStateMap MotionFrame::getAllStates() {
+	return this->states;
 }
