@@ -18,6 +18,7 @@ public:
 
 	const MotionStateMap getAllStates();
 
+	friend std::ostream& operator<<(std::ostream& out, MotionFrame& frame);
 private:
 	MotionStateMap states;
 };

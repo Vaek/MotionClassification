@@ -7,13 +7,12 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <fbxsdk.h>
-#include "FbxSceneLoader.h"
-#include "FbxSceneExporter.h"
-#include "DataConvertor.h"
-#include "KeyFrameExtractor.h"
+#include "Scene.h"
+#include "LearnDataContainer.h"
 
 // memory manager for FBX files
 FbxManager* manager;
+LearnDataContainer container;
 
 // data
 std::string dirPath = "./";
@@ -37,71 +36,72 @@ static void initFbxManager() {
 	manager->SetIOSettings(ioSettings);
 }
 
-void exportFbxStructure(const std::string filePath) {
-	FbxScene* scene = getScene(filePath, manager);
-
-	if (!scene) {
-		std::cout << "File not found.\n";
-		return;
-	}
-
-	std::vector<node_info> nodes = getAllFbxNodesWithPaths(scene->GetRootNode());
-	std::ofstream file;
-
-	file.open("fbx_structure.txt");
-	if (file.is_open()) {
-		for (const auto node: nodes) {
-			file << node.second << std::endl;
-		}
-		file.close();
-	}
+void exportFbxStructure(const std::string fbxPath) {
+	Scene scene;
+	scene.exportFbxSceneStructure(fbxPath, manager);
 }
 
-std::vector<std::string> getPathsAnnotatedNodes(const std::string filePath) {
-	std::vector<std::string> nodePaths;
-	std::string line;
-	std::ifstream file;
 
-	file.open(filePath);
-	if (file.is_open()) {
-		while (std::getline(file,line) ) {
-			nodePaths.push_back(line);
-		}
-		file.close();
-	}
-
-	return nodePaths;
+Scene* loadScene(const std::string fbxPath, const std::string annotationPath) {
+	Scene* scene = new Scene();
+	scene->loadAnnotatedScene(fbxPath, annotationPath, manager);
+	return scene;
 }
 
-void loadScene(const std::string filePath, const std::string annotationPath) {
-	FbxScene* scene = getScene(filePath, manager);
-	
-	auto pathsAnnotatedNodes = getPathsAnnotatedNodes(annotationPath);
-	auto annotatedNodes = findAnnotatedNodes(scene->GetRootNode(), pathsAnnotatedNodes);
-	Skeleton* skeleton = fbxToSkeleton(scene, annotatedNodes);
-	Motion* motion = fbxToMotion(scene, annotatedNodes);
-	
-	if (skeleton) {
-		std::ofstream skeletonFile;
-		skeletonFile.open("skeleton.txt");
-	
-		if (skeletonFile.is_open()) {
-			skeletonFile << *skeleton->getRoot();
-			skeletonFile.close();
-		}
-	}
-	if (motion) {
-		std::ofstream motionFile;
-		motionFile.open("motion.txt");
-	
-		if (motionFile.is_open()) {
-			motionFile << *motion;
-			motionFile.close();
-		}
-	}
+void printHelp() {	
+	std::cout << "export fbx structuret\t\t\t0 [fbxFile]" << std::endl
+			  << "load fbx with annotated file\t\t1 [fbxFile] [annotatedFile]" << std::endl
+			  << "learn motion data\t\t\t2 [motionClass]" << std::endl
+			  << "recognize motion data\t\t\t3" << std::endl
+			  << "exit\t\t\t\t\t-1" << std::endl;
+}
 
-	auto keyFrames = extractKeyFrames(motion);
-	
+void loop(){
+	Scene* lastLoadedScene = nullptr;
+	do {
+		printHelp();
+
+		int toDo;
+		std::cin >> toDo;
+		
+		switch (toDo) {
+		case -1:
+			return;
+
+		case 0:
+			std::cin >> fbxPath;
+			exportFbxStructure(fbxPath);
+			break;
+
+		case 1: {
+			std::cin >> fbxPath;
+			std::string annotationPath;
+			std::cin >> annotationPath;
+			if (lastLoadedScene != nullptr) delete lastLoadedScene;
+			lastLoadedScene = loadScene(fbxPath, annotationPath);
+			break;
+				}
+
+		case 2: {
+			std::string motionClass;
+			std::cin >> motionClass;
+			if (lastLoadedScene != nullptr) {
+				container.updateLearnMotion(motionClass, lastLoadedScene->extractMotionKeyFrames());
+			}
+			break;
+				}
+
+		case 3:
+			container.recognizeMotionClass(lastLoadedScene->extractMotionKeyFrames());
+			break;
+
+		default:
+			std::cout << "Unknown first parameter.";
+			break;
+		}
+
+		std::cout << "--------------------------------------- " << std::endl << std::endl;
+	} while (true);
 }
 
 // Main
@@ -110,49 +110,31 @@ int main(int argc, char** argv) {
 	// init manager
 	initFbxManager();
 	
-	switch (argc-1) {
-	case 1:
-		fbxPath = argv[1];
+	int toDo = INT_MAX;
+	if (argc-1 > 0) toDo = atoi(argv[1]);
+
+	switch (toDo) {
+	case 0:
+		fbxPath = argv[2];
 		exportFbxStructure(fbxPath);
 		break;
 
-	case 2: {
-		fbxPath = argv[1];
-		std::string annotationPath = argv[2];
+	case 1: {
+		fbxPath = argv[2];
+		std::string annotationPath = argv[3];
 		loadScene(fbxPath, annotationPath);
 		break;
 			}
+
 	default:
-		std::cout << "Unknown input parameters.\n";
+		loop();
 		break;
 	}
 	
-	cleanUp();
-	return 0;
-
-	// load data
-	FbxScene* scene = getScene(fbxPath, manager);
-/*
-	for (auto&child_pair: nodes) {
-		auto child = child_pair.first;
-//		std::cout << child_pair.second << " is a " << child->GetTypeName();// << "\n";
-//
-		int attr_count = child->GetNodeAttributeCount();
-		for (int a=0;a<attr_count;++a) {
-//			std::cout << ", " << GetAttributeTypeName(child->GetNodeAttributeByIndex(a)->GetAttributeType());
-		}
-//		std::cout << "\n";
-	}
-
-	return 0;
-*/
 	cleanUp();	
-	
 	return 0;
 
 /*
-export cest ke všem nodes
-definovat ze vstupu ty co jsou dùležitý pro nás 
 externì seznam co musím mít v datech
 */
 }

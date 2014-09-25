@@ -6,8 +6,7 @@
 #include <vector>
 #include "MotionFrame.h"
 
-struct MotionStateNode
-{
+struct MotionStateNode {
 	std::vector<MotionStateNode*> children; 
 	MotionFrame state;
 	std::string classification;

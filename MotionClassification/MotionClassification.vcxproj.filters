@@ -54,6 +54,12 @@
     <ClCompile Include="LearnDataContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MotionState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FbxSceneExporter.h">
@@ -99,6 +105,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LearnDataContainer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SkeletonEthalon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

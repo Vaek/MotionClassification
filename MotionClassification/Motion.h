@@ -24,12 +24,11 @@ public:
 	AnimationCurve* getAnimationCurve(std::string nodeName);
 	AnimationCurveMap getAllAnimationCurves();
 
+	friend std::ostream& operator<<(std::ostream& out, Motion& motion);
+
 private:
 	int motionLength;
 	AnimationCurveMap curves;
 };
-
-
-std::ostream& operator<<(std::ostream& out, Motion& motion);
 
 #endif MOTION_H

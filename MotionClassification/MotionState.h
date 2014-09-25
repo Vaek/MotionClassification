@@ -7,9 +7,11 @@
 class MotionState : public JoinBaseData
 {
 public:
-	MotionState(std::string name): JoinBaseData(name) {}
+	MotionState(std::string name): JoinBaseData(name) {};
 	~MotionState() {};
 	
+	friend std::ostream& operator<<(std::ostream& out, const MotionState& state);
+
 private:
 };
 

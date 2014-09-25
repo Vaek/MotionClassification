@@ -96,6 +96,8 @@
     <ClCompile Include="Motion.cpp" />
     <ClCompile Include="MotionClassifier.cpp" />
     <ClCompile Include="MotionFrame.cpp" />
+    <ClCompile Include="MotionState.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SkeletonNode.cpp" />
   </ItemGroup>
@@ -112,7 +114,9 @@
     <ClInclude Include="MotionFrame.h" />
     <ClInclude Include="MotionState.h" />
     <ClInclude Include="MotionStateNode.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Skeleton.h" />
+    <ClInclude Include="SkeletonEthalon.h" />
     <ClInclude Include="SkeletonNode.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>

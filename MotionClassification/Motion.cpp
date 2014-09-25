@@ -18,7 +18,7 @@ int Motion::getMotionLength() {
 
 MotionFrame Motion::getFrame(int frame) {
 	MotionFrame motionFrame;
-	for (AnimationCurveMap::iterator it = curves.begin(); it != curves.end(); ++it) {
+	for (auto it = curves.begin(); it != curves.end(); ++it) {
 		auto curve = it->second;
 		if (curve->getLength()>=0 && curve->getLength()>frame) {
 			MotionState state(it->first);
@@ -33,7 +33,7 @@ MotionFrame Motion::getFrame(int frame) {
 
 AnimationCurve* Motion::addAnimationCurve(std::string nodeName, AnimationCurve* curve) {
 	this->motionLength = std::max(this->motionLength, curve->getLength());
-	std::pair<AnimationCurveMap::iterator, bool> ret = this->curves.insert(std::pair<std::string, AnimationCurve*>(nodeName, curve));
+	auto ret = this->curves.insert(std::pair<std::string, AnimationCurve*>(nodeName, curve));
 	if (ret.second==false) {
 		return ret.first->second;
 	} else {

@@ -7,6 +7,7 @@
 #include <iostream>
 #include "JoinBaseData.h"
 #include <string>
+
 class SkeletonNode;
 
 typedef std::map<std::string, SkeletonNode*> SkeletonNodeMap;
@@ -21,6 +22,7 @@ public:
 	const SkeletonNodeMap& getChildren() const;
 
 	friend std::ostream& operator<<(std::ostream& out, const SkeletonNode& node);
+
 private:
 	SkeletonNodeMap children;
 };
