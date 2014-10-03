@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\rapidxml">
+      <UniqueIdentifier>{c8808ab2-3b4c-49a2-b4a8-1010cd0484e2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -58,6 +61,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XmlHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="pugi\pugixml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -111,6 +120,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SkeletonEthalon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml-1.13\rapidxml.hpp">
+      <Filter>Header Files\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml-1.13\rapidxml_iterators.hpp">
+      <Filter>Header Files\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml-1.13\rapidxml_print.hpp">
+      <Filter>Header Files\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="rapidxml-1.13\rapidxml_utils.hpp">
+      <Filter>Header Files\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="XmlHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pugi\pugiconfig.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="pugi\pugixml.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,0 +1,19 @@
+<!ELEMENT scene (structure?, annotation?)>
+<!ELEMENT structure (node)>
+<!ELEMENT node (node*)>
+<!ELEMENT annotation (node)>
+
+<!ATTLIST scene source_fbx CDATA #REQUIRED>
+<!ATTLIST node
+        name CDATA #REQUIRED
+        path CDATA #REQUIRED
+        animationLength CDATA
+        annotation (None|Hips|Spin|Spin1|Spin2|Neck|Head|RightShoulder|RightArm|RightArmRoll|RightForeArm|RightForeArmRoll|
+                RightHand|RightHandThumb1|RightHandThumb2|RightHandThumb3|RightHandThumb4|RightHandIndex1|RightHandIndex2|
+                RightHandIndex3|RightHandIndex4|RightHandMiddle1|RightHandMiddle2|RightHandMiddle3|RightHandMiddle4|RightHandRing1|
+                RightHandRing2|RightHandRing3|RightHandRing4|RightHandPinky1|RightHandPinky2|RightHandPinky3|RightHandPinky4|
+                LeftShoulder|LeftArm|LeftArmRoll|LeftForeArm|LeftForeArmRoll|LeftHand|LeftHandThumb1|LeftHandThumb2|LeftHandThumb3|
+                LeftHandThumb4|LeftHandIndex1|LeftHandIndex2|LeftHandIndex3|LeftHandIndex4|LeftHandMiddle1|LeftHandMiddle2|
+                LeftHandMiddle3|LeftHandMiddle4|LeftHandRing1|LeftHandRing2|LeftHandRing3|LeftHandRing4|LeftHandPinky1|
+                LeftHandPinky2|LeftHandPinky3|LeftHandPinky4|RightUpLeg|RightUpLegRoll|RightLeg|RightLegRoll|RightFoot|
+                RightToeBase|LeftUpLeg|LeftUpLegRoll|LeftLeg|LeftLegRoll|LeftFoot|LeftToeBase) "None">

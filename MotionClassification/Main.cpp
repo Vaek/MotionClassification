@@ -15,9 +15,9 @@ FbxManager* manager;
 LearnDataContainer container;
 
 // data
-std::string dirPath = "./";
+//std::string dirPath = "./";
 //std::string fbxPath = dirPath+"skeleton.fbx";
-std::string fbxPath = dirPath+"pepe_mocap.fbx";
+//std::string fbxPath = dirPath+"pepe_mocap.fbx";
 
 // Clean up function called on end of program
 static void cleanUp() {
@@ -42,15 +42,15 @@ void exportFbxStructure(const std::string fbxPath) {
 }
 
 
-Scene* loadScene(const std::string fbxPath, const std::string annotationPath) {
+Scene* loadScene(const std::string annotationPath) {
 	Scene* scene = new Scene();
-	scene->loadAnnotatedScene(fbxPath, annotationPath, manager);
+	scene->loadAnnotatedScene(annotationPath, manager);
 	return scene;
 }
 
 void printHelp() {	
 	std::cout << "export fbx structuret\t\t\t0 [fbxFile]" << std::endl
-			  << "load fbx with annotated file\t\t1 [fbxFile] [annotatedFile]" << std::endl
+			  << "load fbx with annotated file\t\t1 [annotationFile]" << std::endl
 			  << "learn motion data\t\t\t2 [motionClass]" << std::endl
 			  << "recognize motion data\t\t\t3" << std::endl
 			  << "exit\t\t\t\t\t-1" << std::endl;
@@ -68,17 +68,18 @@ void loop(){
 		case -1:
 			return;
 
-		case 0:
+		case 0: {
+			std::string fbxPath;
 			std::cin >> fbxPath;
 			exportFbxStructure(fbxPath);
 			break;
+				}
 
 		case 1: {
-			std::cin >> fbxPath;
 			std::string annotationPath;
 			std::cin >> annotationPath;
 			if (lastLoadedScene != nullptr) delete lastLoadedScene;
-			lastLoadedScene = loadScene(fbxPath, annotationPath);
+			lastLoadedScene = loadScene(annotationPath);
 			break;
 				}
 
@@ -115,14 +116,11 @@ int main(int argc, char** argv) {
 
 	switch (toDo) {
 	case 0:
-		fbxPath = argv[2];
-		exportFbxStructure(fbxPath);
+		exportFbxStructure(argv[2]);
 		break;
 
 	case 1: {
-		fbxPath = argv[2];
-		std::string annotationPath = argv[3];
-		loadScene(fbxPath, annotationPath);
+		loadScene(argv[3]);
 		break;
 			}
 
