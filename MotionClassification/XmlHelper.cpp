@@ -40,7 +40,7 @@ void XmlHelper::parseXml(const std::string filePath) {
 }
 
 struct XmlFbxNode {
-	XmlFbxNode::XmlFbxNode(FbxNode* _fbxNode, const std::string _fbxPath, pugi::xml_node _xmlNode)
+	XmlFbxNode(FbxNode* _fbxNode, const std::string _fbxPath, pugi::xml_node _xmlNode)
 		: fbxNode(_fbxNode), fbxPath(_fbxPath), xmlNode(_xmlNode) {};
 
 public:

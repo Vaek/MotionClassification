@@ -20,4 +20,4 @@ private:
 	double compareFrames(MotionFrame learned, MotionFrame recognize);
 };
 
-#endif LEARNDATACONTAINER_H
+#endif /* LEARNDATACONTAINER_H */

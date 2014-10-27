@@ -4,9 +4,9 @@
 #include <string>
 #include <fbxsdk.h>
 #include <vector>
-#include "rapidxml-1.13\rapidxml.hpp"
-#include "rapidxml-1.13\rapidxml_print.hpp"
-#include "pugi\pugixml.hpp"
+#include "rapidxml-1.13/rapidxml.hpp"
+#include "rapidxml-1.13/rapidxml_print.hpp"
+#include "pugi/pugixml.hpp"
 
 class XmlHelper {
 public:
