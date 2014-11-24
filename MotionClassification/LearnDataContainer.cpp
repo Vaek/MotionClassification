@@ -1,6 +1,12 @@
 
 #include "LearnDataContainer.h"
 #include <cmath>
+#include <queue>
+#include "MotionClassRecognizer.h"
+#include <fstream>
+
+#define MIN_SIMILARITY 0
+#define EXPORT_FILE_NAME "learned_data.mc"
 
 LearnDataContainer::LearnDataContainer() { }
 
@@ -15,56 +21,56 @@ std::vector<MotionFrame> LearnDataContainer::getLearnMotionObject(std::string mo
 	return motionObject;
 }
 
-double LearnDataContainer::compareFrames(MotionFrame learned, MotionFrame recognize) {
-	double distance = 0;
-	int numCompares = 0;
-	for (auto learnedPair : learned.getAllStates()) {
-		auto learnedState = learnedPair.second;
-		try {
-			auto recogState = recognize.getMotionState(learnedState.getName());
-
-			double diffVectorSize = 0, learnedVectorSize = 0;
-			for (int i = 0; i < 3; i++){
-				diffVectorSize += std::pow(learnedState.getTranslation()[i] - recogState.getTranslation()[i], 2);
-				learnedVectorSize += std::pow(learnedState.getTranslation()[i], 2);
-			}
-			diffVectorSize = std::sqrt(diffVectorSize);
-			learnedVectorSize = std::sqrt(learnedVectorSize);
-
-			if (learnedVectorSize > 0) distance += std::min(diffVectorSize/learnedVectorSize, 1.0);
-			numCompares++;
-		} catch (int e) { }
-	}
-	return 1.0-(distance/numCompares);
-}
-
-double LearnDataContainer::compareMotionObjects(std::vector<MotionFrame> learned, std::vector<MotionFrame> recognize) {
-	double similarity = 0;
-	int testedFrames = 0;
-	for (unsigned int i=0; i<std::min(learned.size(), recognize.size()); i++) {
-		testedFrames++;
-		similarity += compareFrames(learned.at(i), recognize.at(i));
-	}
-
-	if (testedFrames == 0) {
-		return 0;
-	} else {
-		return similarity/testedFrames;
-	}	
-}
-
 std::string LearnDataContainer::recognizeMotionClass(std::vector<MotionFrame> keyFrames) {
-	std::pair<std::string,std::vector<MotionFrame>> bestClass;
-	bestClass.first = "Unknown";
-	double best = 0;
+	std::vector<MotionClassRecognizer> recognizingQueue;
 
 	for (auto learned : this->data) {
-		auto similarity = compareMotionObjects(learned.second, keyFrames);
-		std::cout << "With " << learned.first << " is similar in " << similarity*100 << "%." << std::endl;
-		if (similarity > best) {
-			best = similarity;
-			bestClass = learned;
+		recognizingQueue.push_back(MotionClassRecognizer(learned.first, learned.second, keyFrames));
+	}
+
+	bool goOn = false;
+	int frame = 0;
+	do {
+		goOn = false;
+		for (auto recognizer : recognizingQueue) {
+			if (recognizer.compareFrame(frame)) goOn = true;
+		}
+		frame++;
+	} while (goOn);
+	
+	std::string bestClass = "Unknown";
+	double bestSimilarity = 0;
+	for (int i=0; i<recognizingQueue.size(); i++) {
+		auto recognizer = recognizingQueue.at(i);
+		auto comparator = recognizer.getBestComparator();
+		if (comparator.getSimilarity() > MIN_SIMILARITY && comparator.getSimilarity() > bestSimilarity) {
+			bestClass = recognizer.getClassName();
+			bestSimilarity = comparator.getSimilarity();
 		}
 	}
-	return bestClass.first;
+
+	return bestClass;
+}
+
+bool LearnDataContainer::saveLearnedData() {
+
+	std::ofstream myfile;
+	myfile.open(fileName);
+	
+	if (myfile.is_open() && scene) {
+		// Print the nodes of the scene and their attributes recursively.
+		// Note that we are not printing the root node because it should
+		// not contain any attributes.
+		FbxNode* lRootNode = scene->GetRootNode();
+		if(lRootNode) {
+			FbxAnimEvaluator* evaluator = lRootNode->GetAnimationEvaluator();
+//			evaluator->GetNodeGlobalTransform();
+			for(int i = 0; i < lRootNode->GetChildCount(); i++)
+				saveNode(myfile, lRootNode->GetChild(i));
+		}
+	}
+	myfile.close();
+
+
+	return false;
 }

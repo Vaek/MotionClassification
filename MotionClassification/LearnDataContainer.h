@@ -14,10 +14,12 @@ public:
 	std::vector<MotionFrame> getLearnMotionObject(std::string motionClass);
 	std::string recognizeMotionClass(std::vector<MotionFrame> keyFrames);
 
+	bool saveLearnedData();
+
 private:
 	std::map<std::string, std::vector<MotionFrame>> data;
-	double compareMotionObjects(std::vector<MotionFrame> learned, std::vector<MotionFrame> recognize);
-	double compareFrames(MotionFrame learned, MotionFrame recognize);
+//	double compareMotionObjects(std::vector<MotionFrame> learned, std::vector<MotionFrame> recognize);
+//	double compareFrames(MotionFrame learned, MotionFrame recognize);
 };
 
-#endif LEARNDATACONTAINER_H
+#endif //!LEARNDATACONTAINER_H

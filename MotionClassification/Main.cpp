@@ -53,7 +53,7 @@ void printHelp() {
 			  << "load fbx with annotated file\t\t1 [annotationFile]" << std::endl
 			  << "learn motion data\t\t\t2 [motionClass]" << std::endl
 			  << "recognize motion data\t\t\t3" << std::endl
-			  << "exit\t\t\t\t\t-1" << std::endl;
+			  << "exit\t\t\t\t\t-1" << std::endl << std::endl;
 }
 
 void loop(){
@@ -93,7 +93,7 @@ void loop(){
 				}
 
 		case 3:
-			container.recognizeMotionClass(lastLoadedScene->extractMotionKeyFrames());
+			std::cout << "Best motion class is " << container.recognizeMotionClass(lastLoadedScene->extractMotionKeyFrames()) << std::endl;
 			break;
 
 		default:
@@ -129,6 +129,8 @@ int main(int argc, char** argv) {
 		break;
 	}
 	
+	container.saveLearnedData();
+
 	cleanUp();	
 	return 0;
 

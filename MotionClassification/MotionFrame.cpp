@@ -24,6 +24,15 @@ MotionState MotionFrame::getMotionState(std::string name) {
 	}
 }
 
+bool MotionFrame::hasMotionState(std::string name) {
+	auto it = this->states.find(name);
+	if(it != this->states.end()) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
 const MotionStateMap MotionFrame::getAllStates() {
 	return this->states;
 }

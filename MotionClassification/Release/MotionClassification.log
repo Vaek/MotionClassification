@@ -1,0 +1,38 @@
+﻿Build started 23. 11. 2014 19:37:49.
+     1>Project "C:\Users\Václav\Documents\CVUT\diplomka\project\MotionClassification\MotionClassification\MotionClassification.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Release\MotionClassification.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\Users\Václav\Documents\Visual Studio 2012\glm" /I"C:\Users\Václav\Documents\Visual Studio 2012\Eigen" /I"C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\include" /I"C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\include" /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _SCL_SECURE_NO_WARNINGS /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Main.cpp
+         Main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Václav\Documents\CVUT\diplomka\project\MotionClassification\Release\MotionClassification.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:"C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib" /LIBPATH:"C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\lib" "C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib\vs2012\x86\release\libfbxsdk-md.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Václav\Documents\CVUT\diplomka\project\MotionClassification\Release\MotionClassification.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Václav\Documents\CVUT\diplomka\project\MotionClassification\Release\MotionClassification.lib" /MACHINE:X86 /SAFESEH Release\AnimationCurve.obj
+         Release\DataConvertor.obj
+         Release\FbxSceneExporter.obj
+         Release\FbxSceneLoader.obj
+         Release\JoinBaseData.obj
+         Release\KeyFrameExtractor.obj
+         Release\LearnDataContainer.obj
+         Release\Main.obj
+         Release\Motion.obj
+         Release\MotionClassifier.obj
+         Release\MotionClassRecognizer.obj
+         Release\MotionComparator.obj
+         Release\MotionFrame.obj
+         Release\MotionState.obj
+         Release\pugixml.obj
+         Release\Scene.obj
+         Release\Skeleton.obj
+         Release\SkeletonNode.obj
+         Release\XmlHelper.obj
+         Generating code
+         Finished generating code
+         MotionClassification.vcxproj -> C:\Users\Václav\Documents\CVUT\diplomka\project\MotionClassification\Release\MotionClassification.exe
+       FinalizeBuildStatus:
+         Deleting file "Release\MotionClassification.unsuccessfulbuild".
+         Touching "Release\MotionClassification.lastbuildstate".
+     1>Done Building Project "C:\Users\Václav\Documents\CVUT\diplomka\project\MotionClassification\MotionClassification\MotionClassification.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.84
