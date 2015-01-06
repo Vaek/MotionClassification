@@ -4,28 +4,33 @@
 #include <queue>
 #include "MotionClassRecognizer.h"
 #include <fstream>
+#include "LearnDataXmlHelper.h"
 
 #define MIN_SIMILARITY 0
-#define EXPORT_FILE_NAME "learned_data.mc"
+#define EXPORT_FILE_NAME "learned_data"
 
-LearnDataContainer::LearnDataContainer() { }
+LearnDataContainer::LearnDataContainer() : LearnDataContainer(EXPORT_FILE_NAME) { }
+
+LearnDataContainer::LearnDataContainer(const std::string fileName) : fileName(fileName) { }
 
 LearnDataContainer::~LearnDataContainer() { }
 
-void LearnDataContainer::updateLearnMotion(std::string motionClass, std::vector<MotionFrame> keyFrames) {
-	this->data.insert(std::pair<std::string, std::vector<MotionFrame>>(motionClass, keyFrames));
+void LearnDataContainer::updateLearnMotion(std::string motionClass, MotionObject motionObject) {
+	this->data.insert(std::pair<std::string, MotionObject>(motionClass, motionObject));
 }
 
+
+
 std::vector<MotionFrame> LearnDataContainer::getLearnMotionObject(std::string motionClass) {
-	std::vector<MotionFrame> motionObject;
+	MotionObject motionObject;
 	return motionObject;
 }
 
-std::string LearnDataContainer::recognizeMotionClass(std::vector<MotionFrame> keyFrames) {
+std::string LearnDataContainer::recognizeMotionClass(MotionObject motionObject) {
 	std::vector<MotionClassRecognizer> recognizingQueue;
 
 	for (auto learned : this->data) {
-		recognizingQueue.push_back(MotionClassRecognizer(learned.first, learned.second, keyFrames));
+		recognizingQueue.push_back(MotionClassRecognizer(learned.first, learned.second, motionObject));
 	}
 
 	bool goOn = false;
@@ -54,23 +59,9 @@ std::string LearnDataContainer::recognizeMotionClass(std::vector<MotionFrame> ke
 
 bool LearnDataContainer::saveLearnedData() {
 
-	std::ofstream myfile;
-	myfile.open(fileName);
+	LearnDataXmlHelper helper;
+	helper.createDocument(this->data);
+	helper.printXml(EXPORT_FILE_NAME);
 	
-	if (myfile.is_open() && scene) {
-		// Print the nodes of the scene and their attributes recursively.
-		// Note that we are not printing the root node because it should
-		// not contain any attributes.
-		FbxNode* lRootNode = scene->GetRootNode();
-		if(lRootNode) {
-			FbxAnimEvaluator* evaluator = lRootNode->GetAnimationEvaluator();
-//			evaluator->GetNodeGlobalTransform();
-			for(int i = 0; i < lRootNode->GetChildCount(); i++)
-				saveNode(myfile, lRootNode->GetChild(i));
-		}
-	}
-	myfile.close();
-
-
-	return false;
+	return true;
 }

@@ -3,8 +3,8 @@
 #include <fstream>
 
 // Math library glm
-#include <glm/glm.hpp> 
-#include <glm/gtc/type_ptr.hpp>
+//#include <glm/glm.hpp> 
+//#include <glm/gtc/type_ptr.hpp>
 
 #include <fbxsdk.h>
 #include "Scene.h"

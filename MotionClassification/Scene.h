@@ -6,7 +6,6 @@
 #include <string>
 #include "Skeleton.h"
 #include "Motion.h"
-#include "XmlHelper.h"
 
 class Scene {
 public:

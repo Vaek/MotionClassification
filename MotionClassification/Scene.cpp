@@ -4,6 +4,7 @@
 #include "DataConvertor.h"
 #include "FbxSceneLoader.h"
 #include "KeyFrameExtractor.h"
+#include "FbxSceneXmlHelper.h"
 
 Scene::Scene() {
 	this->skeleton = nullptr;
@@ -46,14 +47,14 @@ void Scene::exportFbxSceneStructure(const std::string filePath, FbxManager* mana
 
 	std::string exportFilePath = filePath.substr(0, filePath.find_last_of(".")+1).append("xml");
 
-	XmlHelper helper;
+	FbxSceneXmlHelper helper;
 	helper.createDocument(scene, filePath);
 	helper.printXml(exportFilePath);
 	std::cout << "Structure is stored in: " << exportFilePath << std::endl;
 }
 
 void Scene::loadAnnotatedScene(const std::string annotatedPath, FbxManager* manager) {
-	XmlHelper helper;
+	FbxSceneXmlHelper helper;
 	helper.parseXml(annotatedPath);
 	auto fbxPath = helper.getSourceFbx();
 	if (!fbxPath.empty()) {
