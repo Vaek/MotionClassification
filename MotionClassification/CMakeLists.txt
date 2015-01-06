@@ -5,22 +5,41 @@ Find_Package(GLUT REQUIRED)
 #pkg_check_modules(OpenCV REQUIRED opencv>=2.3.0)
 
 add_executable( motion_classification
-            AnimationCurve.cpp AnimationCurve.h 
-            DataConvertor.h 
-            FbxSceneExporter.cpp FbxSceneExporter.h 
-            FbxSceneLoader.cpp FbxSceneLoader.h 
-            JoinBaseData.cpp JoinBaseData.h 
-            KeyFrameExtractor.cpp KeyFrameExtractor.h 
-            KeyFrame.h 
-            Main.cpp 
-            MotionClassifier.cpp MotionClassifier.h 
-            Motion.cpp Motion.h 
-            MotionFrame.cpp MotionFrame.h 
-            MotionState.h MotionStateNode.h 
-            Skeleton.cpp Skeleton.h 
-            SkeletonNode.cpp SkeletonNode.h 
+            AnimationCurve.cpp
+            AnimationCurve.h
+            DataConvertor.cpp
+            DataConvertor.h
+            FbxSceneExporter.cpp
+            FbxSceneExporter.h
+            FbxSceneLoader.cpp
+            FbxSceneLoader.h
+            JoinBaseData.cpp
+            JoinBaseData.h
+            KeyFrameExtractor.cpp
+            KeyFrameExtractor.h
+            LearnDataContainer.cpp
+            LearnDataContainer.h
+            Main.cpp
+            MotionClassifier.cpp
+            MotionClassifier.h
+            Motion.cpp
+            MotionFrame.cpp
+            MotionFrame.h
+            Motion.h
+            MotionState.cpp
+            MotionState.h
+            MotionStateNode.h
+            Scene.cpp
+            Scene.h
+            Skeleton.cpp
+            SkeletonEthalon.h
+            Skeleton.h
+            SkeletonNode.cpp
+            SkeletonNode.h
             Vector.h
-                       )
+            XmlHelper.cpp
+            XmlHelper.h
+            )
 						
 # PatternDetector.cpp PatternDetector.h						
 include_directories ( 
@@ -38,5 +57,6 @@ target_link_libraries ( motion_classification
 			)
 			#GLEW 
 			#jsoncpp)
+
 
 
