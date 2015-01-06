@@ -69,7 +69,7 @@ void FbxSceneXmlHelper::createDocument(FbxScene* scene, const std::string filePa
 }
 
 pugi::xml_node FbxSceneXmlHelper::getAnnotation() {
-	return mXmlDocument.child(NODE_SCENE).child(NODE_ANNOTATION);
+	return mXmlDocument.child(NODE_SCENE).child(NODE_STRUCTURE);
 }
 
 std::vector<std::string> FbxSceneXmlHelper::getAnnotations() {
