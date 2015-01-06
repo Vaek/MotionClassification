@@ -11,8 +11,8 @@ XmlHelper::~XmlHelper() {}
 void XmlHelper::parseXml(const std::string filePath) {
 	mXmlDocument.load_file(this->mXmlFilePath.c_str());
 
-//	commented due to pointers to text in xml_document
-//	delete [] chars;
+	//    commented due to pointers to text in xml_document
+	//    delete [] chars;
 }
 
 void XmlHelper::printXml(const std::string filePath) {

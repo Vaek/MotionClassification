@@ -2,6 +2,7 @@
 #include "KeyFrameExtractor.h"
 #include <map>
 #include <stack>
+#include <cmath>
 
 #define MAX_TRANSLATION		100
 #define MAX_ROTATION		100

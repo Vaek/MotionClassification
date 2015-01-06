@@ -9,8 +9,8 @@ char* ATTR_ORDERED = "ordered";
 
 char* NODE_MOTION_OBJECT = "motion_object";
 char* ATTR_LENGTH = "length";
-char* ATTR_NAME = "name";
-char* ATTR_PATH = "path";
+char* ATTR_NAME2 = "name";
+char* ATTR_PATH2 = "path";
 
 LearnDataXmlHelper::LearnDataXmlHelper() {}
 
@@ -29,9 +29,9 @@ void LearnDataXmlHelper::createDocument(std::map<std::string, MotionObject> data
 		std::string filePath = learned.first;
 		if (createMotionObjectFile(filePath, learned.second)) {
 			auto child = nodeScene.append_child(NODE_MOTION_OBJECT);
-			child.append_attribute(ATTR_NAME) = learned.first.c_str();
+			child.append_attribute(ATTR_NAME2) = learned.first.c_str();
 			child.append_attribute(ATTR_LENGTH) = learned.second.size();
-			child.append_attribute(ATTR_PATH) = filePath.c_str();
+			child.append_attribute(ATTR_PATH2) = filePath.c_str();
 		}
 	}
 }
