@@ -70,8 +70,10 @@ void Scene::loadAnnotatedScene(const std::string annotatedPath, FbxManager* mana
 		this->skeleton = fbxToSkeleton(scene, annotatedNodes);
 		this->motion = fbxToMotion(scene, annotatedNodes);
 
-//		exportSkeleton("skeleton.txt");
-//		exportMotion("motion.txt");
+		exportSkeleton("skeleton.txt");
+		exportMotion("motion.txt");
+	} else {
+		std::cout << "Fbx not found." << std::endl;
 	}
 }
 

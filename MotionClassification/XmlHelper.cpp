@@ -9,7 +9,8 @@ XmlHelper::XmlHelper() {}
 XmlHelper::~XmlHelper() {}
 
 void XmlHelper::parseXml(const std::string filePath) {
-	mXmlDocument.load_file(this->mXmlFilePath.c_str());
+//	this->mXmlFilePath = filePath;
+	mXmlDocument.load_file(filePath.c_str());
 
 	//    commented due to pointers to text in xml_document
 	//    delete [] chars;

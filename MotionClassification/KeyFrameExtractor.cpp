@@ -4,9 +4,9 @@
 #include <stack>
 #include <cmath>
 
-#define MAX_TRANSLATION		100
-#define MAX_ROTATION		100
-#define MAX_SCALING			100
+#define MAX_TRANSLATION		10
+#define MAX_ROTATION		10
+#define MAX_SCALING			10
 
 double getSize(std::array<double, 3> arr3d) {
 	double size = 0;
