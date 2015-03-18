@@ -19,8 +19,6 @@ void LearnDataContainer::updateLearnMotion(std::string motionClass, MotionObject
 	this->data.insert(std::pair<std::string, MotionObject>(motionClass, motionObject));
 }
 
-
-
 std::vector<MotionFrame> LearnDataContainer::getLearnMotionObject(std::string motionClass) {
 	MotionObject motionObject;
 	return motionObject;
@@ -62,6 +60,15 @@ bool LearnDataContainer::saveLearnedData() {
 	LearnDataXmlHelper helper;
 	helper.createDocument(this->data);
 	helper.printXml(EXPORT_FILE_NAME);
-	
+
+	return true;
+}
+
+bool LearnDataContainer::loadLearnedData() {
+
+	LearnDataXmlHelper helper;
+	helper.parseXml(EXPORT_FILE_NAME);
+	this->data = helper.readDocument();
+
 	return true;
 }

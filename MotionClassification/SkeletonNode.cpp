@@ -4,7 +4,7 @@
 SkeletonNode::SkeletonNode(std::string name) : JoinBaseData(name) { }
 
 SkeletonNode::~SkeletonNode() {
-	for (SkeletonNodeMap::iterator it = children.begin(); it != this->children.end(); ++it) {
+	for (auto it = children.begin(); it != this->children.end(); ++it) {
         delete it->second;
     }
     this->children.clear();

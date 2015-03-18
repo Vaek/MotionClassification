@@ -30,4 +30,4 @@ enum Transformation {
 	ROTATION, TRANSLATION, SCALING
 };
 
-#endif DATACONVERTOR_H
+#endif //!DATACONVERTOR_H

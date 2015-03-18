@@ -1,4 +1,4 @@
-
+/*
 #ifndef VECTOR_H
 #define VECTOR_H
 
@@ -34,3 +34,5 @@ double Vector::getZ() {
 }
 
 #endif VECTOR_H
+
+*/

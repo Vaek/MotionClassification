@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE scene SYSTEM "scene.dtd">
+<scene source_fbx="pepe_mocap.fbx">
+	<structure>
+		<node name="PEPE Pelvis" path="/RootNode/PEPE/PEPE Pelvis" annotation="None">
+			<node name="PEPE Spine" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine" annotation="None">
+				<node name="PEPE R Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh" annotation="None">
+					<node name="PEPE R Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf" annotation="None">
+						<node name="PEPE R Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot" annotation="None">
+							<node name="PEPE R Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0" annotation="None">
+								<node name="PEPE R Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0/PEPE R Toe0Nub" annotation="None" />
+							</node>
+						</node>
+					</node>
+				</node>
+				<node name="PEPE L Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh" annotation="None">
+					<node name="PEPE L Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf" annotation="None">
+						<node name="PEPE L Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot" annotation="None">
+							<node name="PEPE L Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0" annotation="None">
+								<node name="PEPE L Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0/PEPE L Toe0Nub" annotation="None" />
+							</node>
+						</node>
+					</node>
+				</node>
+				<node name="PEPE Spine1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1" annotation="None">
+					<node name="PEPE Spine2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2" annotation="None">
+						<node name="PEPE Spine3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3" annotation="None">
+							<node name="PEPE Neck" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck" annotation="None">
+								<node name="PEPE R Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle" annotation="None">
+									<node name="PEPE R UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm" annotation="None">
+										<node name="PEPE R Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm" annotation="None">
+											<node name="PEPE R Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand" annotation="None">
+												<node name="PEPE R Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3" annotation="None">
+													<node name="PEPE R Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31" annotation="None">
+														<node name="PEPE R Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32" annotation="None">
+															<node name="PEPE R Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32/PEPE R Finger3Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+												<node name="PEPE R Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2" annotation="None">
+													<node name="PEPE R Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21" annotation="None">
+														<node name="PEPE R Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22" annotation="None">
+															<node name="PEPE R Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22/PEPE R Finger2Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+												<node name="PEPE R Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1" annotation="None">
+													<node name="PEPE R Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11" annotation="None">
+														<node name="PEPE R Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12" annotation="None">
+															<node name="PEPE R Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12/PEPE R Finger1Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+												<node name="PEPE R Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0" annotation="None">
+													<node name="PEPE R Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01" annotation="None">
+														<node name="PEPE R Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02" annotation="None">
+															<node name="PEPE R Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02/PEPE R Finger0Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+											</node>
+										</node>
+									</node>
+								</node>
+								<node name="PEPE L Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle" annotation="None">
+									<node name="PEPE L UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm" annotation="None">
+										<node name="PEPE L Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm" annotation="None">
+											<node name="PEPE L Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand" annotation="None">
+												<node name="PEPE L Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3" annotation="None">
+													<node name="PEPE L Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31" annotation="None">
+														<node name="PEPE L Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32" annotation="None">
+															<node name="PEPE L Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32/PEPE L Finger3Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+												<node name="PEPE L Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2" annotation="None">
+													<node name="PEPE L Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21" annotation="None">
+														<node name="PEPE L Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22" annotation="None">
+															<node name="PEPE L Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22/PEPE L Finger2Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+												<node name="PEPE L Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1" annotation="None">
+													<node name="PEPE L Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11" annotation="None">
+														<node name="PEPE L Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12" annotation="None">
+															<node name="PEPE L Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12/PEPE L Finger1Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+												<node name="PEPE L Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0" annotation="None">
+													<node name="PEPE L Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01" annotation="None">
+														<node name="PEPE L Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02" annotation="None">
+															<node name="PEPE L Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02/PEPE L Finger0Nub" annotation="None" />
+														</node>
+													</node>
+												</node>
+											</node>
+										</node>
+									</node>
+								</node>
+								<node name="PEPE Neck1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1" annotation="None">
+									<node name="PEPE Neck2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2" annotation="None">
+										<node name="PEPE Head" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head" annotation="None"/>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+				</node>
+			</node>
+		</node>
+	</structure>
+</scene>

@@ -243,10 +243,10 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 
 //				FbxAnimLayer* animLayer = pAnimStack->GetMember<FbxAnimLayer>(0);
 
-				for (int n = 0; n < nodes.size(); n++) {
+				for (unsigned int n = 0; n < nodes.size(); n++) {
 					FbxNode* currentNode = nodes[n];
 					AnimationCurve* curve = new AnimationCurve(currentNode->GetName());
-					const int frameNumber = interval.GetDuration().GetFieldCount();
+					const long frameNumber = interval.GetDuration().GetFieldCount();
 					curve->reserve(frameNumber);
 /*
 					AnimationCurve* transAnimCurve = currentNode->LclTranslation.GetCurve(animLayer, FBXSDK_CURVENODE_TRANSLATION);
@@ -256,7 +256,7 @@ Motion* fbxToMotion(FbxScene* scene, Skeleton* skeleton) {
 					FbxTime currentTime = interval.GetStart();
 					const auto timeMode = FbxTime::GetGlobalTimeMode();
 					const auto timeStep = FbxTime::GetOneFrameValue(timeMode);
-					for (int f = 0; f < frameNumber; f++){
+					for (long f = 0; f < frameNumber; f++){
 						FbxVector4 rotation = currentNode->EvaluateLocalRotation(currentTime, currentNode->eSourcePivot, true, false);
 						FbxVector4 translation = currentNode->EvaluateLocalTranslation(currentTime, currentNode->eSourcePivot, true, false);
 						FbxVector4 scaling = currentNode->EvaluateLocalScaling(currentTime, currentNode->eSourcePivot, true, false);

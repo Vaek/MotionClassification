@@ -20,6 +20,7 @@ public:
 	std::string recognizeMotionClass(MotionObject motionObject);
 
 	bool saveLearnedData();
+	bool loadLearnedData();
 
 private:
 	const std::string fileName;

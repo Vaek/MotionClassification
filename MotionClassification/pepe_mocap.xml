@@ -2,84 +2,59 @@
 <!DOCTYPE scene SYSTEM "scene.dtd">
 <scene source_fbx="pepe_mocap.fbx">
 	<structure>
-		<node name="RootNode" path="/RootNode" annotation="None">
-			<node name="Camera Interest" path="/RootNode/Camera Interest" annotation="None" />
-			<node name="Skeleton2_Ctrl:Reference" path="/RootNode/Skeleton2_Ctrl:Reference" annotation="None">
-				<node name="RightHandPinkyEffector" path="/RootNode/Skeleton2_Ctrl:Reference/RightHandPinkyEffector" annotation="None" />
-				<node name="RightHandRingEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightHandRingEffector 1" annotation="None" />
-				<node name="RightHandMiddleEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightHandMiddleEffector 1" annotation="None" />
-				<node name="RightHandIndexEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightHandIndexEffector 1" annotation="None" />
-				<node name="RightHandThumbEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightHandThumbEffector 1" annotation="None" />
-				<node name="LeftHandPinkyEffector" path="/RootNode/Skeleton2_Ctrl:Reference/LeftHandPinkyEffector" annotation="None" />
-				<node name="LeftHandRingEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftHandRingEffector 1" annotation="None" />
-				<node name="LeftHandMiddleEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftHandMiddleEffector 1" annotation="None" />
-				<node name="LeftHandIndexEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftHandIndexEffector 1" annotation="None" />
-				<node name="LeftHandThumbEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftHandThumbEffector 1" annotation="None" />
-				<node name="RightHipEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightHipEffector 1" annotation="None" />
-				<node name="LeftHipEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftHipEffector 1" annotation="None" />
-				<node name="HeadEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/HeadEffector 1" annotation="None" />
-				<node name="RightShoulderEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightShoulderEffector 1" annotation="None" />
-				<node name="LeftShoulderEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftShoulderEffector 1" annotation="None" />
-				<node name="RightFootEffector" path="/RootNode/Skeleton2_Ctrl:Reference/RightFootEffector" annotation="None" />
-				<node name="LeftFootEffector" path="/RootNode/Skeleton2_Ctrl:Reference/LeftFootEffector" annotation="None" />
-				<node name="ChestEndEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/ChestEndEffector 1" annotation="None" />
-				<node name="ChestOriginEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/ChestOriginEffector 1" annotation="None" />
-				<node name="RightElbowEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightElbowEffector 1" annotation="None" />
-				<node name="LeftElbowEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftElbowEffector 1" annotation="None" />
-				<node name="RightKneeEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightKneeEffector 1" annotation="None" />
-				<node name="LeftKneeEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftKneeEffector 1" annotation="None" />
-				<node name="RightWristEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightWristEffector 1" annotation="None" />
-				<node name="LeftWristEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftWristEffector 1" annotation="None" />
-				<node name="RightAnkleEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/RightAnkleEffector 1" annotation="None" />
-				<node name="LeftAnkleEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/LeftAnkleEffector 1" annotation="None" />
-				<node name="HipsEffector 1" path="/RootNode/Skeleton2_Ctrl:Reference/HipsEffector 1" annotation="None" />
-				<node name="Hips 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1" annotation="None">
-					<node name="Spine 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1" annotation="None">
-						<node name="Spine4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4" annotation="None">
-							<node name="Spine5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5" annotation="None">
-								<node name="Neck 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/Neck 1" annotation="None">
-									<node name="Head 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/Neck 1/Head 1" annotation="None" />
-								</node>
-								<node name="RightShoulder 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1" annotation="None">
-									<node name="RightArm 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1" annotation="None">
-										<node name="RightArmRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll" annotation="None">
-											<node name="RightForeArm 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1" annotation="None">
-												<node name="RightForeArmRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll" annotation="None">
-													<node name="RightHand 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1" annotation="None">
-														<node name="RightHandPinky1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandPinky1" annotation="None">
-															<node name="RightHandPinky2" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandPinky1/RightHandPinky2" annotation="None">
-																<node name="RightHandPinky3" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandPinky1/RightHandPinky2/RightHandPinky3" annotation="None">
-																	<node name="RightHandPinky4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandPinky1/RightHandPinky2/RightHandPinky3/RightHandPinky4" annotation="None" />
-																</node>
-															</node>
+		<node name="PEPE Pelvis" path="/RootNode/PEPE/PEPE Pelvis" annotation="None">
+			<node name="PEPE Spine" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine" annotation="None">
+				<node name="PEPE R Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh" annotation="None">
+					<node name="PEPE R Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf" annotation="None">
+						<node name="PEPE R Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot" annotation="None">
+							<node name="PEPE R Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0" annotation="None">
+								<node name="PEPE R Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0/PEPE R Toe0Nub" annotation="None" />
+							</node>
+						</node>
+					</node>
+				</node>
+				<node name="PEPE L Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh" annotation="None">
+					<node name="PEPE L Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf" annotation="None">
+						<node name="PEPE L Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot" annotation="None">
+							<node name="PEPE L Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0" annotation="None">
+								<node name="PEPE L Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0/PEPE L Toe0Nub" annotation="None" />
+							</node>
+						</node>
+					</node>
+				</node>
+				<node name="PEPE Spine1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1" annotation="None">
+					<node name="PEPE Spine2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2" annotation="None">
+						<node name="PEPE Spine3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3" annotation="None">
+							<node name="PEPE Neck" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck" annotation="None">
+								<node name="PEPE R Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle" annotation="None">
+									<node name="PEPE R UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm" annotation="None">
+										<node name="PEPE R Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm" annotation="None">
+											<node name="PEPE R Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand" annotation="None">
+												<node name="PEPE R Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3" annotation="None">
+													<node name="PEPE R Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31" annotation="None">
+														<node name="PEPE R Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32" annotation="None">
+															<node name="PEPE R Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32/PEPE R Finger3Nub" annotation="None" />
 														</node>
-														<node name="RightHandRing4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandRing4" annotation="None">
-															<node name="RightHandRing5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandRing4/RightHandRing5" annotation="None">
-																<node name="RightHandRing6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandRing4/RightHandRing5/RightHandRing6" annotation="None">
-																	<node name="RightHandRing7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandRing4/RightHandRing5/RightHandRing6/RightHandRing7" annotation="None" />
-																</node>
-															</node>
+													</node>
+												</node>
+												<node name="PEPE R Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2" annotation="None">
+													<node name="PEPE R Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21" annotation="None">
+														<node name="PEPE R Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22" annotation="None">
+															<node name="PEPE R Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22/PEPE R Finger2Nub" annotation="None" />
 														</node>
-														<node name="RightHandMiddle4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandMiddle4" annotation="None">
-															<node name="RightHandMiddle5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandMiddle4/RightHandMiddle5" annotation="None">
-																<node name="RightHandMiddle6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandMiddle4/RightHandMiddle5/RightHandMiddle6" annotation="None">
-																	<node name="RightHandMiddle7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandMiddle4/RightHandMiddle5/RightHandMiddle6/RightHandMiddle7" annotation="None" />
-																</node>
-															</node>
+													</node>
+												</node>
+												<node name="PEPE R Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1" annotation="None">
+													<node name="PEPE R Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11" annotation="None">
+														<node name="PEPE R Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12" annotation="None">
+															<node name="PEPE R Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12/PEPE R Finger1Nub" annotation="None" />
 														</node>
-														<node name="RightHandIndex4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandIndex4" annotation="None">
-															<node name="RightHandIndex5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandIndex4/RightHandIndex5" annotation="None">
-																<node name="RightHandIndex6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandIndex4/RightHandIndex5/RightHandIndex6" annotation="None">
-																	<node name="RightHandIndex7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandIndex4/RightHandIndex5/RightHandIndex6/RightHandIndex7" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="RightHandThumb4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandThumb4" annotation="None">
-															<node name="RightHandThumb5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandThumb4/RightHandThumb5" annotation="None">
-																<node name="RightHandThumb6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandThumb4/RightHandThumb5/RightHandThumb6" annotation="None">
-																	<node name="RightHandThumb7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/RightShoulder 1/RightArm 1/RightArmRoll/RightForeArm 1/RightForeArmRoll/RightHand 1/RightHandThumb4/RightHandThumb5/RightHandThumb6/RightHandThumb7" annotation="None" />
-																</node>
-															</node>
+													</node>
+												</node>
+												<node name="PEPE R Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0" annotation="None">
+													<node name="PEPE R Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01" annotation="None">
+														<node name="PEPE R Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02" annotation="None">
+															<node name="PEPE R Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02/PEPE R Finger0Nub" annotation="None" />
 														</node>
 													</node>
 												</node>
@@ -87,46 +62,35 @@
 										</node>
 									</node>
 								</node>
-								<node name="LeftShoulder 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1" annotation="None">
-									<node name="LeftArm 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1" annotation="None">
-										<node name="LeftArmRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll" annotation="None">
-											<node name="LeftForeArm 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1" annotation="None">
-												<node name="LeftForeArmRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll" annotation="None">
-													<node name="LeftHand 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1" annotation="None">
-														<node name="LeftHandPinky1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandPinky1" annotation="None">
-															<node name="LeftHandPinky2" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandPinky1/LeftHandPinky2" annotation="None">
-																<node name="LeftHandPinky3" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3" annotation="None">
-																	<node name="LeftHandPinky4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandPinky1/LeftHandPinky2/LeftHandPinky3/LeftHandPinky4" annotation="None" />
-																</node>
-															</node>
+								<node name="PEPE L Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle" annotation="None">
+									<node name="PEPE L UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm" annotation="None">
+										<node name="PEPE L Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm" annotation="None">
+											<node name="PEPE L Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand" annotation="None">
+												<node name="PEPE L Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3" annotation="None">
+													<node name="PEPE L Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31" annotation="None">
+														<node name="PEPE L Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32" annotation="None">
+															<node name="PEPE L Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32/PEPE L Finger3Nub" annotation="None" />
 														</node>
-														<node name="LeftHandRing4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandRing4" annotation="None">
-															<node name="LeftHandRing5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandRing4/LeftHandRing5" annotation="None">
-																<node name="LeftHandRing6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandRing4/LeftHandRing5/LeftHandRing6" annotation="None">
-																	<node name="LeftHandRing7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandRing4/LeftHandRing5/LeftHandRing6/LeftHandRing7" annotation="None" />
-																</node>
-															</node>
+													</node>
+												</node>
+												<node name="PEPE L Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2" annotation="None">
+													<node name="PEPE L Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21" annotation="None">
+														<node name="PEPE L Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22" annotation="None">
+															<node name="PEPE L Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22/PEPE L Finger2Nub" annotation="None" />
 														</node>
-														<node name="LeftHandMiddle4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandMiddle4" annotation="None">
-															<node name="LeftHandMiddle5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandMiddle4/LeftHandMiddle5" annotation="None">
-																<node name="LeftHandMiddle6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandMiddle4/LeftHandMiddle5/LeftHandMiddle6" annotation="None">
-																	<node name="LeftHandMiddle7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandMiddle4/LeftHandMiddle5/LeftHandMiddle6/LeftHandMiddle7" annotation="None" />
-																</node>
-															</node>
+													</node>
+												</node>
+												<node name="PEPE L Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1" annotation="None">
+													<node name="PEPE L Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11" annotation="None">
+														<node name="PEPE L Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12" annotation="None">
+															<node name="PEPE L Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12/PEPE L Finger1Nub" annotation="None" />
 														</node>
-														<node name="LeftHandIndex4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandIndex4" annotation="None">
-															<node name="LeftHandIndex5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandIndex4/LeftHandIndex5" annotation="None">
-																<node name="LeftHandIndex6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandIndex4/LeftHandIndex5/LeftHandIndex6" annotation="None">
-																	<node name="LeftHandIndex7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandIndex4/LeftHandIndex5/LeftHandIndex6/LeftHandIndex7" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="LeftHandThumb4" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandThumb4" annotation="None">
-															<node name="LeftHandThumb5" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandThumb4/LeftHandThumb5" annotation="None">
-																<node name="LeftHandThumb6" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandThumb4/LeftHandThumb5/LeftHandThumb6" annotation="None">
-																	<node name="LeftHandThumb7" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/Spine 1/Spine4/Spine5/LeftShoulder 1/LeftArm 1/LeftArmRoll/LeftForeArm 1/LeftForeArmRoll/LeftHand 1/LeftHandThumb4/LeftHandThumb5/LeftHandThumb6/LeftHandThumb7" annotation="None" />
-																</node>
-															</node>
+													</node>
+												</node>
+												<node name="PEPE L Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0" annotation="None">
+													<node name="PEPE L Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01" annotation="None">
+														<node name="PEPE L Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02" annotation="None">
+															<node name="PEPE L Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02/PEPE L Finger0Nub" annotation="None" />
 														</node>
 													</node>
 												</node>
@@ -134,26 +98,9 @@
 										</node>
 									</node>
 								</node>
-							</node>
-						</node>
-					</node>
-					<node name="RightUpLeg 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/RightUpLeg 1" annotation="None">
-						<node name="RightUpLegRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/RightUpLeg 1/RightUpLegRoll" annotation="None">
-							<node name="RightLeg 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/RightUpLeg 1/RightUpLegRoll/RightLeg 1" annotation="None">
-								<node name="RightLegRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/RightUpLeg 1/RightUpLegRoll/RightLeg 1/RightLegRoll" annotation="None">
-									<node name="RightFoot 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/RightUpLeg 1/RightUpLegRoll/RightLeg 1/RightLegRoll/RightFoot 1" annotation="None">
-										<node name="RightToeBase" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/RightUpLeg 1/RightUpLegRoll/RightLeg 1/RightLegRoll/RightFoot 1/RightToeBase" annotation="None" />
-									</node>
-								</node>
-							</node>
-						</node>
-					</node>
-					<node name="LeftUpLeg 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/LeftUpLeg 1" annotation="None">
-						<node name="LeftUpLegRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/LeftUpLeg 1/LeftUpLegRoll" annotation="None">
-							<node name="LeftLeg 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/LeftUpLeg 1/LeftUpLegRoll/LeftLeg 1" annotation="None">
-								<node name="LeftLegRoll" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/LeftUpLeg 1/LeftUpLegRoll/LeftLeg 1/LeftLegRoll" annotation="None">
-									<node name="LeftFoot 1" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/LeftUpLeg 1/LeftUpLegRoll/LeftLeg 1/LeftLegRoll/LeftFoot 1" annotation="None">
-										<node name="LeftToeBase" path="/RootNode/Skeleton2_Ctrl:Reference/Hips 1/LeftUpLeg 1/LeftUpLegRoll/LeftLeg 1/LeftLegRoll/LeftFoot 1/LeftToeBase" annotation="None" />
+								<node name="PEPE Neck1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1" annotation="None">
+									<node name="PEPE Neck2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2" annotation="None">
+										<node name="PEPE Head" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head" annotation="None"/>
 									</node>
 								</node>
 							</node>
@@ -161,514 +108,6 @@
 					</node>
 				</node>
 			</node>
-			<node name="Skeleton:Root" path="/RootNode/Skeleton:Root" annotation="None">
-				<node name="Skeleton:Reference" path="/RootNode/Skeleton:Root/Skeleton:Reference" annotation="None">
-					<node name="Skeleton:Hips" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips" annotation="None">
-						<node name="Skeleton:RightHips_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy" annotation="None">
-							<node name="Skeleton:RightUpLeg" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg" annotation="None">
-								<node name="Skeleton:RightUpLegRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg/Skeleton:RightUpLegRoll" annotation="None">
-									<node name="Skeleton:RightLeg" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg/Skeleton:RightUpLegRoll/Skeleton:RightLeg" annotation="None">
-										<node name="Skeleton:RightLegRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg/Skeleton:RightUpLegRoll/Skeleton:RightLeg/Skeleton:RightLegRoll" annotation="None">
-											<node name="Skeleton:RightFoot" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg/Skeleton:RightUpLegRoll/Skeleton:RightLeg/Skeleton:RightLegRoll/Skeleton:RightFoot" annotation="None">
-												<node name="Skeleton:RightToes" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg/Skeleton:RightUpLegRoll/Skeleton:RightLeg/Skeleton:RightLegRoll/Skeleton:RightFoot/Skeleton:RightToes" annotation="None">
-													<node name="Skeleton:RightToes_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:RightHips_Dummy/Skeleton:RightUpLeg/Skeleton:RightUpLegRoll/Skeleton:RightLeg/Skeleton:RightLegRoll/Skeleton:RightFoot/Skeleton:RightToes/Skeleton:RightToes_End" annotation="None" />
-												</node>
-											</node>
-										</node>
-									</node>
-								</node>
-							</node>
-						</node>
-						<node name="Skeleton:LeftHips_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy" annotation="None">
-							<node name="Skeleton:LeftUpLeg" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg" annotation="None">
-								<node name="Skeleton:LeftUpLegRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg/Skeleton:LeftUpLegRoll" annotation="None">
-									<node name="Skeleton:LeftLeg" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg/Skeleton:LeftUpLegRoll/Skeleton:LeftLeg" annotation="None">
-										<node name="Skeleton:LeftLegRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg/Skeleton:LeftUpLegRoll/Skeleton:LeftLeg/Skeleton:LeftLegRoll" annotation="None">
-											<node name="Skeleton:LeftFoot" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg/Skeleton:LeftUpLegRoll/Skeleton:LeftLeg/Skeleton:LeftLegRoll/Skeleton:LeftFoot" annotation="None">
-												<node name="Skeleton:LeftToes" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg/Skeleton:LeftUpLegRoll/Skeleton:LeftLeg/Skeleton:LeftLegRoll/Skeleton:LeftFoot/Skeleton:LeftToes" annotation="None">
-													<node name="Skeleton:LeftToes_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:LeftHips_Dummy/Skeleton:LeftUpLeg/Skeleton:LeftUpLegRoll/Skeleton:LeftLeg/Skeleton:LeftLegRoll/Skeleton:LeftFoot/Skeleton:LeftToes/Skeleton:LeftToes_End" annotation="None" />
-												</node>
-											</node>
-										</node>
-									</node>
-								</node>
-							</node>
-						</node>
-						<node name="Skeleton:Spine_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy" annotation="None">
-							<node name="Skeleton:Spine" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine" annotation="None">
-								<node name="Skeleton:Spine1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1" annotation="None">
-									<node name="Skeleton:Spine2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2" annotation="None">
-										<node name="Skeleton:RightShoulder_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy" annotation="None">
-											<node name="Skeleton:RightShoulder" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder" annotation="None">
-												<node name="Skeleton:RightArm_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy" annotation="None">
-													<node name="Skeleton:RightArm" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm" annotation="None">
-														<node name="Skeleton:RightArmRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll" annotation="None">
-															<node name="Skeleton:RightForeArm" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm" annotation="None">
-																<node name="Skeleton:RightForeArmRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll" annotation="None">
-																	<node name="Skeleton:RightHand" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand" annotation="None">
-																		<node name="Skeleton:RightPinky1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightPinky1" annotation="None">
-																			<node name="Skeleton:RightPinky2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightPinky1/Skeleton:RightPinky2" annotation="None">
-																				<node name="Skeleton:RightPinky3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightPinky1/Skeleton:RightPinky2/Skeleton:RightPinky3" annotation="None">
-																					<node name="Skeleton:RightPinky_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightPinky1/Skeleton:RightPinky2/Skeleton:RightPinky3/Skeleton:RightPinky_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:RightRing1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightRing1" annotation="None">
-																			<node name="Skeleton:RightRing2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightRing1/Skeleton:RightRing2" annotation="None">
-																				<node name="Skeleton:RightRing3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightRing1/Skeleton:RightRing2/Skeleton:RightRing3" annotation="None">
-																					<node name="Skeleton:RightRing_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightRing1/Skeleton:RightRing2/Skeleton:RightRing3/Skeleton:RightRing_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:RightMiddle1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightMiddle1" annotation="None">
-																			<node name="Skeleton:RightMiddle2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightMiddle1/Skeleton:RightMiddle2" annotation="None">
-																				<node name="Skeleton:RightMiddle3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightMiddle1/Skeleton:RightMiddle2/Skeleton:RightMiddle3" annotation="None">
-																					<node name="Skeleton:RightMiddle_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightMiddle1/Skeleton:RightMiddle2/Skeleton:RightMiddle3/Skeleton:RightMiddle_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:RightIndex1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightIndex1" annotation="None">
-																			<node name="Skeleton:RightIndex2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightIndex1/Skeleton:RightIndex2" annotation="None">
-																				<node name="Skeleton:RightIndex3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightIndex1/Skeleton:RightIndex2/Skeleton:RightIndex3" annotation="None">
-																					<node name="Skeleton:RightIndex_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightIndex1/Skeleton:RightIndex2/Skeleton:RightIndex3/Skeleton:RightIndex_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:RightThumb1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightThumb1" annotation="None">
-																			<node name="Skeleton:RightThumb2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightThumb1/Skeleton:RightThumb2" annotation="None">
-																				<node name="Skeleton:RightThumb3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightThumb1/Skeleton:RightThumb2/Skeleton:RightThumb3" annotation="None">
-																					<node name="Skeleton:RightThumb_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:RightShoulder_Dummy/Skeleton:RightShoulder/Skeleton:RightArm_Dummy/Skeleton:RightArm/Skeleton:RightArmRoll/Skeleton:RightForeArm/Skeleton:RightForeArmRoll/Skeleton:RightHand/Skeleton:RightThumb1/Skeleton:RightThumb2/Skeleton:RightThumb3/Skeleton:RightThumb_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																	</node>
-																</node>
-															</node>
-														</node>
-													</node>
-												</node>
-											</node>
-										</node>
-										<node name="Skeleton:LeftShoulder_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy" annotation="None">
-											<node name="Skeleton:LeftShoulder" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder" annotation="None">
-												<node name="Skeleton:LeftArm_Dummy" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy" annotation="None">
-													<node name="Skeleton:LeftArm" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm" annotation="None">
-														<node name="Skeleton:LeftArmRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll" annotation="None">
-															<node name="Skeleton:LeftForeArm" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm" annotation="None">
-																<node name="Skeleton:LeftForeArmRoll" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll" annotation="None">
-																	<node name="Skeleton:LeftHand" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand" annotation="None">
-																		<node name="Skeleton:LeftPinky1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftPinky1" annotation="None">
-																			<node name="Skeleton:LeftPinky2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftPinky1/Skeleton:LeftPinky2" annotation="None">
-																				<node name="Skeleton:LeftPinky3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftPinky1/Skeleton:LeftPinky2/Skeleton:LeftPinky3" annotation="None">
-																					<node name="Skeleton:LeftPinky_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftPinky1/Skeleton:LeftPinky2/Skeleton:LeftPinky3/Skeleton:LeftPinky_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:LeftRing1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftRing1" annotation="None">
-																			<node name="Skeleton:LeftRing2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftRing1/Skeleton:LeftRing2" annotation="None">
-																				<node name="Skeleton:LeftRing3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftRing1/Skeleton:LeftRing2/Skeleton:LeftRing3" annotation="None">
-																					<node name="Skeleton:LeftRing_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftRing1/Skeleton:LeftRing2/Skeleton:LeftRing3/Skeleton:LeftRing_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:LeftMiddle1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftMiddle1" annotation="None">
-																			<node name="Skeleton:LeftMiddle2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftMiddle1/Skeleton:LeftMiddle2" annotation="None">
-																				<node name="Skeleton:LeftMiddle3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftMiddle1/Skeleton:LeftMiddle2/Skeleton:LeftMiddle3" annotation="None">
-																					<node name="Skeleton:LeftMiddle_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftMiddle1/Skeleton:LeftMiddle2/Skeleton:LeftMiddle3/Skeleton:LeftMiddle_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:LeftIndex1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftIndex1" annotation="None">
-																			<node name="Skeleton:LeftIndex2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftIndex1/Skeleton:LeftIndex2" annotation="None">
-																				<node name="Skeleton:LeftIndex3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftIndex1/Skeleton:LeftIndex2/Skeleton:LeftIndex3" annotation="None">
-																					<node name="Skeleton:LeftIndex_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftIndex1/Skeleton:LeftIndex2/Skeleton:LeftIndex3/Skeleton:LeftIndex_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																		<node name="Skeleton:LeftThumb1" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftThumb1" annotation="None">
-																			<node name="Skeleton:LeftThumb2" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftThumb1/Skeleton:LeftThumb2" annotation="None">
-																				<node name="Skeleton:LeftThumb3" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftThumb1/Skeleton:LeftThumb2/Skeleton:LeftThumb3" annotation="None">
-																					<node name="Skeleton:LeftThumb_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:LeftShoulder_Dummy/Skeleton:LeftShoulder/Skeleton:LeftArm_Dummy/Skeleton:LeftArm/Skeleton:LeftArmRoll/Skeleton:LeftForeArm/Skeleton:LeftForeArmRoll/Skeleton:LeftHand/Skeleton:LeftThumb1/Skeleton:LeftThumb2/Skeleton:LeftThumb3/Skeleton:LeftThumb_End" annotation="None" />
-																				</node>
-																			</node>
-																		</node>
-																	</node>
-																</node>
-															</node>
-														</node>
-													</node>
-												</node>
-											</node>
-										</node>
-										<node name="Skeleton:Neck" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:Neck" annotation="None">
-											<node name="Skeleton:Head" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:Neck/Skeleton:Head" annotation="None">
-												<node name="Skeleton:Head_End" path="/RootNode/Skeleton:Root/Skeleton:Reference/Skeleton:Hips/Skeleton:Spine_Dummy/Skeleton:Spine/Skeleton:Spine1/Skeleton:Spine2/Skeleton:Neck/Skeleton:Head/Skeleton:Head_End" annotation="None" />
-											</node>
-										</node>
-									</node>
-								</node>
-							</node>
-						</node>
-					</node>
-				</node>
-			</node>
-			<node name="PEPE_Ctrl:Reference" path="/RootNode/PEPE_Ctrl:Reference" annotation="None">
-				<node name="RightFootPinkyEffector" path="/RootNode/PEPE_Ctrl:Reference/RightFootPinkyEffector" annotation="None" />
-				<node name="LeftFootPinkyEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftFootPinkyEffector" annotation="None" />
-				<node name="RightHandRingEffector" path="/RootNode/PEPE_Ctrl:Reference/RightHandRingEffector" annotation="None" />
-				<node name="RightHandMiddleEffector" path="/RootNode/PEPE_Ctrl:Reference/RightHandMiddleEffector" annotation="None" />
-				<node name="RightHandIndexEffector" path="/RootNode/PEPE_Ctrl:Reference/RightHandIndexEffector" annotation="None" />
-				<node name="RightHandThumbEffector" path="/RootNode/PEPE_Ctrl:Reference/RightHandThumbEffector" annotation="None" />
-				<node name="LeftHandRingEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftHandRingEffector" annotation="None" />
-				<node name="LeftHandMiddleEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftHandMiddleEffector" annotation="None" />
-				<node name="LeftHandIndexEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftHandIndexEffector" annotation="None" />
-				<node name="LeftHandThumbEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftHandThumbEffector" annotation="None" />
-				<node name="RightHipEffector" path="/RootNode/PEPE_Ctrl:Reference/RightHipEffector" annotation="None" />
-				<node name="LeftHipEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftHipEffector" annotation="None" />
-				<node name="HeadEffector" path="/RootNode/PEPE_Ctrl:Reference/HeadEffector" annotation="None" />
-				<node name="RightShoulderEffector" path="/RootNode/PEPE_Ctrl:Reference/RightShoulderEffector" annotation="None" />
-				<node name="LeftShoulderEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftShoulderEffector" annotation="None" />
-				<node name="ChestEndEffector" path="/RootNode/PEPE_Ctrl:Reference/ChestEndEffector" annotation="None" />
-				<node name="ChestOriginEffector" path="/RootNode/PEPE_Ctrl:Reference/ChestOriginEffector" annotation="None" />
-				<node name="RightElbowEffector" path="/RootNode/PEPE_Ctrl:Reference/RightElbowEffector" annotation="None" />
-				<node name="LeftElbowEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftElbowEffector" annotation="None" />
-				<node name="RightKneeEffector" path="/RootNode/PEPE_Ctrl:Reference/RightKneeEffector" annotation="None" />
-				<node name="LeftKneeEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftKneeEffector" annotation="None" />
-				<node name="RightWristEffector" path="/RootNode/PEPE_Ctrl:Reference/RightWristEffector" annotation="None" />
-				<node name="LeftWristEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftWristEffector" annotation="None" />
-				<node name="RightAnkleEffector" path="/RootNode/PEPE_Ctrl:Reference/RightAnkleEffector" annotation="None" />
-				<node name="LeftAnkleEffector" path="/RootNode/PEPE_Ctrl:Reference/LeftAnkleEffector" annotation="None" />
-				<node name="HipsEffector" path="/RootNode/PEPE_Ctrl:Reference/HipsEffector" annotation="None" />
-				<node name="Hips" path="/RootNode/PEPE_Ctrl:Reference/Hips" annotation="None">
-					<node name="Spine" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine" annotation="None">
-						<node name="Spine1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1" annotation="None">
-							<node name="Spine2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2" annotation="None">
-								<node name="Spine3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3" annotation="None">
-									<node name="Neck" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/Neck" annotation="None">
-										<node name="Neck1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/Neck/Neck1" annotation="None">
-											<node name="Neck2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/Neck/Neck1/Neck2" annotation="None">
-												<node name="Head" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/Neck/Neck1/Neck2/Head" annotation="None" />
-											</node>
-										</node>
-									</node>
-									<node name="RightShoulder" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder" annotation="None">
-										<node name="RightArm" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm" annotation="None">
-											<node name="RightForeArm" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm" annotation="None">
-												<node name="RightHand" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand" annotation="None">
-													<node name="RightHandRing1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1" annotation="None">
-														<node name="RightHandRing2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2" annotation="None">
-															<node name="RightHandRing3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandRing1/RightHandRing2/RightHandRing3" annotation="None" />
-														</node>
-													</node>
-													<node name="RightHandMiddle1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1" annotation="None">
-														<node name="RightHandMiddle2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2" annotation="None">
-															<node name="RightHandMiddle3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandMiddle1/RightHandMiddle2/RightHandMiddle3" annotation="None" />
-														</node>
-													</node>
-													<node name="RightHandIndex1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1" annotation="None">
-														<node name="RightHandIndex2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2" annotation="None">
-															<node name="RightHandIndex3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandIndex1/RightHandIndex2/RightHandIndex3" annotation="None" />
-														</node>
-													</node>
-													<node name="RightHandThumb1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1" annotation="None">
-														<node name="RightHandThumb2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2" annotation="None">
-															<node name="RightHandThumb3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/RightShoulder/RightArm/RightForeArm/RightHand/RightHandThumb1/RightHandThumb2/RightHandThumb3" annotation="None" />
-														</node>
-													</node>
-												</node>
-											</node>
-										</node>
-									</node>
-									<node name="LeftShoulder" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder" annotation="None">
-										<node name="LeftArm" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm" annotation="None">
-											<node name="LeftForeArm" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm" annotation="None">
-												<node name="LeftHand" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand" annotation="None">
-													<node name="LeftHandRing1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1" annotation="None">
-														<node name="LeftHandRing2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2" annotation="None">
-															<node name="LeftHandRing3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandRing1/LeftHandRing2/LeftHandRing3" annotation="None" />
-														</node>
-													</node>
-													<node name="LeftHandMiddle1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1" annotation="None">
-														<node name="LeftHandMiddle2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2" annotation="None">
-															<node name="LeftHandMiddle3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandMiddle1/LeftHandMiddle2/LeftHandMiddle3" annotation="None" />
-														</node>
-													</node>
-													<node name="LeftHandIndex1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1" annotation="None">
-														<node name="LeftHandIndex2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2" annotation="None">
-															<node name="LeftHandIndex3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandIndex1/LeftHandIndex2/LeftHandIndex3" annotation="None" />
-														</node>
-													</node>
-													<node name="LeftHandThumb1" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1" annotation="None">
-														<node name="LeftHandThumb2" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2" annotation="None">
-															<node name="LeftHandThumb3" path="/RootNode/PEPE_Ctrl:Reference/Hips/Spine/Spine1/Spine2/Spine3/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftHandThumb1/LeftHandThumb2/LeftHandThumb3" annotation="None" />
-														</node>
-													</node>
-												</node>
-											</node>
-										</node>
-									</node>
-								</node>
-							</node>
-						</node>
-					</node>
-					<node name="RightUpLeg" path="/RootNode/PEPE_Ctrl:Reference/Hips/RightUpLeg" annotation="None">
-						<node name="RightLeg" path="/RootNode/PEPE_Ctrl:Reference/Hips/RightUpLeg/RightLeg" annotation="None">
-							<node name="RightFoot" path="/RootNode/PEPE_Ctrl:Reference/Hips/RightUpLeg/RightLeg/RightFoot" annotation="None">
-								<node name="RightFootPinky1" path="/RootNode/PEPE_Ctrl:Reference/Hips/RightUpLeg/RightLeg/RightFoot/RightFootPinky1" annotation="None" />
-							</node>
-						</node>
-					</node>
-					<node name="LeftUpLeg" path="/RootNode/PEPE_Ctrl:Reference/Hips/LeftUpLeg" annotation="None">
-						<node name="LeftLeg" path="/RootNode/PEPE_Ctrl:Reference/Hips/LeftUpLeg/LeftLeg" annotation="None">
-							<node name="LeftFoot" path="/RootNode/PEPE_Ctrl:Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot" annotation="None">
-								<node name="LeftFootPinky1" path="/RootNode/PEPE_Ctrl:Reference/Hips/LeftUpLeg/LeftLeg/LeftFoot/LeftFootPinky1" annotation="None" />
-							</node>
-						</node>
-					</node>
-				</node>
-			</node>
-			<node name="PEPE" path="/RootNode/PEPE" annotation="None">
-				<node name="PEPE Pelvis" path="/RootNode/PEPE/PEPE Pelvis" annotation="None">
-					<node name="PEPE Spine" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine" annotation="None">
-						<node name="PEPE R Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh" annotation="None">
-							<node name="PEPE R Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf" annotation="None">
-								<node name="PEPE R Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot" annotation="None">
-									<node name="PEPE R Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0" annotation="None">
-										<node name="PEPE R Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0/PEPE R Toe0Nub" annotation="None" />
-									</node>
-								</node>
-							</node>
-						</node>
-						<node name="PEPE L Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh" annotation="None">
-							<node name="PEPE L Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf" annotation="None">
-								<node name="PEPE L Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot" annotation="None">
-									<node name="PEPE L Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0" annotation="None">
-										<node name="PEPE L Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0/PEPE L Toe0Nub" annotation="None" />
-									</node>
-								</node>
-							</node>
-						</node>
-						<node name="PEPE Spine1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1" annotation="None">
-							<node name="PEPE Spine2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2" annotation="None">
-								<node name="PEPE Spine3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3" annotation="None">
-									<node name="PEPE Neck" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck" annotation="None">
-										<node name="PEPE R Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle" annotation="None">
-											<node name="PEPE R UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm" annotation="None">
-												<node name="PEPE R Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm" annotation="None">
-													<node name="PEPE R Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand" annotation="None">
-														<node name="PEPE R Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3" annotation="None">
-															<node name="PEPE R Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31" annotation="None">
-																<node name="PEPE R Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32" annotation="None">
-																	<node name="PEPE R Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32/PEPE R Finger3Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="PEPE R Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2" annotation="None">
-															<node name="PEPE R Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21" annotation="None">
-																<node name="PEPE R Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22" annotation="None">
-																	<node name="PEPE R Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22/PEPE R Finger2Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="PEPE R Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1" annotation="None">
-															<node name="PEPE R Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11" annotation="None">
-																<node name="PEPE R Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12" annotation="None">
-																	<node name="PEPE R Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12/PEPE R Finger1Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="PEPE R Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0" annotation="None">
-															<node name="PEPE R Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01" annotation="None">
-																<node name="PEPE R Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02" annotation="None">
-																	<node name="PEPE R Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02/PEPE R Finger0Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-													</node>
-												</node>
-											</node>
-										</node>
-										<node name="PEPE L Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle" annotation="None">
-											<node name="PEPE L UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm" annotation="None">
-												<node name="PEPE L Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm" annotation="None">
-													<node name="PEPE L Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand" annotation="None">
-														<node name="PEPE L Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3" annotation="None">
-															<node name="PEPE L Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31" annotation="None">
-																<node name="PEPE L Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32" annotation="None">
-																	<node name="PEPE L Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32/PEPE L Finger3Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="PEPE L Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2" annotation="None">
-															<node name="PEPE L Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21" annotation="None">
-																<node name="PEPE L Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22" annotation="None">
-																	<node name="PEPE L Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22/PEPE L Finger2Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="PEPE L Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1" annotation="None">
-															<node name="PEPE L Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11" annotation="None">
-																<node name="PEPE L Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12" annotation="None">
-																	<node name="PEPE L Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12/PEPE L Finger1Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-														<node name="PEPE L Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0" annotation="None">
-															<node name="PEPE L Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01" annotation="None">
-																<node name="PEPE L Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02" annotation="None">
-																	<node name="PEPE L Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02/PEPE L Finger0Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-													</node>
-												</node>
-											</node>
-										</node>
-										<node name="PEPE Neck1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1" annotation="None">
-											<node name="PEPE Neck2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2" annotation="None">
-												<node name="PEPE Head" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head" annotation="None">
-													<node name="PEPE Ponytail1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1" annotation="None">
-														<node name="PEPE Ponytail11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11" annotation="None">
-															<node name="PEPE Ponytail12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11/PEPE Ponytail12" annotation="None">
-																<node name="PEPE Ponytail13" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11/PEPE Ponytail12/PEPE Ponytail13" annotation="None">
-																	<node name="PEPE Ponytail1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11/PEPE Ponytail12/PEPE Ponytail13/PEPE Ponytail1Nub" annotation="None" />
-																</node>
-															</node>
-														</node>
-													</node>
-													<node name="PEPE HeadNub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE HeadNub" annotation="None" />
-												</node>
-											</node>
-										</node>
-									</node>
-								</node>
-							</node>
-						</node>
-					</node>
-				</node>
-				<node name="PEPE Footsteps" path="/RootNode/PEPE/PEPE Footsteps" annotation="None" />
-			</node>
-			<node name="PEPE_Mesh" path="/RootNode/PEPE_Mesh" annotation="None" />
 		</node>
 	</structure>
-    <annotation>
-        <node name="PEPE Pelvis" path="/RootNode/PEPE/PEPE Pelvis" annotation="None">
-            <node name="PEPE Spine" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine" annotation="None">
-                <node name="PEPE R Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh" annotation="None">
-                    <node name="PEPE R Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf" annotation="None">
-                        <node name="PEPE R Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot" annotation="None">
-                            <node name="PEPE R Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0" annotation="None">
-                                <node name="PEPE R Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE R Thigh/PEPE R Calf/PEPE R Foot/PEPE R Toe0/PEPE R Toe0Nub" annotation="None" />
-                            </node>
-                        </node>
-                    </node>
-                </node>
-                <node name="PEPE L Thigh" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh" annotation="None">
-                    <node name="PEPE L Calf" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf" annotation="None">
-                        <node name="PEPE L Foot" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot" annotation="None">
-                            <node name="PEPE L Toe0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0" annotation="None">
-                                <node name="PEPE L Toe0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE L Thigh/PEPE L Calf/PEPE L Foot/PEPE L Toe0/PEPE L Toe0Nub" annotation="None" />
-                            </node>
-                        </node>
-                    </node>
-                </node>
-                <node name="PEPE Spine1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1" annotation="None">
-                    <node name="PEPE Spine2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2" annotation="None">
-                        <node name="PEPE Spine3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3" annotation="None">
-                            <node name="PEPE Neck" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck" annotation="None">
-                                <node name="PEPE R Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle" annotation="None">
-                                    <node name="PEPE R UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm" annotation="None">
-                                        <node name="PEPE R Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm" annotation="None">
-                                            <node name="PEPE R Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand" annotation="None">
-                                                <node name="PEPE R Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3" annotation="None">
-                                                    <node name="PEPE R Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31" annotation="None">
-                                                        <node name="PEPE R Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32" annotation="None">
-                                                            <node name="PEPE R Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger3/PEPE R Finger31/PEPE R Finger32/PEPE R Finger3Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                                <node name="PEPE R Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2" annotation="None">
-                                                    <node name="PEPE R Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21" annotation="None">
-                                                        <node name="PEPE R Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22" annotation="None">
-                                                            <node name="PEPE R Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger2/PEPE R Finger21/PEPE R Finger22/PEPE R Finger2Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                                <node name="PEPE R Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1" annotation="None">
-                                                    <node name="PEPE R Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11" annotation="None">
-                                                        <node name="PEPE R Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12" annotation="None">
-                                                            <node name="PEPE R Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger1/PEPE R Finger11/PEPE R Finger12/PEPE R Finger1Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                                <node name="PEPE R Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0" annotation="None">
-                                                    <node name="PEPE R Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01" annotation="None">
-                                                        <node name="PEPE R Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02" annotation="None">
-                                                            <node name="PEPE R Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE R Clavicle/PEPE R UpperArm/PEPE R Forearm/PEPE R Hand/PEPE R Finger0/PEPE R Finger01/PEPE R Finger02/PEPE R Finger0Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                            </node>
-                                        </node>
-                                    </node>
-                                </node>
-                                <node name="PEPE L Clavicle" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle" annotation="None">
-                                    <node name="PEPE L UpperArm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm" annotation="None">
-                                        <node name="PEPE L Forearm" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm" annotation="None">
-                                            <node name="PEPE L Hand" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand" annotation="None">
-                                                <node name="PEPE L Finger3" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3" annotation="None">
-                                                    <node name="PEPE L Finger31" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31" annotation="None">
-                                                        <node name="PEPE L Finger32" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32" annotation="None">
-                                                            <node name="PEPE L Finger3Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger3/PEPE L Finger31/PEPE L Finger32/PEPE L Finger3Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                                <node name="PEPE L Finger2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2" annotation="None">
-                                                    <node name="PEPE L Finger21" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21" annotation="None">
-                                                        <node name="PEPE L Finger22" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22" annotation="None">
-                                                            <node name="PEPE L Finger2Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger2/PEPE L Finger21/PEPE L Finger22/PEPE L Finger2Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                                <node name="PEPE L Finger1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1" annotation="None">
-                                                    <node name="PEPE L Finger11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11" annotation="None">
-                                                        <node name="PEPE L Finger12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12" annotation="None">
-                                                            <node name="PEPE L Finger1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger1/PEPE L Finger11/PEPE L Finger12/PEPE L Finger1Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                                <node name="PEPE L Finger0" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0" annotation="None">
-                                                    <node name="PEPE L Finger01" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01" annotation="None">
-                                                        <node name="PEPE L Finger02" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02" annotation="None">
-                                                            <node name="PEPE L Finger0Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE L Clavicle/PEPE L UpperArm/PEPE L Forearm/PEPE L Hand/PEPE L Finger0/PEPE L Finger01/PEPE L Finger02/PEPE L Finger0Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                            </node>
-                                        </node>
-                                    </node>
-                                </node>
-                                <node name="PEPE Neck1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1" annotation="None">
-                                    <node name="PEPE Neck2" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2" annotation="None">
-                                        <node name="PEPE Head" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head" annotation="None">
-                                            <node name="PEPE Ponytail1" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1" annotation="None">
-                                                <node name="PEPE Ponytail11" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11" annotation="None">
-                                                    <node name="PEPE Ponytail12" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11/PEPE Ponytail12" annotation="None">
-                                                        <node name="PEPE Ponytail13" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11/PEPE Ponytail12/PEPE Ponytail13" annotation="None">
-                                                            <node name="PEPE Ponytail1Nub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE Ponytail1/PEPE Ponytail11/PEPE Ponytail12/PEPE Ponytail13/PEPE Ponytail1Nub" annotation="None" />
-                                                        </node>
-                                                    </node>
-                                                </node>
-                                            </node>
-                                            <node name="PEPE HeadNub" path="/RootNode/PEPE/PEPE Pelvis/PEPE Spine/PEPE Spine1/PEPE Spine2/PEPE Spine3/PEPE Neck/PEPE Neck1/PEPE Neck2/PEPE Head/PEPE HeadNub" annotation="None" />
-                                        </node>
-                                    </node>
-                                </node>
-                            </node>
-                        </node>
-                    </node>
-                </node>
-            </node>
-        </node>
-    </annotation>
 </scene>

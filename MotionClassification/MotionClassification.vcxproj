@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -19,13 +19,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v110</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -53,14 +53,14 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Václav\Documents\Visual Studio 2012\glm;C:\Users\Václav\Documents\Visual Studio 2012\Eigen;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\include;C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Václav\Documents\Visual Studio 2012\glm;C:\Users\Václav\Documents\Visual Studio 2012\Eigen;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib\vs2012\x86\debug\libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\debug\libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -73,15 +73,15 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Users\Václav\Documents\Visual Studio 2012\glm;C:\Users\Václav\Documents\Visual Studio 2012\Eigen;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\include;C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Václav\Documents\Visual Studio 2012\glm;C:\Users\Václav\Documents\Visual Studio 2012\Eigen;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\include;C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>C:\Program Files\Autodesk\FBX\FBX SDK\2014.2.1\lib\vs2012\x86\release\libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib;C:\Users\Václav\Documents\Visual Studio 2012\AntTweakBar\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\Program Files\Autodesk\FBX\FBX SDK\2015.1\lib\vs2013\x86\release\libfbxsdk-md.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -89,9 +89,11 @@
     <ClCompile Include="DataConvertor.cpp" />
     <ClCompile Include="FbxSceneExporter.cpp" />
     <ClCompile Include="FbxSceneLoader.cpp" />
+    <ClCompile Include="FbxSceneXmlHelper.cpp" />
     <ClCompile Include="JoinBaseData.cpp" />
     <ClCompile Include="KeyFrameExtractor.cpp" />
     <ClCompile Include="LearnDataContainer.cpp" />
+    <ClCompile Include="LearnDataXmlHelper.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Motion.cpp" />
     <ClCompile Include="MotionClassifier.cpp" />
@@ -104,15 +106,18 @@
     <ClCompile Include="Skeleton.cpp" />
     <ClCompile Include="SkeletonNode.cpp" />
     <ClCompile Include="XmlHelper.cpp" />
+    <ClCompile Include="XmlNode.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationCurve.h" />
     <ClInclude Include="DataConvertor.h" />
     <ClInclude Include="FbxSceneExporter.h" />
     <ClInclude Include="FbxSceneLoader.h" />
+    <ClInclude Include="FbxSceneXmlHelper.h" />
     <ClInclude Include="JoinBaseData.h" />
     <ClInclude Include="KeyFrameExtractor.h" />
     <ClInclude Include="LearnDataContainer.h" />
+    <ClInclude Include="LearnDataXmlHelper.h" />
     <ClInclude Include="Motion.h" />
     <ClInclude Include="MotionClassifier.h" />
     <ClInclude Include="MotionClassRecognizer.h" />
@@ -132,6 +137,7 @@
     <ClInclude Include="SkeletonNode.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="XmlHelper.h" />
+    <ClInclude Include="XmlNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

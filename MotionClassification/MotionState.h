@@ -3,6 +3,7 @@
 #define MOTIONSTATE_H
 
 #include "JoinBaseData.h"
+#include "Vector.h"
 
 class MotionState : public JoinBaseData
 {

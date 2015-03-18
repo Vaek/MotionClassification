@@ -114,6 +114,8 @@ int main(int argc, char** argv) {
 	int toDo = INT_MAX;
 	if (argc-1 > 0) toDo = atoi(argv[1]);
 
+	container.loadLearnedData();
+
 	switch (toDo) {
 	case 0:
 		exportFbxStructure(argv[2]);
@@ -128,8 +130,11 @@ int main(int argc, char** argv) {
 		loop();
 		break;
 	}
-	
-	container.saveLearnedData();
+
+	std::cout << "Save learned data? [y/n]" << std::endl;
+	std::string save;
+	std::cin >> save;
+	if (save == "y" || save == "Y") container.saveLearnedData();
 
 	cleanUp();	
 	return 0;
