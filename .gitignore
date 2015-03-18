@@ -1,5 +1,8 @@
-Debug
+Debug/
+Release/
 /MotionClassification.v11.suo
 /MotionClassification.opensdf
 /MotionClassification.sdf
 /MotionClassification.sln
+MotionClassification/Release/
+MotionClassification/Debug/
