@@ -7,11 +7,11 @@
 #include "LearnDataXmlHelper.h"
 
 #define MIN_SIMILARITY 0
-#define EXPORT_FILE_NAME "learned_data"
+#define EXPORT_FILE_NAME "learned_data.xml"
 
 LearnDataContainer::LearnDataContainer() : LearnDataContainer(EXPORT_FILE_NAME) { }
 
-LearnDataContainer::LearnDataContainer(const std::string fileName) : fileName(fileName) { }
+LearnDataContainer::LearnDataContainer(const std::string _fileName) : fileName(_fileName) { }
 
 LearnDataContainer::~LearnDataContainer() { }
 
