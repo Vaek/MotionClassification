@@ -7,3 +7,10 @@ Release/
 MotionClassification/Release/
 MotionClassification/Debug/
 MotionClassification.v12.suo
+MotionClassification/glm/
+MotionClassification/data/
+MotionClassification/MotionClassification.vcxproj
+MotionClassification/MotionClassification.vcxproj.filters
+MotionClassification/MotionClassification.vcxproj.user
+MotionClassification/motion.txt
+MotionClassification/skeleton.txt
