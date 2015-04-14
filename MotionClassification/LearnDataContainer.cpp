@@ -47,7 +47,7 @@ MotionFrame accumulateImportanceAndCreateAverageFrame(std::vector<MotionFrame>& 
 	}
 	for each (auto importance in privateImportances) {
 		auto tmp = importances.find(importance.first);
-		if (tmp == privateImportances.end()) {
+		if (tmp == importances.end()) {
 			importances.insert(importance);
 		} else {
 			tmp->second += importance.second/(commonFrames.size()-1);
