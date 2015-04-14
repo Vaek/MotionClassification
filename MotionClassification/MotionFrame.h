@@ -16,6 +16,7 @@ public:
 	void addMotionState(const MotionState state);
 	MotionState getMotionState(std::string name);
 	bool hasMotionState(std::string name);
+	MotionFrame averageWithFrame(MotionFrame& frameB);
 
 	const MotionStateMap getAllStates();
 

@@ -17,8 +17,9 @@ public:
 	bool MotionComparator::operator<(const MotionComparator& rhs) const;
 	MotionComparator& operator=(const MotionComparator& comparator);
 
+	static double stateDifference(MotionState learnedState, MotionState recognizingState);
+
 private:
-	double stateDifference(MotionState learnedState, MotionState recognizingState);
 
 	const int startOffset;
 	const std::vector<MotionFrame>& learnedData;

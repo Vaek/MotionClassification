@@ -42,14 +42,12 @@ void MotionComparator::compareFrame(int frame) {
 		int numCompares = 0;
 		for (auto learnedPair : learned.getAllStates()) {
 			auto learnedState = learnedPair.second;
-//			try {
 			if (recognize.hasMotionState(learnedState.getName())) {
 				auto recogState = recognize.getMotionState(learnedState.getName());
 
 				distance += stateDifference(learnedState, recogState);
 				numCompares++;
 			}
-//			} catch (int e) { }
 		}
 		frameSimilarity =  1.0-(distance/numCompares);
 	}

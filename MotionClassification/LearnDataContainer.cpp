@@ -19,9 +19,67 @@ void LearnDataContainer::updateLearnMotion(std::string motionClass, MotionObject
 	this->data.insert(std::pair<std::string, MotionObject>(motionClass, motionObject));
 }
 
-std::vector<MotionFrame> LearnDataContainer::getLearnMotionObject(std::string motionClass) {
-	MotionObject motionObject;
-	return motionObject;
+MotionFrame accumulateImportanceAndCreateAverageFrame(std::vector<MotionFrame>& commonFrames, std::map<std::string, double>& importances) {
+	std::map<std::string, double> privateImportances;
+	MotionFrame finalFrame = commonFrames.at(0);
+	for (int i = 1; i < commonFrames.size(); i++) {
+		auto frameA = commonFrames.at(i - 1);
+		auto frameB = commonFrames.at(i);
+		for each (auto statePair in frameA.getAllStates()) {
+			auto state = statePair.second;
+			if (frameB.hasMotionState(state.getName())) {
+				double importance = 1.0 - MotionComparator::stateDifference(state, frameB.getMotionState(state.getName()));
+				auto savedImportance = privateImportances.find(state.getName());
+				if (savedImportance == privateImportances.end()) {
+					privateImportances.insert(std::pair<std::string, double>(state.getName(), importance));
+				} else {
+					savedImportance->second += importance;
+				}
+
+			} else {
+				if (privateImportances.find(state.getName()) == privateImportances.end()) {
+					privateImportances.insert(std::pair<std::string, double>(state.getName(), 0));
+				}
+			}
+		}
+		finalFrame = finalFrame.averageWithFrame(frameB);
+		// todo combine states to final frame
+	}
+	for each (auto importance in privateImportances) {
+		auto tmp = importances.find(importance.first);
+		if (tmp == privateImportances.end()) {
+			importances.insert(importance);
+		} else {
+			tmp->second += importance.second/(commonFrames.size()-1);
+		}
+	}
+	return finalFrame;
+}
+
+void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, std::vector<MotionObject> keyframes) {
+	int commonLength = INT_MAX;
+	MotionObject combined;
+	for each (auto mo in keyframes) {
+		commonLength = std::min(commonLength, (int)mo.size());
+	}
+
+	std::map<std::string, double> importances;
+
+	for (int i = 0; i < commonLength; i++) {
+		std::vector<MotionFrame> commonFrames;
+		for each (auto mo in keyframes) {
+			commonFrames.push_back(mo.at(i));
+		}
+		combined.push_back(accumulateImportanceAndCreateAverageFrame(commonFrames, importances));
+	}
+
+	for each (auto importance in importances) combined.setNodeImportance(importance.first, importance.second / commonLength);
+
+	this->updateLearnMotion(motionClass, combined);
+}
+
+MotionObject LearnDataContainer::getLearnMotionObject(std::string motionClass) {
+	return this->data.find(motionClass)->second;
 }
 
 std::string LearnDataContainer::recognizeMotionClass(MotionObject motionObject) {

@@ -6,7 +6,8 @@
 #include <vector>
 #include "MotionFrame.h"
 #include "Motion.h"
+#include "MotionObject.h"
 
-std::vector<MotionFrame> extractKeyFrames(Motion* Motion);
+MotionObject extractKeyFrames(Motion* Motion);
 
 #endif //KEYFRAMEEXTRACTOR_H

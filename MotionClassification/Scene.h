@@ -6,17 +6,18 @@
 #include <string>
 #include "Skeleton.h"
 #include "Motion.h"
+#include "MotionObject.h"
 
 class Scene {
 public:
 	Scene();
 	~Scene();
 
-	void exportFbxSceneStructure(const std::string filePath, FbxManager* manager);
+	void exportSceneStructure(const std::string filePath, FbxManager* manager);
 	void loadAnnotatedScene(const std::string annotatedPath, FbxManager* manager);
 	void exportSkeleton(const std::string filePath);
 	void exportMotion(const std::string filePath);
-	std::vector<MotionFrame> extractMotionKeyFrames();
+	MotionObject extractMotionKeyFrames();
 
 	Skeleton* getSkeleton();
 	Motion* getMotion();

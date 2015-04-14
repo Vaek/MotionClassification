@@ -65,7 +65,6 @@ bool LearnDataXmlHelper::createMotionObjectFile(std::string filePath, MotionObje
 
 std::map<std::string, MotionObject> LearnDataXmlHelper::readDocument() {
 	std::map<std::string, MotionObject> data;
-
 	std::stack<pugi::xml_node> stack;
 
 	stack.push(mXmlDocument.child(NODE_MOTION_CLASS));
@@ -77,10 +76,15 @@ std::map<std::string, MotionObject> LearnDataXmlHelper::readDocument() {
 			stack.push(child);
 		}
 		for (pugi::xml_node child = node.child(NODE_MOTION_OBJECT); child; child = child.next_sibling(NODE_MOTION_OBJECT)) {
-			std::string name = child.attribute(ATTR_NAME2).value();
-			int length = std::stoi(child.attribute(ATTR_LENGTH).value());
-			std::string path = child.attribute(ATTR_PATH2).value();
-			data.insert(std::pair<std::string, MotionObject>(name, loadMotionObject(name, length, path)));
+			try {
+				std::string name = child.attribute(ATTR_NAME2).value();
+				int length = std::stoi(child.attribute(ATTR_LENGTH).value());
+				std::string path = child.attribute(ATTR_PATH2).value();
+				data.insert(std::pair<std::string, MotionObject>(name, loadMotionObject(name, length, path)));
+				std::cout << "Loaded motion object " << name << std::endl;
+			} catch (std::string e) {
+				std::cout << e << std::endl;
+			}
 		}
 	}
 	return data;
@@ -109,13 +113,14 @@ MotionObject LearnDataXmlHelper::loadMotionObject(std::string name, int lenght, 
 			
 			if (!tokens.empty()) {
 				if (tokens.at(0) == "frame") {// << "frame " << i << std::endl;
+					if (std::stoi(tokens.at(1)) > 0) mo.push_back(frame);
 					frameNum = std::stoi(tokens.at(1));
 					frame = MotionFrame();
 				} else {
 					MotionState state(tokens.at(0));
-					std::array<double, 3> rotation = { std::stod(tokens.at(3)), std::stod(tokens.at(4)), std::stod(tokens.at(5)) };
-					std::array<double, 3> scaling = { std::stod(tokens.at(6)), std::stod(tokens.at(7)), std::stod(tokens.at(8)) };
-					std::array<double, 3> translation = { std::stod(tokens.at(9)), std::stod(tokens.at(10)), std::stod(tokens.at(11)) };
+					std::array<double, 3> rotation = { std::stod(tokens.at(2)), std::stod(tokens.at(3)), std::stod(tokens.at(4)) };
+					std::array<double, 3> translation = { std::stod(tokens.at(5)), std::stod(tokens.at(6)), std::stod(tokens.at(7)) };
+					std::array<double, 3> scaling = { std::stod(tokens.at(8)), std::stod(tokens.at(9)), std::stod(tokens.at(10)) }; 
 					state.setRotation(rotation);
 					state.setScaling(scaling);
 					state.setTranslation(translation);
@@ -123,7 +128,10 @@ MotionObject LearnDataXmlHelper::loadMotionObject(std::string name, int lenght, 
 				}
 			}
 		}
+		mo.push_back(frame);
 		file.close();
+	} else {
+		throw std::string("File "+filePath+" not found.");;
 	}
 	return mo;
 }

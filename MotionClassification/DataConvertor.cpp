@@ -217,6 +217,7 @@ std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::string
 			queue.push(std::make_pair(child,path));
 		}
 
+		node_pair.second = path;
 		for (auto annotatedPath : annotatedNodes) {
 			if (annotatedPath == path) {
 				nodes.push_back(node_pair);
@@ -306,6 +307,12 @@ std::vector<std::array<double, 3>> getTransformations(FbxNode* node, FbxAnimLaye
 
 	if (curveX && curveY && curveZ) {
 		int minKeys = std::min(std::min(curveX->KeyGetCount(), curveY->KeyGetCount()), curveZ->KeyGetCount());
+//		std::cout << minKeys << "\t" << curveX->KeyGetCount() << "\t" << curveY->KeyGetCount() << "\t" << curveZ->KeyGetCount() << node->GetName() << std::endl;
+		/*
+		if (minKeys<curveX->KeyGetCount() || minKeys<curveY->KeyGetCount() || minKeys<curveZ->KeyGetCount()) {
+			std::cout << "reduce animation curve lenght " << node->GetName() << " to " << minKeys << std::endl;
+		}
+		*/
 		transformations.resize(minKeys);
 		for(int k = 0; k<minKeys; ++k) {
 			FbxAnimCurveKey keyX = curveX->KeyGet(k);
@@ -316,6 +323,9 @@ std::vector<std::array<double, 3>> getTransformations(FbxNode* node, FbxAnimLaye
 //			float lKeyValue = keyX.GetValue();
 //			std::cout << keyX.GetTime().Get() << ": " <<  lKeyValue << "\n";
 		}
+	}
+	else {
+//		std::cout << node->GetName() << " has not animation curve " << std::endl;
 	}
 
 	return transformations;
@@ -330,15 +340,16 @@ Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes) {
 
 //	std::vector<FbxNode*> nodes;
 //	const auto nodes = getAllSkeletonFbxNodes2(root);
-	std::cout << "nodes " <<  nodes.size()<<"\n";
+	std::cout << "nodes " <<  nodes.size() << std::endl;
 	if (stack) {
-		std::cout << "got stack\n";
+		std::cout << "got stack" << std::endl;
 
 		motion = new Motion();
-		for (int l = 0; l < stack->GetMemberCount(); l++) {
+		int animLayers = stack->GetMemberCount<FbxAnimLayer>();
+		for (int l = 0; l < animLayers; l++) {
 			FbxAnimLayer* layer = (FbxAnimLayer*)stack->GetMember(l);
-			std::cout << layer->GetName() << '\n';
-
+			std::cout << layer->GetName() << std::endl;
+			// iterate over nodes for which should be loaded animation
 			for (auto&child_pair: nodes) {
 				auto child=child_pair.first;
 				AnimationCurve* aCurve = new AnimationCurve(child->GetName());
@@ -347,13 +358,13 @@ Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes) {
 				std::vector<std::array<double, 3>> translations = getTransformations(child, layer, TRANSLATION);
 				std::vector<std::array<double, 3>> scalings = getTransformations(child, layer, SCALING);
 
-				int frames = std::min(std::min(rotations.size(), translations.size()), scalings.size());
+				int frames = std::max(std::max(rotations.size(), translations.size()), scalings.size());
 				aCurve->reserve(frames);
 
 				for (int f = 0; f < frames; f++) {
-					aCurve->setRotation(f, rotations[f]);
-					aCurve->setTranslation(f, translations[f]);
-					aCurve->setScaling(f, scalings[f]);
+					if (rotations.size() > f) aCurve->setRotation(f, rotations[f]);
+					if (translations.size() > f) aCurve->setTranslation(f, translations[f]);
+					if (scalings.size() > f) aCurve->setScaling(f, scalings[f]);
 				}
 				motion->addAnimationCurve(aCurve->getName(), aCurve);
 			}

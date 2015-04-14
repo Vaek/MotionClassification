@@ -12,10 +12,7 @@ public:
 	~XmlHelper();
 
 	void parseXml(const std::string filePath);
-	void createDocument(FbxScene* scene, const std::string filePath);
 	void printXml(const std::string filePath = nullptr);
-	std::string getSourceFbx();
-	std::vector<std::string> getAnnotations();
 
 	pugi::xml_document getDocument();
 

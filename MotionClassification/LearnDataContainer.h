@@ -5,9 +5,8 @@
 #include <map>
 #include <string>
 #include "MotionFrame.h"
+#include "MotionObject.h"
 #include "XmlHelper.h"
-
-typedef std::vector<MotionFrame> MotionObject;
 
 class LearnDataContainer {
 public:
@@ -16,6 +15,7 @@ public:
 	~LearnDataContainer();
 
 	void updateLearnMotion(std::string motionClass, MotionObject motionObject);
+	void combineAndUpdateLearnMotion(std::string motionClass, std::vector<MotionObject> keyframes);
 	MotionObject getLearnMotionObject(std::string motionClass);
 	std::string recognizeMotionClass(MotionObject motionObject);
 

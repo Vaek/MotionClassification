@@ -5,6 +5,8 @@
 #include "FbxSceneLoader.h"
 #include "KeyFrameExtractor.h"
 #include "FbxSceneXmlHelper.h"
+#include "BvhSceneXmlHelper.h"
+#include "bvh\bvh.h"
 
 Scene::Scene() {
 	this->skeleton = nullptr;
@@ -24,7 +26,7 @@ Motion* Scene::getMotion() {
 	return this->motion;
 }
 
-std::vector<MotionFrame> Scene::extractMotionKeyFrames() {
+MotionObject Scene::extractMotionKeyFrames() {
 	return extractKeyFrames(getMotion());
 }
 
@@ -38,25 +40,40 @@ FbxScene* Scene::loadFbxSceneFile(const std::string filePath, FbxManager* manage
 	return fbxScene;
 }
 
-void Scene::exportFbxSceneStructure(const std::string filePath, FbxManager* manager) {
-	auto scene = loadFbxSceneFile(filePath, manager);
-	if (!scene) {
-		std::cout << "Can not load file to export." << std::endl;
-		return;
+void Scene::exportSceneStructure(const std::string filePath, FbxManager* manager) {
+	std::string exportFilePath = filePath.substr(0, filePath.find_last_of(".") + 1).append("xml");
+
+//	if (true || filePath.find(".fbx") != std::string::npos) {
+		auto scene = loadFbxSceneFile(filePath, manager);
+		if (!scene) {
+			std::cout << "Can not load file to export." << std::endl;
+			return;
+		}
+
+		FbxSceneXmlHelper helper;
+		helper.createDocument(scene, filePath);
+		helper.printXml(exportFilePath);
+		std::cout << "Structure is stored in: " << exportFilePath << std::endl;
+/*
+	} else if (false && filePath.find(".bvh") != std::string::npos) {
+		Bvh scene;
+		if (!scene.load(filePath)) {
+			std::cout << "Can not load file to export." << std::endl;
+			return;
+		}
+
+		BvhSceneXmlHelper helper;
+		helper.createDocument(scene, filePath);
+		helper.printXml(exportFilePath);
+		std::cout << "Structure is stored in: " << exportFilePath << std::endl;
 	}
-
-	std::string exportFilePath = filePath.substr(0, filePath.find_last_of(".")+1).append("xml");
-
-	FbxSceneXmlHelper helper;
-	helper.createDocument(scene, filePath);
-	helper.printXml(exportFilePath);
-	std::cout << "Structure is stored in: " << exportFilePath << std::endl;
+*/
 }
 
 void Scene::loadAnnotatedScene(const std::string annotatedPath, FbxManager* manager) {
 	FbxSceneXmlHelper helper;
 	helper.parseXml(annotatedPath);
-	auto fbxPath = helper.getSourceFbx();
+	auto fbxPath = helper.getSourceFilePath();
 	if (!fbxPath.empty()) {
 		auto scene = loadFbxSceneFile(fbxPath, manager);
 		if (!scene) {

@@ -37,3 +37,13 @@ const std::array<double,3> JoinBaseData::getRotation() const {
 const std::array<double,3> JoinBaseData::getScaling() const {
 	return this->scaling;
 }
+
+double JoinBaseData::getSize(std::array<double, 3> arr3d) {
+	double size = 0;
+
+	for (int i = 0; i < 3; i++) {
+		size = std::pow(arr3d[i], 2);
+	}
+
+	return std::sqrt(size);
+}

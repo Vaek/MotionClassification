@@ -4,11 +4,10 @@
 <!ELEMENT annotation (node)>
 
 <!ATTLIST scene source_fbx CDATA #REQUIRED>
-<!ATTLIST node
-        name CDATA #REQUIRED
-        path CDATA #REQUIRED
-        animationLength CDATA
-        annotation (None|Hips|Spin|Spin1|Spin2|Neck|Head|RightShoulder|RightArm|RightArmRoll|RightForeArm|RightForeArmRoll|
+<!ATTLIST node name CDATA #REQUIRED>
+<!ATTLIST node path CDATA #REQUIRED>
+<!ATTLIST node animationLength CDATA #REQUIRED>
+<!ATTLIST node annotation (None|Hips|Spin|Spin1|Spin2|Neck|Head|RightShoulder|RightArm|RightArmRoll|RightForeArm|RightForeArmRoll|
                 RightHand|RightHandThumb1|RightHandThumb2|RightHandThumb3|RightHandThumb4|RightHandIndex1|RightHandIndex2|
                 RightHandIndex3|RightHandIndex4|RightHandMiddle1|RightHandMiddle2|RightHandMiddle3|RightHandMiddle4|RightHandRing1|
                 RightHandRing2|RightHandRing3|RightHandRing4|RightHandPinky1|RightHandPinky2|RightHandPinky3|RightHandPinky4|

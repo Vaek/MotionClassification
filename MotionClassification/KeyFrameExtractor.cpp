@@ -8,28 +8,18 @@
 #define MAX_ROTATION		100
 #define MAX_SCALING			100
 
-double getSize(std::array<double, 3> arr3d) {
-	double size = 0;
-	
-	for (int i = 0; i < 3; i++) {
-		size = std::pow(arr3d[i], 2);
-	}
-
-	return std::sqrt(size);
-}
-
 void acumulateTransformation(MotionFrame frame, double& translationSize) {
 	for (auto state : frame.getAllStates()) {
-		translationSize += getSize(state.second.getTranslation());
-	}	
+		translationSize += MotionState::getSize(state.second.getTranslation());
+	}
 }
 
 MotionFrame getMiddleFrame(std::vector<MotionFrame> frames) {
 	return frames.at((int)std::floor(frames.size()/2));
 }
 
-std::vector<MotionFrame> extractKeyFrames(Motion* motion) {
-	std::vector<MotionFrame> keyFrames;
+MotionObject extractKeyFrames(Motion* motion) {
+	MotionObject keyFrames;
 	
 	if (motion && motion->getMotionLength()>0) {
 		std::vector<MotionFrame> partition;

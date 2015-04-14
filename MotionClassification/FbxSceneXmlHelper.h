@@ -4,19 +4,16 @@
 
 #include <fbxsdk.h>
 #include <vector>
-#include "XmlHelper.h"
+#include "AnnotationXmlHelper.h"
 
-class FbxSceneXmlHelper : public XmlHelper {
+class FbxSceneXmlHelper : public AnnotationXmlHelper {
 public:
 	FbxSceneXmlHelper();
 	~FbxSceneXmlHelper();
 
 	void createDocument(FbxScene* data, const std::string filePath);
-	std::string getSourceFbx();
-	std::vector<std::string> getAnnotations();
 
 private:
-	pugi::xml_node getAnnotation();
 
 };
 

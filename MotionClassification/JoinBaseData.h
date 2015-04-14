@@ -19,6 +19,8 @@ public:
 	const std::array<double,3> getRotation() const;
 	const std::array<double,3> getScaling() const;
 
+	static double getSize(std::array<double, 3> arr3d);
+
 private:
 	const std::string name;
 	std::array<double,3> translation, rotation, scaling;
