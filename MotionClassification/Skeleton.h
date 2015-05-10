@@ -10,6 +10,7 @@ public:
 	
 	Skeleton* setRoot(SkeletonNode* root);
 	SkeletonNode* getRoot();
+	std::map<std::string, double> getNodeOfssets();
 	
 	friend std::ostream& operator<<(std::ostream& out, const Skeleton& node);
 private:

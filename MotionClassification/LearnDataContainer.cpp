@@ -2,12 +2,11 @@
 #include "LearnDataContainer.h"
 #include <cmath>
 #include <queue>
-#include "MotionClassRecognizer.h"
 #include <fstream>
 #include "LearnDataXmlHelper.h"
+#include <iomanip>
 
-#define MIN_SIMILARITY 0
-#define EXPORT_FILE_NAME "learned_data.xml"
+#define EXPORT_FILE_NAME "./learned/learned_data.xml"
 
 LearnDataContainer::LearnDataContainer() : LearnDataContainer(EXPORT_FILE_NAME) { }
 
@@ -16,10 +15,12 @@ LearnDataContainer::LearnDataContainer(const std::string _fileName) : fileName(_
 LearnDataContainer::~LearnDataContainer() { }
 
 void LearnDataContainer::updateLearnMotion(std::string motionClass, MotionObject motionObject) {
-	this->data.insert(std::pair<std::string, MotionObject>(motionClass, motionObject));
+	if (this->data.insert(std::pair<std::string, MotionObject>(motionClass, motionObject)).second == false) {
+		this->data[motionClass] = motionObject;
+	}
 }
 
-MotionFrame accumulateImportanceAndCreateAverageFrame(std::vector<MotionFrame>& commonFrames, std::map<std::string, double>& importances) {
+std::pair<std::map<std::string, double>, MotionFrame> computeImportanceAndCreateAverageFrame(std::vector<MotionFrame>& commonFrames) {
 	std::map<std::string, double> privateImportances;
 	MotionFrame finalFrame = commonFrames.at(0);
 	for (int i = 1; i < commonFrames.size(); i++) {
@@ -45,22 +46,39 @@ MotionFrame accumulateImportanceAndCreateAverageFrame(std::vector<MotionFrame>& 
 		finalFrame = finalFrame.averageWithFrame(frameB);
 		// todo combine states to final frame
 	}
+
+	std::map<std::string, double> finalImportances;
 	for each (auto importance in privateImportances) {
-		auto tmp = importances.find(importance.first);
-		if (tmp == importances.end()) {
-			importances.insert(importance);
-		} else {
-			tmp->second += importance.second/(commonFrames.size()-1);
-		}
+		finalImportances.insert(std::pair<std::string, double>(importance.first, importance.second / (commonFrames.size() - 1)));
 	}
-	return finalFrame;
+	return std::pair<std::map<std::string, double>, MotionFrame> (finalImportances, finalFrame);
 }
 
 void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, std::vector<MotionObject> keyframes) {
 	int commonLength = INT_MAX;
 	MotionObject combined;
+	std::map<std::string, double> combinedOffsets;
+	double maxNodeOffset = 0;
 	for each (auto mo in keyframes) {
 		commonLength = std::min(commonLength, (int)mo.size());
+
+		for each (auto offsetPair in mo.getNodeOffsets()) {
+			if (offsetPair.second > maxNodeOffset) {
+				maxNodeOffset = offsetPair.second;
+			}
+			auto tmp = combinedOffsets.find(offsetPair.first);
+			if (tmp == combinedOffsets.end()) {
+				combinedOffsets.insert(offsetPair);
+			}
+			else {
+				tmp->second += offsetPair.second;
+			}
+		}
+	}
+
+	for each (auto offsetPair in combinedOffsets) {
+		offsetPair.second = offsetPair.second / keyframes.size();
+		combined.setNodeOffset(offsetPair);
 	}
 
 	std::map<std::string, double> importances;
@@ -70,10 +88,30 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 		for each (auto mo in keyframes) {
 			commonFrames.push_back(mo.at(i));
 		}
-		combined.push_back(accumulateImportanceAndCreateAverageFrame(commonFrames, importances));
+
+		auto importanceFramePair = computeImportanceAndCreateAverageFrame(commonFrames);
+
+		for each (auto importance in importanceFramePair.first) {
+			auto tmp = importances.find(importance.first);
+			if (tmp == importances.end()) {
+				importances.insert(importance);
+			} else {
+				tmp->second += importance.second;
+			}
+		}
+
+		combined.push_back(importanceFramePair.second);
 	}
 
-	for each (auto importance in importances) combined.setNodeImportance(importance.first, importance.second / commonLength);
+	std::cout << "Most important joints are:" << std::endl;
+	for each (auto importance in importances) {
+		auto offsetQuatient = combined.getNodeOffset(importance.first) / maxNodeOffset;
+		auto finalCombinedImportance = importance.second / commonLength * offsetQuatient;
+		combined.setNodeImportance(importance.first, finalCombinedImportance);
+		if (finalCombinedImportance > MotionObject::IMPORTANCE_LIMIT) {
+			std::cout << "\t" << std::setw(17) << std::left << importance.first << finalCombinedImportance << std::endl;
+		}
+	}
 
 	this->updateLearnMotion(motionClass, combined);
 }
@@ -81,7 +119,7 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 MotionObject LearnDataContainer::getLearnMotionObject(std::string motionClass) {
 	return this->data.find(motionClass)->second;
 }
-
+/*
 std::string LearnDataContainer::recognizeMotionClass(MotionObject motionObject) {
 	std::vector<MotionClassRecognizer> recognizingQueue;
 
@@ -104,13 +142,62 @@ std::string LearnDataContainer::recognizeMotionClass(MotionObject motionObject) 
 	for (int i=0; i<recognizingQueue.size(); i++) {
 		auto recognizer = recognizingQueue.at(i);
 		auto comparator = recognizer.getBestComparator();
-		if (comparator.getSimilarity() > MIN_SIMILARITY && comparator.getSimilarity() > bestSimilarity) {
+		if (comparator.getSimilarity() > MotionClassRecognizer::RECOGNIZE_LIMIT && comparator.getSimilarity() > bestSimilarity) {
 			bestClass = recognizer.getClassName();
 			bestSimilarity = comparator.getSimilarity();
 		}
 	}
 
 	return bestClass;
+}
+*/
+std::vector<MotionClassRecognizer> LearnDataContainer::proccesRecognizing(MotionObject motionObject) {
+	std::vector<MotionClassRecognizer> recognizingQueue;
+
+	for (auto learned : this->data) {
+		recognizingQueue.push_back(MotionClassRecognizer(learned.first, learned.second, motionObject));
+	}
+
+	for (auto recognizer : recognizingQueue) {
+		recognizer.compareFrames();
+	}
+
+	std::cout << std::endl;
+	return recognizingQueue;
+}
+
+
+std::map<std::pair<long, long>, std::string> LearnDataContainer::recognizeMotionClass(MotionObject motionObject) {
+//	auto proccesedRecognizers = proccesRecognizing(motionObject);
+	std::vector<MotionClassRecognizer> proccesedRecognizers;
+
+	for (auto learned : this->data) {
+		auto recognizer = MotionClassRecognizer(learned.first, learned.second, motionObject);
+		recognizer.compareFrames();
+		proccesedRecognizers.push_back(recognizer);
+		std::cout << std::endl;
+	}
+	/*
+	for (auto recognizer : proccesedRecognizers) {
+		recognizer.compareFrames();
+	}
+	*/
+	std::map<std::pair<long, long>, std::string> results;
+
+	for (auto recognizer : proccesedRecognizers) {
+		auto comparators = recognizer.getBestComparators();
+		for each (auto comparator in comparators) {
+			if (comparator.getSimilarity() > MotionClassRecognizer::RECOGNIZE_LIMIT) {
+				auto range = comparator.getRange();
+				range.first = std::max(0L, range.first);
+				range.second = std::min((long)motionObject.size(), range.second);
+
+				results.insert(std::pair<std::pair<long, long>, std::string>(range, recognizer.getClassName()));
+			}
+		}
+	}
+
+	return results;
 }
 
 bool LearnDataContainer::saveLearnedData() {

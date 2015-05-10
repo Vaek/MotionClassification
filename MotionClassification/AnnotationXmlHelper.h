@@ -11,7 +11,7 @@ public:
 	~AnnotationXmlHelper();
 
 	std::string getSourceFilePath();
-	std::vector<std::string> getAnnotations();
+	std::vector<std::pair<std::string, std::string>> getAnnotations();
 
 	static const char* NODE_SCENE;
 	static const char* NODE_STRUCTURE;

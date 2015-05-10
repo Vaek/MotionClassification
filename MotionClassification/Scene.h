@@ -13,7 +13,7 @@ public:
 	Scene();
 	~Scene();
 
-	void exportSceneStructure(const std::string filePath, FbxManager* manager);
+	std::string exportSceneStructure(const std::string filePath, FbxManager* manager);
 	void loadAnnotatedScene(const std::string annotatedPath, FbxManager* manager);
 	void exportSkeleton(const std::string filePath);
 	void exportMotion(const std::string filePath);

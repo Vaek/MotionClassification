@@ -16,6 +16,11 @@ int Motion::getMotionLength() {
 	return this->motionLength;
 }
 
+std::array<double, 3> getNullTranformation() {
+	std::array<double, 3> transformation = {0, 0, 0};
+	return transformation;
+}
+
 MotionFrame Motion::getFrame(int frame) {
 	MotionFrame motionFrame;
 	for (auto it = curves.begin(); it != curves.end(); ++it) {
@@ -25,6 +30,12 @@ MotionFrame Motion::getFrame(int frame) {
 			state.setTranslation(curve->getTranslation(frame));
 			state.setRotation(curve->getRotation(frame));
 			state.setScaling(curve->getScaling(frame));
+			motionFrame.addMotionState(state);
+		} else {
+			MotionState state(it->first);
+			state.setTranslation(getNullTranformation());
+			state.setRotation(getNullTranformation());
+			state.setScaling(getNullTranformation());
 			motionFrame.addMotionState(state);
 		}
     }

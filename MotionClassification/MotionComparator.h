@@ -4,28 +4,33 @@
 
 #include <vector>
 #include "MotionFrame.h"
+#include "MotionObject.h"
 
 class MotionComparator {
 public:
-	MotionComparator(const int startOffset, const std::vector<MotionFrame>& learnedData, const std::vector<MotionFrame>& recognizingData);
+	MotionComparator(const int startOffset, const MotionObject& learnedData, const MotionObject& recognizingData);
 	MotionComparator(const MotionComparator& comparator);
 	~MotionComparator();
-	
-	void compareFrame(int frame);
 
+	bool compareFrame(int frame);
+	bool compareNextFrame();
+
+	const double getCumulateDifference() const;
 	const double getSimilarity() const;
-	bool MotionComparator::operator<(const MotionComparator& rhs) const;
+	std::pair<long, long> getRange();
+	bool operator<(const MotionComparator& rhs) const;
+	bool operator==(const MotionComparator& rhs) const;
 	MotionComparator& operator=(const MotionComparator& comparator);
 
 	static double stateDifference(MotionState learnedState, MotionState recognizingState);
-
+	
 private:
+	int lastFrame;
+	int startOffset;
+	MotionObject learnedData;
+	MotionObject recognizingData;
 
-	const int startOffset;
-	const std::vector<MotionFrame>& learnedData;
-	const std::vector<MotionFrame>& recognizingData;
-
-	double similarity;
+	double difference;
 	int comparedFrames;
 };
 

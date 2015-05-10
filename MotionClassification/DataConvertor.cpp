@@ -38,37 +38,80 @@ SkeletonNode* copyFbxNodeToSkeletonNode(FbxNode* fbxNode) {
 	}
 }
 
-SkeletonNode* copyFbxNodeToSkeletonNode2(FbxNode* fbxNode, std::vector<node_info> annotatedNodes) {
-	SkeletonNode* skeletonNode = new SkeletonNode(fbxNode->GetName());
-		
-	FbxDouble3 translation = fbxNode->LclTranslation.Get(); 
-	FbxDouble3 rotation = fbxNode->LclRotation.Get(); 
-	FbxDouble3 scaling = fbxNode->LclScaling.Get();
-		
-	std::array<double, 3> translationArray = {translation.mData[0], translation.mData[1], translation.mData[2]};
-	std::array<double, 3> rotationArray = {rotation.mData[0], rotation.mData[1], rotation.mData[2]};
-	std::array<double, 3> scalingArray = {scaling.mData[0], scaling.mData[1], scaling.mData[2]};
+bool isAnnotatedNode(FbxNode* fbxNode, std::vector<node_info>& annotatedNodes) {
+	for (auto annotatedNode : annotatedNodes) {
+		if (annotatedNode.first->GetName() == fbxNode->GetName()) {
+			return true;
+		}
+	}
+	return false;
+}
 
-	skeletonNode->setTranslation(translationArray)
-				->setRotation(rotationArray)
-				->setScaling(scalingArray);
+std::vector<SkeletonNode*> copyFbxNodeToSkeletonNode2(FbxNode* fbxNode, std::vector<node_info> annotatedNodes, std::vector<std::pair<std::string, std::string>> pathsNames) {
+	std::vector<SkeletonNode*> nodes;
+
+	std::string name;
+	for (auto annotatedNode : annotatedNodes) {
+		if (annotatedNode.first->GetName() == fbxNode->GetName()) {
+			name = getAnnotatedName(pathsNames, annotatedNode.second);
+			break;
+		}
+	}
+	SkeletonNode* skeletonNode = nullptr;
+	if (!name.empty()) {
+		if (name == "None") name = fbxNode->GetName();
+		skeletonNode = new SkeletonNode(name);
+
+		FbxDouble3 translation = fbxNode->LclTranslation.Get();
+		FbxDouble3 rotation = fbxNode->LclRotation.Get();
+		FbxDouble3 scaling = fbxNode->LclScaling.Get();
+
+		std::array<double, 3> translationArray = { translation.mData[0], translation.mData[1], translation.mData[2] };
+		std::array<double, 3> rotationArray = { rotation.mData[0], rotation.mData[1], rotation.mData[2] };
+		std::array<double, 3> scalingArray = { scaling.mData[0], scaling.mData[1], scaling.mData[2] };
+
+		skeletonNode
+			->setTranslation(translationArray)
+			->setRotation(rotationArray)
+			->setScaling(scalingArray);
+
+		nodes.push_back(skeletonNode);
+	}
 
 	for(int i = 0; i < fbxNode->GetChildCount(); i++) {
 		auto childFbxNode = fbxNode->GetChild(i);
+
+		std::vector<SkeletonNode*> children = copyFbxNodeToSkeletonNode2(childFbxNode, annotatedNodes, pathsNames);
+		if (skeletonNode) {
+			for each (SkeletonNode* child in children) {
+				if (child) {
+					skeletonNode->addChild(child);
+				}
+			}
+		} else {
+			for each (SkeletonNode* child in children) {
+				if (child) {
+					nodes.push_back(child);
+				}
+			}
+		}
+		/*
 		SkeletonNode* child = nullptr;
+
 		for (auto annotatedNode : annotatedNodes) {
 			if (annotatedNode.first->GetName() == childFbxNode->GetName()) {
-				child = copyFbxNodeToSkeletonNode2(childFbxNode, annotatedNodes);
+				child = copyFbxNodeToSkeletonNode2(childFbxNode, annotatedNodes, pathsNames);
 				break;
 			}
 		}
-		
+		child->getChildren
 		if (child) {
 			skeletonNode->addChild(child);
 		}
+		*/
 	}
 
-	return skeletonNode;
+	return nodes;
 }
 
 std::vector<FbxNode*> getSkeletonFbxNodes(FbxNode* fbxNode) {
@@ -121,13 +164,25 @@ Skeleton* fbxToSkeleton(FbxScene* scene) {
 	return skeleton;
 }
 
-Skeleton* fbxToSkeleton(FbxScene* scene, std::vector<node_info> annotatedNodes) {	
+std::string getAnnotatedName(std::vector<std::pair<std::string, std::string>> pathsNames, std::string fbxPath) {
+	for each (auto pathName in pathsNames) {
+		if (pathName.first == fbxPath) {
+			return pathName.second;
+		}
+	}
+	return "None";
+}
+
+Skeleton* fbxToSkeleton(FbxScene* scene, std::vector<node_info> annotatedNodes, std::vector<std::pair<std::string, std::string>> pathsNames) {
 	Skeleton* skeleton = nullptr;
 	
-	FbxNode* skeletonRootNode = findRootSkeletonNode(scene->GetRootNode(), annotatedNodes);
-	if (skeletonRootNode) {
+	auto skeletonRootNode = findRootSkeletonNode(scene->GetRootNode(), annotatedNodes);
+	if (skeletonRootNode.first) {
 		skeleton = new Skeleton();
-		skeleton->setRoot(copyFbxNodeToSkeletonNode2(skeletonRootNode, annotatedNodes));
+		auto nodes = copyFbxNodeToSkeletonNode2(skeletonRootNode.first, annotatedNodes, pathsNames);
+		if (nodes.size() > 0) {
+			skeleton->setRoot(nodes.at(0));
+		}
 	}
 
 	return skeleton;
@@ -173,7 +228,7 @@ std::vector<node_info> getAllFbxNodesWithPaths(FbxNode* root) {
 	return nodes;
 }
 
-FbxNode* findRootSkeletonNode(FbxNode* root, std::vector<node_info> annotatedNodes) {
+std::pair<FbxNode*, std::string> findRootSkeletonNode(FbxNode* root, std::vector<node_info> annotatedNodes) {
 	std::queue<node_info> queue;
 	queue.push(std::make_pair(root,""));
 
@@ -190,16 +245,16 @@ FbxNode* findRootSkeletonNode(FbxNode* root, std::vector<node_info> annotatedNod
 		}
 
 		for (auto annotatedNode : annotatedNodes) {
-			if (annotatedNode.second + "/" + annotatedNode.first->GetName() == path) {
-				return node;
+			if (annotatedNode.second == path) {
+				return std::pair<FbxNode*, std::string>(node, path);
 			}
 		}
 	}
 
-	return nullptr;
+	return std::pair<FbxNode*, std::string>(nullptr, "");
 }
 
-std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::string> annotatedNodes) {
+std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::pair<std::string, std::string>> annotatedNodes) {
 	std::queue<node_info> queue;
 	std::vector<node_info> nodes;
 
@@ -219,9 +274,26 @@ std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::string
 
 		node_pair.second = path;
 		for (auto annotatedPath : annotatedNodes) {
-			if (annotatedPath == path) {
+			if (annotatedPath.first == path) {
 				nodes.push_back(node_pair);
 			}
+		}
+	}
+	std::vector<std::string> notFoundannotatedNodes;
+	for each (auto path in annotatedNodes) {
+		bool found = false;
+		for each (auto nodeInfo in nodes) {
+			if (nodeInfo.second == path.first) {
+				found = true;
+				break;
+			}
+		}
+		if (!found) notFoundannotatedNodes.push_back(path.first);
+	}
+	if (!notFoundannotatedNodes.empty()) {
+		std::cout << "Can not find these nodes:" << std::endl;
+		for each (auto path in notFoundannotatedNodes) {
+			std::cout << path << std::endl;
 		}
 	}
 
@@ -331,7 +403,7 @@ std::vector<std::array<double, 3>> getTransformations(FbxNode* node, FbxAnimLaye
 	return transformations;
 }
 
-Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes) {
+Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes, std::vector<std::pair<std::string, std::string>> pathsNames) {
 	Motion* motion = nullptr;
 	int numStacks = scene->GetSrcObjectCount<FbxAnimStack>();
 	std::cout << "stacks: " << numStacks << "\n";
@@ -352,7 +424,9 @@ Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes) {
 			// iterate over nodes for which should be loaded animation
 			for (auto&child_pair: nodes) {
 				auto child=child_pair.first;
-				AnimationCurve* aCurve = new AnimationCurve(child->GetName());
+				auto name = getAnnotatedName(pathsNames, child_pair.second);
+				if (name == "None") name = child->GetName();
+				AnimationCurve* aCurve = new AnimationCurve(name);
 //				std::cout << "\t" << child->GetName()<<": ";
 				std::vector<std::array<double, 3>> rotations = getTransformations(child, layer, ROTATION);
 				std::vector<std::array<double, 3>> translations = getTransformations(child, layer, TRANSLATION);

@@ -14,3 +14,5 @@ MotionClassification/MotionClassification.vcxproj.filters
 MotionClassification/MotionClassification.vcxproj.user
 MotionClassification/motion.txt
 MotionClassification/skeleton.txt
+MotionClassification/recognize/
+MotionClassification/learned/

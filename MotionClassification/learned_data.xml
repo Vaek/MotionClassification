@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<!DOCTYPE motion_class SYSTEM "learned_data.dtd">
-<motion_class>
-	<motion_object name="walk" length="31" path="walk" />
-</motion_class>

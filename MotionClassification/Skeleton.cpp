@@ -1,5 +1,6 @@
 
 #include "Skeleton.h"
+#include <queue>
 
 Skeleton::Skeleton() : root(nullptr) {
 }
@@ -16,6 +17,31 @@ Skeleton* Skeleton::setRoot(SkeletonNode* root) {
 
 SkeletonNode* Skeleton::getRoot() {
 	return this->root;
+}
+
+std::map<std::string, double> Skeleton::getNodeOfssets() {
+	std::queue<SkeletonNode*> queue;
+	queue.push(root);
+	std::map<std::string, double> offsets;
+	while (!queue.empty()) {
+		auto node = queue.front();
+		queue.pop();
+
+		for each (auto child in node->getChildren()) {
+			queue.push(child.second);
+		}
+
+		double offset = 0;
+		if (node != root) {
+			for (int i = 0; i < 3; i++) {
+				offset += std::pow(node->getTranslation()[i], 2);
+			}
+		}
+
+		offsets.insert(std::pair<std::string, double>(node->getName(), std::sqrt(offset)));
+	}
+
+	return offsets;
 }
 
 std::ostream& operator<< (std::ostream& out, Skeleton& node) {

@@ -7,6 +7,7 @@
 #include "MotionFrame.h"
 #include "MotionObject.h"
 #include "XmlHelper.h"
+#include "MotionClassRecognizer.h"
 
 class LearnDataContainer {
 public:
@@ -17,7 +18,8 @@ public:
 	void updateLearnMotion(std::string motionClass, MotionObject motionObject);
 	void combineAndUpdateLearnMotion(std::string motionClass, std::vector<MotionObject> keyframes);
 	MotionObject getLearnMotionObject(std::string motionClass);
-	std::string recognizeMotionClass(MotionObject motionObject);
+//	std::string recognizeMotionClass(MotionObject motionObject);
+	std::map<std::pair<long, long>, std::string> recognizeMotionClass(MotionObject motionObject);
 
 	bool saveLearnedData();
 	bool loadLearnedData();
@@ -25,6 +27,8 @@ public:
 private:
 	const std::string fileName;
 	std::map<std::string, MotionObject> data;
+
+	std::vector<MotionClassRecognizer> proccesRecognizing(MotionObject motionObject);
 };
 
 #endif //!LEARNDATACONTAINER_H

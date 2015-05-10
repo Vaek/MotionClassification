@@ -22,10 +22,11 @@ SkeletonNode* SkeletonNode::addChild(SkeletonNode* child) {
 SkeletonNodeMap& SkeletonNode::getChildren() {
 	return this->children;
 }
-const SkeletonNodeMap& SkeletonNode::getChildren() const
-{
+
+const SkeletonNodeMap& SkeletonNode::getChildren() const {
 	return this->children;
 }
+
 std::ostream& operator<<(std::ostream& out, const SkeletonNode& node) {
 	out << "{" <<
 		   "name : " << node.getName() << ",\n";

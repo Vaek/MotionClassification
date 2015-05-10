@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <iomanip>
 
 // Math library glm
 //#include <glm/glm.hpp> 
@@ -43,9 +44,9 @@ static void initFbxManager() {
 	manager->SetIOSettings(ioSettings);
 }
 
-void exportStructure(const std::string motionFilePath) {
+std::string exportStructure(const std::string motionFilePath) {
 	Scene scene;
-	scene.exportSceneStructure(motionFilePath, manager);
+	return scene.exportSceneStructure(motionFilePath, manager);
 }
 
 Scene* loadScene(const std::string annotationPath) {
@@ -61,6 +62,32 @@ void printHelp() {
 			  << "recognize motion data\t\t\t3" << std::endl
 			  << "clear loaded scenes\t\t\t4" << std::endl
 			  << "exit\t\t\t\t\t-1" << std::endl << std::endl;
+}
+
+void recognizeMotion(Scene* scene) {
+	if (scene) {
+		auto recognizes = container.recognizeMotionClass(scene->extractMotionKeyFrames());
+		std::cout << "Recognized motions:" << std::endl;
+		if (recognizes.empty()) {
+			std::cout << "\tNo motions recognized!" << std::endl;
+		} else {
+			for each (auto recognize in recognizes) {
+				std::cout << "\t" << std::setw(17) << recognize.second << " from: " << recognize.first.first << " to: " << recognize.first.second << std::endl;
+			}
+		}
+	} else {
+		std::cout << "No motion to recognize." << std::endl;
+	}
+}
+
+void recognizeMotion(std::string filePath) {
+	if (filePath.find(".xml") == std::string::npos) {
+		filePath = exportStructure(filePath);
+		if (filePath.empty()) return;
+		std::cout << "File you passed is not annotated. In file " << filePath << " is created structure. Set Annotation and then click to continue." << std::endl;
+		std::cin.get();
+	}
+	recognizeMotion(loadScene(filePath));
 }
 
 void loop(){
@@ -108,9 +135,10 @@ void loop(){
 			break;
 		}
 
-		case 3:
-			std::cout << "Best motion class is " << container.recognizeMotionClass(lastLoadedScene->extractMotionKeyFrames()) << std::endl;
+		case 3: {
+			recognizeMotion(lastLoadedScene);
 			break;
+		}
 
 		case 4:
 			clearLoadedScenes();
@@ -126,20 +154,65 @@ void loop(){
 }
 
 int ARG_INDEX_LOAD_LEARNED_DATA = 1;
-int ARG_INDEX_TODO = 2;
+int ARG_INDEX_SAVE_LEARNED_DATA = 2;
+int ARG_INDEX_TODO = 3;
 
-// todo == 0
-int ARG_INDEX_MOTION_FILE = 3;
+// todo == 0 -> export file structure
+int ARG_INDEX_MOTION_FILE = 4;
 
-// todo = 1
-int ARG_INDEX_MOTION_CLASS_NAME = 3;
-int ARG_INDEX_ANNOTATED_FILE_FIRST = 4;
+// todo == 1 -> learn motion from annotated files
+int ARG_INDEX_MOTION_CLASS_NAME = 4;
+int ARG_INDEX_ANNOTATED_FILE_FIRST = 5;
 
-// todo == otherwise
+// todo == 2 -> recognize motion
+int ARG_INDEX_MOTION_FILE2 = 4;
+
+// todo == 3 -> run custome loop
 // run custome loop
+
+/*
+1 1 1 run "./data/run/51 - run.xml" "./data/run/52 - run.xml" "./data/run/53 - run.xml" "./data/run/54 - run.xml" "./data/run/55 - run.xml"
+1 1 1 step_left "./data/step_left/15 - walk_left.xml" "./data/step_left/16 - walk_left.xml" "./data/step_left/21 - walk_left.xml" "./data/step_left/22 - walk_left.xml" "./data/step_left/31 - walk_left.xml"
+1 1 1 jumpf "./data/jumpf/16_05.xml" "./data/jumpf/16_06.xml" "./data/jumpf/16_07.xml" "./data/jumpf/16_09.xml" "./data/jumpf/16_10.xml"
+1 0 2 "./recognize/16_28_walk_90leftturn.bvh"
+1 0 2 "./recognize/16_28_walk_90leftturn.xml"
+*/
+
+class Test
+{
+public:
+	Test(double _key) : key(_key) {};
+	~Test() {};
+
+	bool operator<(const Test& rhs) const {
+		return this->key < rhs.key;
+	}
+
+	void changeKey() {
+		key = key*key;
+	}
+private:
+	double key;
+};
 
 // Main
 int main(int argc, char** argv) {
+
+	/*
+	std::priority_queue<Test> tq;
+	tq.push(Test(0.0));
+	tq.push(Test(0.1));
+	tq.push(Test(0.2));
+	tq.push(Test(0.3));
+	tq.push(Test(0.4));
+
+	for (auto i = 0; i < tq.size(); i++) {
+		auto tmp = tq.top();
+		tq.pop();
+		tmp.changeKey();
+		tq.push(tmp);
+	}
+	*/
 
 	std::cout << "Run with " << argc << " parameters: ";
 	for (size_t i = 1; i < argc; i++) std::cout << argv[i] << " ";
@@ -149,12 +222,12 @@ int main(int argc, char** argv) {
 	initFbxManager();
 
 	// load learned data
-	bool load = false;
-	if (argc > 1 && atoi(argv[ARG_INDEX_LOAD_LEARNED_DATA]) == 1) load = true;
-	if (load) container.loadLearnedData();
+	if (argc > ARG_INDEX_LOAD_LEARNED_DATA && atoi(argv[ARG_INDEX_LOAD_LEARNED_DATA]) == 1)  {
+		container.loadLearnedData();
+	}
 
 	int toDo = INT_MAX;
-	if (argc > 2) toDo = atoi(argv[ARG_INDEX_TODO]);
+	if (argc > ARG_INDEX_TODO) toDo = atoi(argv[ARG_INDEX_TODO]);
 
 	switch (toDo) {
 	case 0:
@@ -163,29 +236,45 @@ int main(int argc, char** argv) {
 
 	case 1: {
 		// learn annotated files
+		const clock_t begin_time = clock();
+		int scenesLengt = 0;
 		for (int i = ARG_INDEX_ANNOTATED_FILE_FIRST; i < argc; i++) {
 			loadedScenes.push_back(loadScene(argv[i]));
 		}
+		std::cout << "Extracting keyframes" << std::endl;
 		std::vector<MotionObject> keyFrames;
 		if (loadedScenes.size() > 1) {
 			for each (Scene* scene in loadedScenes) {
+				scenesLengt += scene->getMotion()->getMotionLength();
 				keyFrames.push_back(scene->extractMotionKeyFrames());
 			}
 		}
+		std::cout << "Combining Motions to one" << std::endl;
 		container.combineAndUpdateLearnMotion(argv[ARG_INDEX_MOTION_CLASS_NAME], keyFrames);
-		break;
-			}
 
-	default:
-		loop();
+		std::cout << "Learn in " << float(clock() - begin_time) / CLOCKS_PER_SEC << std::endl;
+		std::cout << "Scenes " << loadedScenes.size() << std::endl;
+		std::cout << "Scenes lenght " << scenesLengt / loadedScenes.size() << std::endl;
 		break;
 	}
 
-	if (load) {
-		std::cout << "Save learned data? [y/n]" << std::endl;
-		std::string save;
-		std::cin >> save;
-		if (save == "y" || save == "Y") container.saveLearnedData();
+	case 2: {
+		recognizeMotion(argv[ARG_INDEX_MOTION_FILE2]);
+		break;
+	}
+
+	case 3:
+		loop();
+		break;
+
+	default:
+		std::cout << "Unknown DO." << std::endl;
+		break;
+	}
+
+	if (argc > ARG_INDEX_SAVE_LEARNED_DATA && atoi(argv[ARG_INDEX_SAVE_LEARNED_DATA]) == 1) {
+		std::cout << "Saving learned data." << std::endl;
+		container.saveLearnedData();
 	}
 
 	cleanUp();	

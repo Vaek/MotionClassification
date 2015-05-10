@@ -22,8 +22,8 @@ pugi::xml_node AnnotationXmlHelper::getAnnotation() {
 	return mXmlDocument.child(NODE_SCENE).child(NODE_ANNOTATION);
 }
 
-std::vector<std::string> AnnotationXmlHelper::getAnnotations() {
-	std::vector<std::string> annotation;
+std::vector<std::pair<std::string, std::string>> AnnotationXmlHelper::getAnnotations() {
+	std::vector<std::pair<std::string, std::string>> annotation;
 	std::stack<pugi::xml_node> stack;
 
 	stack.push(getAnnotation().child(XmlNode::NODE_NODE));
@@ -32,7 +32,7 @@ std::vector<std::string> AnnotationXmlHelper::getAnnotations() {
 		auto node = stack.top();
 		stack.pop();
 
-		annotation.push_back(node.attribute(XmlNode::ATTR_PATH).value());
+		annotation.push_back(std::pair<std::string, std::string>(node.attribute(XmlNode::ATTR_PATH).value(), node.attribute(XmlNode::ATTR_ANNOTATION).value()));
 		for (pugi::xml_node child = node.child(XmlNode::NODE_NODE); child; child = child.next_sibling(XmlNode::NODE_NODE)) {
 			stack.push(child);
 		}
