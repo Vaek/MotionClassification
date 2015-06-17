@@ -17,13 +17,13 @@ void MotionClassRecognizer::createComparators() {
 	int minOffset = 1 - learnedData.size() + std::min((int)learnedData.size()-1, MIN_COMMON_COMPARE_SIZE);
 	int maxOffset = recognizingData.size() - 1 - std::min((int)learnedData.size() - 1, MIN_COMMON_COMPARE_SIZE);
 
-	std::cout << "Creating MotionComparators for " << this->motionClassName << ". " << learnedData.size() << " " << recognizingData.size() << std::endl;
+	std::clog << "Creating MotionComparators for " << this->motionClassName << ". " << learnedData.size() << " " << recognizingData.size() << "\n";
 	const clock_t begin_time = clock();
 	for (int offset = minOffset; offset <= maxOffset; offset++) {
-		std::cout << "Created " << offset - minOffset << "/" << maxOffset - minOffset << " from " << offset << '\xd';
+		std::clog << "Created " << offset - minOffset << "/" << maxOffset - minOffset << " from " << offset << '\xd';
 		this->comparators.push(MotionComparator(offset, learnedData, recognizingData));
 	}
-	std::cout << std::endl << "average create time = " << float(clock() - begin_time) / CLOCKS_PER_SEC / (maxOffset - minOffset + 1) << std::endl;
+	std::clog << "\n" << "average create time = " << float(clock() - begin_time) / CLOCKS_PER_SEC / (maxOffset - minOffset + 1) << "\n";
 }
 
 std::vector<MotionComparator> MotionClassRecognizer::getBestComparators() {
@@ -31,14 +31,16 @@ std::vector<MotionComparator> MotionClassRecognizer::getBestComparators() {
 	/*
 	std::vector<MotionComparator> toReturn;
 
-	std::cout << "Comparing " << this->motionClassName << std::endl;
+	std::clog << "Comparing " << this->motionClassName << "
+";
 	while (!comparators.empty()) {
 		auto comparator = comparators.top();
 		if (comparator.getSimilarity() > RECOGNIZE_LIMIT) {
 			toReturn.push_back(comparator);
 		}
 		comparators.pop();
-		std::cout << " comparator similarity = " << comparator.getSimilarity() << std::endl;
+		std::clog << " comparator similarity = " << comparator.getSimilarity() << "
+";
 	}
 	return toReturn;
 	*/
@@ -49,7 +51,7 @@ std::string MotionClassRecognizer::getClassName() {
 }
 
 bool MotionClassRecognizer::compareFrames() {
-	std::cout << "Comparing " << this->motionClassName << std::endl;
+	std::clog << "Comparing " << this->motionClassName << "\n";
 	bool goOn;
 	do {
 		goOn = false;
@@ -64,16 +66,16 @@ bool MotionClassRecognizer::compareFrames() {
 		}
 	} while (goOn);
 
-	std::cout << "best comparators:" << std::endl;
+	std::clog << "best comparators:" << "\n";
 	for (auto comparator: bestComparators) {
-		std::cout << "\tsimilarity = " << comparator.getSimilarity() << std::endl;
+		std::clog << "\tsimilarity = " << comparator.getSimilarity() << "\n";
 	}
 
-	std::cout << "the others:" << std::endl;
+	std::clog << "the others:" << "\n";
 	while (!comparators.empty()) {
 		auto comparator = comparators.top();
 		comparators.pop();
-		std::cout << "\tsimilarity = " << comparator.getSimilarity() << std::endl;
+		std::clog << "\tsimilarity = " << comparator.getSimilarity() << "\n";
 	}
 	return false;
 }

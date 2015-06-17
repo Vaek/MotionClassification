@@ -13,7 +13,7 @@ void MotionFrame::addMotionState(const MotionState state) {
 	std::pair<MotionStateMap::iterator, bool> ret = this->states.insert(std::pair<std::string, MotionState>(state.getName(), state));
 	/*
 	if (ret.second==false) {
-		std::cout << "State " << state << " already added.\n";
+		std::clog << "State " << state << " already added.\n";
 	}
 	*/
 }

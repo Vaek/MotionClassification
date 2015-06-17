@@ -53,7 +53,7 @@ int AnimationCurve::getLength() {
 }
 
 std::ostream& operator<< (std::ostream& out, AnimationCurve& curve) {
-	out << "{\"" << curve.getName() << "\": " << std::endl;
+	out << "{\"" << curve.getName() << "\": " << "\n";
 	int w = 15;
 	for (int f = 0; f < curve.getLength(); f++) {
 		auto t = curve.getTranslation(f);

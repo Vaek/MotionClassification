@@ -48,17 +48,17 @@ bool LearnDataXmlHelper::createMotionObjectFile(std::string filePath, MotionObje
 
 	std::ofstream myfile(filePath, std::ios::out);//std::ios::beg);
 	if (myfile.is_open()) {
-		myfile << IMPORTANCES << " " << motionObject.getNodeImportances().size() << std::endl;
+		myfile << IMPORTANCES << " " << motionObject.getNodeImportances().size() << "\n";
 		for (auto importancePair: motionObject.getNodeImportances()) {
-			myfile << importancePair.first << " : " << importancePair.second << std::endl;
+			myfile << importancePair.first << " : " << importancePair.second << "\n";
 		}
-		myfile << OFFSETS << " " << motionObject.getNodeOffsets().size() << std::endl;
+		myfile << OFFSETS << " " << motionObject.getNodeOffsets().size() << "\n";
 		for (auto offsetPair: motionObject.getNodeOffsets()) {
-			myfile << offsetPair.first << " : " << offsetPair.second << std::endl;
+			myfile << offsetPair.first << " : " << offsetPair.second << "\n";
 		}
 		for (auto i = 0; i < motionObject.size(); i++) {
 			auto states = motionObject.at(i).getAllStates();
-			myfile << FRAME << " " << i << " " << states.size() << std::endl;
+			myfile << FRAME << " " << i << " " << states.size() << "\n";
 			for (auto state : states) {
 				auto rotation = state.second.getRotation();
 				auto translation = state.second.getTranslation();
@@ -67,7 +67,7 @@ bool LearnDataXmlHelper::createMotionObjectFile(std::string filePath, MotionObje
 				std::replace(name.begin(), name.end(), ' ', '_');
 				myfile << name << " : " << rotation[0] << " " << rotation[1] << " " << rotation[2]
 												 << " " << translation[0] << " " << translation[1] << " " << translation[2] 
-												 << " " << scaling[0] << " " << scaling[1] << " " << scaling[2] << std::endl;
+												 << " " << scaling[0] << " " << scaling[1] << " " << scaling[2] << "\n";
 			}
 		}
 		myfile.close();
@@ -95,9 +95,9 @@ std::map<std::string, MotionObject> LearnDataXmlHelper::readDocument() {
 				int length = std::stoi(child.attribute(ATTR_LENGTH).value());
 				std::string path = LEARNED_DATA_FOLDER + child.attribute(ATTR_PATH2).value();
 				data.insert(std::pair<std::string, MotionObject>(name, loadMotionObject(name, length, path)));
-				std::cout << "Loaded motion object " << name << std::endl;
+				std::clog << "Loaded motion object " << name << "\n";
 			} catch (std::string e) {
-				std::cout << e << std::endl;
+				std::clog << e << "\n";
 			}
 		}
 	}
@@ -162,7 +162,7 @@ MotionObject LearnDataXmlHelper::loadMotionObject(std::string name, int lenght, 
 					readImportances(file, mo, std::stoi(tokens.at(1)));
 				} else if (tokens.at(0) == OFFSETS) {
 					readOffsets(file, mo, std::stoi(tokens.at(1)));
-				} else if (tokens.at(0) == FRAME) {// << "frame " << i << std::endl;
+				} else if (tokens.at(0) == FRAME) {// << "frame " << i << "\n";
 //					if (std::stoi(tokens.at(1)) > 0) mo.push_back(frame);
 					frame = MotionFrame();
 					readFrame(file, frame, std::stoi(tokens.at(2)));

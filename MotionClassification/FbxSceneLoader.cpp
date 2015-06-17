@@ -18,9 +18,9 @@ FbxScene* getScene(std::string filePath, FbxManager* manager) {
 
 	// Import the contents of the file into the scene.
 	if (importer->Import(scene)) {
-		std::cout << "Scene is succefully loaded." << std::endl;
+		std::clog << "Scene is succefully loaded." << "\n";
 	} else {
-		std::cout << "Scene is NOT loaded." << std::endl;
+		std::clog << "Scene is NOT loaded." << "\n";
 	}
 
 	// The file is imported; so get rid of the importer.

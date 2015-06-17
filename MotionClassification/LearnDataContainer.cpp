@@ -104,13 +104,13 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 		combined.push_back(importanceFramePair.second);
 	}
 
-	std::cout << "Most important joints are:" << std::endl;
+	std::clog << "Most important joints are:" << "\n";
 	for (auto importance: importances) {
 		auto offsetQuatient = combined.getNodeOffset(importance.first) / maxNodeOffset;
 		auto finalCombinedImportance = importance.second / commonLength * offsetQuatient;
 		combined.setNodeImportance(importance.first, finalCombinedImportance);
 		if (finalCombinedImportance > MotionObject::IMPORTANCE_LIMIT) {
-			std::cout << "\t" << std::setw(17) << std::left << importance.first << finalCombinedImportance << std::endl;
+			std::clog << "\t" << std::setw(17) << std::left << importance.first << finalCombinedImportance << "\n";
 		}
 	}
 
@@ -163,7 +163,7 @@ std::vector<MotionClassRecognizer> LearnDataContainer::proccesRecognizing(Motion
 		recognizer.compareFrames();
 	}
 
-	std::cout << std::endl;
+	std::clog << "\n";
 	return recognizingQueue;
 }
 
@@ -176,7 +176,7 @@ std::map<std::pair<long, long>, std::string> LearnDataContainer::recognizeMotion
 		auto recognizer = MotionClassRecognizer(learned.first, learned.second, motionObject);
 		recognizer.compareFrames();
 		proccesedRecognizers.push_back(recognizer);
-		std::cout << std::endl;
+		std::clog << "\n";
 	}
 	/*
 	for (auto recognizer : proccesedRecognizers) {

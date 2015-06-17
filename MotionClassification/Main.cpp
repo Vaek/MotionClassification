@@ -6,7 +6,7 @@
 // Math library glm
 //#include <glm/glm.hpp> 
 //#include <glm/gtc/type_ptr.hpp>
-
+#include <tuple>
 #include <fbxsdk.h>
 #include "Scene.h"
 #include "LearnDataContainer.h"
@@ -56,27 +56,73 @@ Scene* loadScene(const std::string annotationPath) {
 }
 
 void printHelp() {	
-	std::cout << "export fbx structuret\t\t\t0 [fbxFile]" << std::endl
-			  << "load fbx with annotated file\t\t1 [annotationFile]" << std::endl
-			  << "learn motion data\t\t\t2 [motionClass]" << std::endl
-			  << "recognize motion data\t\t\t3" << std::endl
-			  << "clear loaded scenes\t\t\t4" << std::endl
-			  << "exit\t\t\t\t\t-1" << std::endl << std::endl;
+	std::clog << "export fbx structuret\t\t\t0 [fbxFile]" << "\n"
+			  << "load fbx with annotated file\t\t1 [annotationFile]" << "\n"
+			  << "learn motion data\t\t\t2 [motionClass]" << "\n"
+			  << "recognize motion data\t\t\t3" << "\n"
+			  << "clear loaded scenes\t\t\t4" << "\n"
+			  << "exit\t\t\t\t\t-1" << "\n" << "\n";
+}
+
+namespace {
+template<typename T>
+bool is_in_range(T value, T start, T end)
+{
+	return (value >= start) && (value <= end);
+}
+
+
 }
 
 void recognizeMotion(Scene* scene) {
 	if (scene) {
 		auto recognizes = container.recognizeMotionClass(scene->extractMotionKeyFrames());
-		std::cout << "Recognized motions:" << std::endl;
+		std::clog << "Recognized motions:" << "\n";
 		if (recognizes.empty()) {
-			std::cout << "\tNo motions recognized!" << std::endl;
+			std::clog << "\tNo motions recognized!" << "\n";
 		} else {
-			for (auto recognize: recognizes) {
-				std::cout << "\t" << std::setw(17) << recognize.second << " from: " << recognize.first.first << " to: " << recognize.first.second << std::endl;
+			using motion_map_t = std::map<std::pair<long, long>, std::string>;
+			using motion_vec_t = std::vector<std::tuple<long, long, std::string>>;
+			motion_vec_t motions;
+			for (const auto& recognize: recognizes) {
+				bool unique = true;
+
+				const auto& r_start = recognize.first.first;
+				const auto& r_end = recognize.first.second;
+				const auto& r_class = recognize.second;
+
+				for (auto& motion: motions) {
+					auto& m_start = std::get<0>(motion);
+					auto& m_end = std::get<1>(motion);
+					if (r_class == std::get<2>(motion)) {
+						if (is_in_range(r_start, m_start, m_end) ||
+							is_in_range(r_end, m_start, m_end) ||
+							is_in_range(m_start, r_start, r_end) ||
+							is_in_range(m_end, r_start, r_end)) {
+
+							unique = false;
+							m_start=std::min(m_start, r_start);
+							m_end=std::max(m_end, r_end);
+
+
+						}
+
+					}
+				}
+				if (unique) {
+					motions.push_back(std::make_tuple(r_start, r_end, r_class));
+				}
 			}
+			for (const auto& motion: motions) {
+				std::cout << /* std::setw(17) << */ std::get<2>(motion) << ";" << std::get<0>(motion) << ";" << std::get<1>(motion) << "\n";
+			}
+
+//			for (auto recognize: recognizes) {
+//				std::clog << "\t" << std::setw(17) << recognize.second << " from: " << recognize.first.first << " to: " << recognize.first.second << "\n";
+//			}
 		}
 	} else {
-		std::cout << "No motion to recognize." << std::endl;
+		std::clog << "No motion to recognize." << "\n";
 	}
 }
 
@@ -84,7 +130,7 @@ void recognizeMotion(std::string filePath) {
 	if (filePath.find(".xml") == std::string::npos) {
 		filePath = exportStructure(filePath);
 		if (filePath.empty()) return;
-		std::cout << "File you passed is not annotated. In file " << filePath << " is created structure. Set Annotation and then click to continue." << std::endl;
+		std::clog << "File you passed is not annotated. In file " << filePath << " is created structure. Set Annotation and then click to continue." << "\n";
 		std::cin.get();
 	}
 	recognizeMotion(loadScene(filePath));
@@ -145,11 +191,11 @@ void loop(){
 			break;
 
 		default:
-			std::cout << "Unknown first parameter.";
+			std::clog << "Unknown first parameter.";
 			break;
 		}
 
-		std::cout << "--------------------------------------- " << std::endl << std::endl;
+		std::clog << "--------------------------------------- " << "\n" << "\n";
 	} while (true);
 }
 
@@ -214,9 +260,9 @@ int main(int argc, char** argv) {
 	}
 	*/
 
-	std::cout << "Run with " << argc << " parameters: ";
-	for (size_t i = 1; i < argc; i++) std::cout << argv[i] << " ";
-	std::cout << std::endl;
+	std::clog << "Run with " << argc << " parameters: ";
+	for (size_t i = 1; i < argc; i++) std::clog << argv[i] << " ";
+	std::clog << "\n";
 
 	// init manager
 	initFbxManager();
@@ -241,7 +287,7 @@ int main(int argc, char** argv) {
 		for (int i = ARG_INDEX_ANNOTATED_FILE_FIRST; i < argc; i++) {
 			loadedScenes.push_back(loadScene(argv[i]));
 		}
-		std::cout << "Extracting keyframes" << std::endl;
+		std::clog << "Extracting keyframes" << "\n";
 		std::vector<MotionObject> keyFrames;
 		if (loadedScenes.size() > 1) {
 			for (Scene* scene: loadedScenes) {
@@ -249,12 +295,12 @@ int main(int argc, char** argv) {
 				keyFrames.push_back(scene->extractMotionKeyFrames());
 			}
 		}
-		std::cout << "Combining Motions to one" << std::endl;
+		std::clog << "Combining Motions to one" << "\n";
 		container.combineAndUpdateLearnMotion(argv[ARG_INDEX_MOTION_CLASS_NAME], keyFrames);
 
-		std::cout << "Learn in " << float(clock() - begin_time) / CLOCKS_PER_SEC << std::endl;
-		std::cout << "Scenes " << loadedScenes.size() << std::endl;
-		std::cout << "Scenes lenght " << scenesLengt / loadedScenes.size() << std::endl;
+		std::clog << "Learn in " << float(clock() - begin_time) / CLOCKS_PER_SEC << "\n";
+		std::clog << "Scenes " << loadedScenes.size() << "\n";
+		std::clog << "Scenes lenght " << scenesLengt / loadedScenes.size() << "\n";
 		break;
 	}
 
@@ -268,12 +314,12 @@ int main(int argc, char** argv) {
 		break;
 
 	default:
-		std::cout << "Unknown DO." << std::endl;
+		std::clog << "Unknown DO." << "\n";
 		break;
 	}
 
 	if (argc > ARG_INDEX_SAVE_LEARNED_DATA && atoi(argv[ARG_INDEX_SAVE_LEARNED_DATA]) == 1) {
-		std::cout << "Saving learned data." << std::endl;
+		std::clog << "Saving learned data." << "\n";
 		container.saveLearnedData();
 	}
 

@@ -40,7 +40,7 @@ FbxScene* Scene::loadFbxSceneFile(const std::string filePath, FbxManager* manage
 	auto fbxScene = getScene(filePath, manager);
 
 	if (!fbxScene) {
-		std::cout << "File not found.\n";
+		std::clog << "File not found.\n";
 		return nullptr;
 	}
 	return fbxScene;
@@ -51,24 +51,24 @@ void createDtd(std::string filePath) {
 	dtdFile.open(filePath);
 
 	if (dtdFile.is_open()) {
-		dtdFile << "<!ELEMENT scene (structure?, annotation?)>" << std::endl <<
-			"<!ELEMENT structure (node)>" << std::endl <<
-			"<!ELEMENT node (node*)>" << std::endl <<
-			"<!ELEMENT annotation (node)>" << std::endl <<
-			"" << std::endl <<
-			"<!ATTLIST scene source_fbx CDATA #REQUIRED>" << std::endl <<
-			"<!ATTLIST node name CDATA #REQUIRED>" << std::endl <<
-			"<!ATTLIST node path CDATA #REQUIRED>" << std::endl <<
-			"<!ATTLIST node animationLength CDATA #REQUIRED>" << std::endl <<
-			"<!ATTLIST node annotation(None | Hips | Spin | Spin1 | Spin2 | Neck | Head | RightShoulder | RightArm | RightArmRoll | RightForeArm | RightForeArmRoll |" << std::endl <<
-			"RightHand | RightHandThumb1 | RightHandThumb2 | RightHandThumb3 | RightHandThumb4 | RightHandIndex1 | RightHandIndex2 |" << std::endl <<
-			"RightHandIndex3 | RightHandIndex4 | RightHandMiddle1 | RightHandMiddle2 | RightHandMiddle3 | RightHandMiddle4 | RightHandRing1 |" << std::endl <<
-			"RightHandRing2 | RightHandRing3 | RightHandRing4 | RightHandPinky1 | RightHandPinky2 | RightHandPinky3 | RightHandPinky4 |" << std::endl <<
-			"LeftShoulder | LeftArm | LeftArmRoll | LeftForeArm | LeftForeArmRoll | LeftHand | LeftHandThumb1 | LeftHandThumb2 | LeftHandThumb3 |" << std::endl <<
-			"LeftHandThumb4 | LeftHandIndex1 | LeftHandIndex2 | LeftHandIndex3 | LeftHandIndex4 | LeftHandMiddle1 | LeftHandMiddle2 |" << std::endl <<
-			"LeftHandMiddle3 | LeftHandMiddle4 | LeftHandRing1 | LeftHandRing2 | LeftHandRing3 | LeftHandRing4 | LeftHandPinky1 |" << std::endl <<
-			"LeftHandPinky2 | LeftHandPinky3 | LeftHandPinky4 | RightHip | RightUpLeg | RightUpLegRoll | RightLeg | RightLegRoll | RightFoot |" << std::endl <<
-			"RightToeBase | LeftHip | LeftUpLeg | LeftUpLegRoll | LeftLeg | LeftLegRoll | LeftFoot | LeftToeBase) \"None\">" << std::endl;
+		dtdFile << "<!ELEMENT scene (structure?, annotation?)>" << "\n" <<
+			"<!ELEMENT structure (node)>" << "\n" <<
+			"<!ELEMENT node (node*)>" << "\n" <<
+			"<!ELEMENT annotation (node)>" << "\n" <<
+			"" << "\n" <<
+			"<!ATTLIST scene source_fbx CDATA #REQUIRED>" << "\n" <<
+			"<!ATTLIST node name CDATA #REQUIRED>" << "\n" <<
+			"<!ATTLIST node path CDATA #REQUIRED>" << "\n" <<
+			"<!ATTLIST node animationLength CDATA #REQUIRED>" << "\n" <<
+			"<!ATTLIST node annotation(None | Hips | Spin | Spin1 | Spin2 | Neck | Head | RightShoulder | RightArm | RightArmRoll | RightForeArm | RightForeArmRoll |" << "\n" <<
+			"RightHand | RightHandThumb1 | RightHandThumb2 | RightHandThumb3 | RightHandThumb4 | RightHandIndex1 | RightHandIndex2 |" << "\n" <<
+			"RightHandIndex3 | RightHandIndex4 | RightHandMiddle1 | RightHandMiddle2 | RightHandMiddle3 | RightHandMiddle4 | RightHandRing1 |" << "\n" <<
+			"RightHandRing2 | RightHandRing3 | RightHandRing4 | RightHandPinky1 | RightHandPinky2 | RightHandPinky3 | RightHandPinky4 |" << "\n" <<
+			"LeftShoulder | LeftArm | LeftArmRoll | LeftForeArm | LeftForeArmRoll | LeftHand | LeftHandThumb1 | LeftHandThumb2 | LeftHandThumb3 |" << "\n" <<
+			"LeftHandThumb4 | LeftHandIndex1 | LeftHandIndex2 | LeftHandIndex3 | LeftHandIndex4 | LeftHandMiddle1 | LeftHandMiddle2 |" << "\n" <<
+			"LeftHandMiddle3 | LeftHandMiddle4 | LeftHandRing1 | LeftHandRing2 | LeftHandRing3 | LeftHandRing4 | LeftHandPinky1 |" << "\n" <<
+			"LeftHandPinky2 | LeftHandPinky3 | LeftHandPinky4 | RightHip | RightUpLeg | RightUpLegRoll | RightLeg | RightLegRoll | RightFoot |" << "\n" <<
+			"RightToeBase | LeftHip | LeftUpLeg | LeftUpLegRoll | LeftLeg | LeftLegRoll | LeftFoot | LeftToeBase) \"None\">" << "\n";
 		dtdFile.close();
 	}
 }
@@ -79,14 +79,14 @@ std::string Scene::exportSceneStructure(const std::string filePath, FbxManager* 
 //	if (true || filePath.find(".fbx") != std::string::npos) {
 		auto scene = loadFbxSceneFile(filePath, manager);
 		if (!scene) {
-			std::cout << "Can not load file to export." << std::endl;
+			std::clog << "Can not load file to export." << "\n";
 			return "";
 		}
 
 		FbxSceneXmlHelper helper;
 		helper.createDocument(scene, filePath);
 		helper.printXml(exportFilePath);
-		std::cout << "Structure is stored in: " << exportFilePath << std::endl;
+		std::clog << "Structure is stored in: " << exportFilePath << "\n";
 		std::string dtdFilePath;
 		if (filePath.find_last_of("/") != std::string::npos) {
 			dtdFilePath = filePath.substr(0, filePath.find_last_of("/") + 1).append("scene.dtd");
@@ -100,14 +100,16 @@ std::string Scene::exportSceneStructure(const std::string filePath, FbxManager* 
 	} else if (false && filePath.find(".bvh") != std::string::npos) {
 		Bvh scene;
 		if (!scene.load(filePath)) {
-			std::cout << "Can not load file to export." << std::endl;
+			std::clog << "Can not load file to export." << "
+";
 			return;
 		}
 
 		BvhSceneXmlHelper helper;
 		helper.createDocument(scene, filePath);
 		helper.printXml(exportFilePath);
-		std::cout << "Structure is stored in: " << exportFilePath << std::endl;
+		std::clog << "Structure is stored in: " << exportFilePath << "
+";
 	}
 */
 		return exportFilePath;
@@ -120,12 +122,12 @@ void Scene::loadAnnotatedScene(const std::string annotatedPath, FbxManager* mana
 	if (!fbxPath.empty()) {
 		auto scene = loadFbxSceneFile(fbxPath, manager);
 		if (!scene) {
-			std::cout << "Can not load file to export." << std::endl;
+			std::clog << "Can not load file to export." << "\n";
 			return;
 		}
 
 		auto pathsAnnotatedNodes = helper.getAnnotations();
-		if (pathsAnnotatedNodes.size() == 0) std::cout << "!!! WARNING: No annotated nodes to load." << std::endl;
+		if (pathsAnnotatedNodes.size() == 0) std::clog << "!!! WARNING: No annotated nodes to load." << "\n";
 		auto annotatedNodes = findAnnotatedNodes(scene->GetRootNode(), pathsAnnotatedNodes);
 
 		this->skeleton = fbxToSkeleton(scene, annotatedNodes, pathsAnnotatedNodes);
@@ -134,7 +136,7 @@ void Scene::loadAnnotatedScene(const std::string annotatedPath, FbxManager* mana
 //		exportSkeleton("skeleton.txt");
 //		exportMotion("motion.txt");
 	} else {
-		std::cout << "Fbx not found." << std::endl;
+		std::clog << "Fbx not found." << "\n";
 	}
 }
 
