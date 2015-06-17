@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "pugi\pugixml.hpp"
+#include "pugi/pugixml.hpp"
 #include <fbxsdk.h>
 
 class XmlHelper {

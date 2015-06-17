@@ -31,7 +31,7 @@ public:
 	std::string getClassName();
 	std::vector<MotionComparator> getBestComparators();
 
-	static const double MotionClassRecognizer::RECOGNIZE_LIMIT;
+	static const double RECOGNIZE_LIMIT;
 
 private:
 	void createComparators();

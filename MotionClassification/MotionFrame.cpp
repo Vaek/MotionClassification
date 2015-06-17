@@ -41,10 +41,11 @@ const MotionStateMap MotionFrame::getAllStates() {
 
 MotionFrame MotionFrame::averageWithFrame(MotionFrame& frameB) {
 	MotionFrame averageFrame;
-	for each (auto statePair in this->getAllStates()) {
+	for (auto statePair: this->getAllStates()) {
 		MotionState state = statePair.second;
 		if (frameB.hasMotionState(state.getName())) {
-			auto averageState = state.averageWithState(frameB.getMotionState(state.getName()));
+			auto motionState= frameB.getMotionState(state.getName());
+			auto averageState = state.averageWithState(motionState);
 			averageFrame.addMotionState(averageState);
 		}
 		averageFrame.addMotionState(MotionState(state));

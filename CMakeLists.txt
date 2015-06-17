@@ -24,6 +24,8 @@ IF (UNIX)
 ENDIF ()
 
 include_directories( ${CMAKE_SOURCE_DIR}/src )
+include_directories(/usr/local/fbx-2016/include)
+
 SET (EXECUTABLE_OUTPUT_PATH ${CMAKE_BINARY_DIR}/bin)
 
 add_subdirectory(MotionClassification)

@@ -5,6 +5,7 @@
 #include <fstream>
 #include "LearnDataXmlHelper.h"
 #include <iomanip>
+#include <climits>
 
 #define EXPORT_FILE_NAME "./learned/learned_data.xml"
 
@@ -26,7 +27,7 @@ std::pair<std::map<std::string, double>, MotionFrame> computeImportanceAndCreate
 	for (int i = 1; i < commonFrames.size(); i++) {
 		auto frameA = commonFrames.at(i - 1);
 		auto frameB = commonFrames.at(i);
-		for each (auto statePair in frameA.getAllStates()) {
+		for (auto statePair: frameA.getAllStates()) {
 			auto state = statePair.second;
 			if (frameB.hasMotionState(state.getName())) {
 				double importance = 1.0 - MotionComparator::stateDifference(state, frameB.getMotionState(state.getName()));
@@ -48,7 +49,7 @@ std::pair<std::map<std::string, double>, MotionFrame> computeImportanceAndCreate
 	}
 
 	std::map<std::string, double> finalImportances;
-	for each (auto importance in privateImportances) {
+	for (auto importance: privateImportances) {
 		finalImportances.insert(std::pair<std::string, double>(importance.first, importance.second / (commonFrames.size() - 1)));
 	}
 	return std::pair<std::map<std::string, double>, MotionFrame> (finalImportances, finalFrame);
@@ -59,10 +60,10 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 	MotionObject combined;
 	std::map<std::string, double> combinedOffsets;
 	double maxNodeOffset = 0;
-	for each (auto mo in keyframes) {
+	for (auto mo: keyframes) {
 		commonLength = std::min(commonLength, (int)mo.size());
 
-		for each (auto offsetPair in mo.getNodeOffsets()) {
+		for (auto offsetPair: mo.getNodeOffsets()) {
 			if (offsetPair.second > maxNodeOffset) {
 				maxNodeOffset = offsetPair.second;
 			}
@@ -76,7 +77,7 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 		}
 	}
 
-	for each (auto offsetPair in combinedOffsets) {
+	for (auto offsetPair: combinedOffsets) {
 		offsetPair.second = offsetPair.second / keyframes.size();
 		combined.setNodeOffset(offsetPair);
 	}
@@ -85,13 +86,13 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 
 	for (int i = 0; i < commonLength; i++) {
 		std::vector<MotionFrame> commonFrames;
-		for each (auto mo in keyframes) {
+		for (auto mo: keyframes) {
 			commonFrames.push_back(mo.at(i));
 		}
 
 		auto importanceFramePair = computeImportanceAndCreateAverageFrame(commonFrames);
 
-		for each (auto importance in importanceFramePair.first) {
+		for (auto importance: importanceFramePair.first) {
 			auto tmp = importances.find(importance.first);
 			if (tmp == importances.end()) {
 				importances.insert(importance);
@@ -104,7 +105,7 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 	}
 
 	std::cout << "Most important joints are:" << std::endl;
-	for each (auto importance in importances) {
+	for (auto importance: importances) {
 		auto offsetQuatient = combined.getNodeOffset(importance.first) / maxNodeOffset;
 		auto finalCombinedImportance = importance.second / commonLength * offsetQuatient;
 		combined.setNodeImportance(importance.first, finalCombinedImportance);
@@ -186,7 +187,7 @@ std::map<std::pair<long, long>, std::string> LearnDataContainer::recognizeMotion
 
 	for (auto recognizer : proccesedRecognizers) {
 		auto comparators = recognizer.getBestComparators();
-		for each (auto comparator in comparators) {
+		for (auto comparator: comparators) {
 			if (comparator.getSimilarity() > MotionClassRecognizer::RECOGNIZE_LIMIT) {
 				auto range = comparator.getRange();
 				range.first = std::max(0L, range.first);

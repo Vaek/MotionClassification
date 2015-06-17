@@ -16,3 +16,6 @@ MotionClassification/motion.txt
 MotionClassification/skeleton.txt
 MotionClassification/recognize/
 MotionClassification/learned/
+build/
+*.zip
+

@@ -7,25 +7,37 @@ Find_Package(GLUT REQUIRED)
 add_executable( motion_classification
             AnimationCurve.cpp
             AnimationCurve.h
+            AnnotationXmlHelper.cpp
+            AnnotationXmlHelper.h
             DataConvertor.cpp
             DataConvertor.h
             FbxSceneExporter.cpp
             FbxSceneExporter.h
             FbxSceneLoader.cpp
             FbxSceneLoader.h
+            FbxSceneXmlHelper.cpp
+            FbxSceneXmlHelper.h
             JoinBaseData.cpp
             JoinBaseData.h
             KeyFrameExtractor.cpp
             KeyFrameExtractor.h
             LearnDataContainer.cpp
             LearnDataContainer.h
+            LearnDataXmlHelper.cpp
+            LearnDataXmlHelper.h
             Main.cpp
             MotionClassifier.cpp
             MotionClassifier.h
+            MotionComparator.cpp
+            MotionComparator.h
             Motion.cpp
             MotionFrame.cpp
             MotionFrame.h
             Motion.h
+            MotionObject.cpp
+            MotionObject.h
+            MotionClassRecognizer.cpp
+            MotionClassRecognizer.h
             MotionState.cpp
             MotionState.h
             MotionStateNode.h
@@ -39,6 +51,8 @@ add_executable( motion_classification
             Vector.h
             XmlHelper.cpp
             XmlHelper.h
+            XmlNode.cpp
+            XmlNode.h
             )
 						
 # PatternDetector.cpp PatternDetector.h						

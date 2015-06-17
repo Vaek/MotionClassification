@@ -1,5 +1,6 @@
 
 #include "JoinBaseData.h"
+#include <cmath>
 
 JoinBaseData::JoinBaseData(std::string name) : name(name) {
 }

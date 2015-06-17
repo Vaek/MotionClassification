@@ -29,7 +29,7 @@ Motion* Scene::getMotion() {
 MotionObject Scene::extractMotionKeyFrames() {
 	auto mo = extractKeyFrames(getMotion());
 	if (this->skeleton) {
-		for each (auto offsetPair in this->skeleton->getNodeOfssets()) {
+		for (auto offsetPair: this->skeleton->getNodeOfssets()) {
 			mo.setNodeOffset(offsetPair);
 		}			
 	}

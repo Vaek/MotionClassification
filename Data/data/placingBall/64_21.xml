@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!DOCTYPE scene SYSTEM "scene.dtd">
+<scene source_fbx="./data/placingBall/64_21.bvh">
+	<structure>
+		<node name="RootNode" path="/RootNode" annotation="None">
+			<node name="BVH:reference" path="/RootNode/BVH:reference" annotation="None">
+				<node name="Hips" path="/RootNode/BVH:reference/Hips" annotation="None">
+					<node name="LowerBack" path="/RootNode/BVH:reference/Hips/LowerBack" annotation="None">
+						<node name="Spine" path="/RootNode/BVH:reference/Hips/LowerBack/Spine" annotation="None">
+							<node name="Spine1" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1" annotation="None">
+								<node name="RightShoulder" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder" annotation="None">
+									<node name="RightArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm" annotation="None">
+										<node name="RightForeArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm" annotation="None">
+											<node name="RightHand" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand" annotation="None">
+												<node name="RThumb" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb" annotation="None">
+													<node name="RThumb_End" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb/RThumb_End" annotation="None" />
+												</node>
+												<node name="RightFingerBase" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase" annotation="None">
+													<node name="RightHandIndex1" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandIndex1" annotation="None">
+														<node name="RightHandIndex1_End" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RightFingerBase/RightHandIndex1/RightHandIndex1_End" annotation="None" />
+													</node>
+												</node>
+											</node>
+										</node>
+									</node>
+								</node>
+								<node name="LeftShoulder" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder" annotation="None">
+									<node name="LeftArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm" annotation="None">
+										<node name="LeftForeArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm" annotation="None">
+											<node name="LeftHand" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand" annotation="None">
+												<node name="LThumb" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb" annotation="None">
+													<node name="LThumb_End" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb/LThumb_End" annotation="None" />
+												</node>
+												<node name="LeftFingerBase" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase" annotation="None">
+													<node name="LeftHandIndex1" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandIndex1" annotation="None">
+														<node name="LeftHandIndex1_End" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LeftFingerBase/LeftHandIndex1/LeftHandIndex1_End" annotation="None" />
+													</node>
+												</node>
+											</node>
+										</node>
+									</node>
+								</node>
+								<node name="Neck" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/Neck" annotation="None">
+									<node name="Neck1" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/Neck/Neck1" annotation="None">
+										<node name="Head" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head" annotation="None">
+											<node name="Head_End" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head/Head_End" annotation="None" />
+										</node>
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+					<node name="RHipJoint" path="/RootNode/BVH:reference/Hips/RHipJoint" annotation="None">
+						<node name="RightUpLeg" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg" annotation="None">
+							<node name="RightLeg" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg" annotation="None">
+								<node name="RightFoot" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot" annotation="None">
+									<node name="RightToeBase" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase" annotation="None">
+										<node name="RightToeBase_End" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase/RightToeBase_End" annotation="None" />
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+					<node name="LHipJoint" path="/RootNode/BVH:reference/Hips/LHipJoint" annotation="None">
+						<node name="LeftUpLeg" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg" annotation="None">
+							<node name="LeftLeg" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg" annotation="None">
+								<node name="LeftFoot" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot" annotation="None">
+									<node name="LeftToeBase" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase" annotation="None">
+										<node name="LeftToeBase_End" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase/LeftToeBase_End" annotation="None" />
+									</node>
+								</node>
+							</node>
+						</node>
+					</node>
+				</node>
+			</node>
+		</node>
+	</structure>
+  <annotation>
+    <node name="Hips" path="/RootNode/BVH:reference/Hips" annotation="Hips">
+      <node name="LowerBack" path="/RootNode/BVH:reference/Hips/LowerBack" annotation="Spin">
+        <node name="Spine" path="/RootNode/BVH:reference/Hips/LowerBack/Spine" annotation="Spin1">
+          <node name="Spine1" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1" annotation="Spin2">
+            <node name="RightShoulder" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder" annotation="RightShoulder">
+              <node name="RightArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm" annotation="RightArm">
+                <node name="RightForeArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm" annotation="RightForeArm">
+                  <node name="RightHand" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand" annotation="RightHand">
+                    <node name="RThumb" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand/RThumb" annotation="RightHandThumb1"/>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node name="LeftShoulder" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder" annotation="LeftShoulder">
+              <node name="LeftArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm" annotation="LeftArm">
+                <node name="LeftForeArm" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm" annotation="LeftForeArm">
+                  <node name="LeftHand" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand" annotation="LeftHand">
+                    <node name="LThumb" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand/LThumb" annotation="LeftHandThumb1"/>
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node name="Neck" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/Neck" annotation="Neck">
+              <node name="Head" path="/RootNode/BVH:reference/Hips/LowerBack/Spine/Spine1/Neck/Neck1/Head" annotation="Head"/>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node name="RHipJoint" path="/RootNode/BVH:reference/Hips/RHipJoint" annotation="RightHip">
+        <node name="RightUpLeg" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg" annotation="RightUpLeg">
+          <node name="RightLeg" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg" annotation="RightLeg">
+            <node name="RightFoot" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot" annotation="RightFoot">
+              <node name="RightToeBase" path="/RootNode/BVH:reference/Hips/RHipJoint/RightUpLeg/RightLeg/RightFoot/RightToeBase" annotation="RightToeBase"/>
+            </node>
+          </node>
+        </node>
+      </node>
+      <node name="LHipJoint" path="/RootNode/BVH:reference/Hips/LHipJoint" annotation="LeftHip">
+        <node name="LeftUpLeg" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg" annotation="LeftUpLeg">
+          <node name="LeftLeg" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg" annotation="LeftLeg">
+            <node name="LeftFoot" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot" annotation="LeftFoot">
+              <node name="LeftToeBase" path="/RootNode/BVH:reference/Hips/LHipJoint/LeftUpLeg/LeftLeg/LeftFoot/LeftToeBase" annotation="LeftToeBase"/>
+            </node>
+          </node>
+        </node>
+      </node>
+    </node>
+  </annotation>
+</scene>

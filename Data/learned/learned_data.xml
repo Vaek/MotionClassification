@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE motion_class SYSTEM "learned_data.dtd">
+<motion_class>
+	<motion_object name="jump" length="22" path="jump" />
+	<motion_object name="kick" length="24" path="kick" />
+	<motion_object name="pickingUpBall" length="14" path="pickingUpBall" />
+	<motion_object name="placingBall" length="20" path="placingBall" />
+	<motion_object name="run" length="13" path="run" />
+	<motion_object name="salsa" length="21" path="salsa" />
+	<motion_object name="standing" length="4" path="standing" />
+	<motion_object name="walk" length="41" path="walk" />
+</motion_class>

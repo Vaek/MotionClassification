@@ -1,5 +1,6 @@
 
 #include "MotionComparator.h"
+#include <cmath>
 
 MotionComparator::MotionComparator(const int startOffset, const MotionObject& learnedData, const MotionObject& recognizingData)
 	: startOffset(startOffset), learnedData(learnedData), recognizingData(recognizingData), comparedFrames(0), difference(0.0), lastFrame(-1) {

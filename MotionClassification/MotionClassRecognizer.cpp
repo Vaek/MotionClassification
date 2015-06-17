@@ -65,7 +65,7 @@ bool MotionClassRecognizer::compareFrames() {
 	} while (goOn);
 
 	std::cout << "best comparators:" << std::endl;
-	for each (auto comparator in bestComparators) {
+	for (auto comparator: bestComparators) {
 		std::cout << "\tsimilarity = " << comparator.getSimilarity() << std::endl;
 	}
 

@@ -1,6 +1,7 @@
 
 #include "Skeleton.h"
 #include <queue>
+#include <cmath>
 
 Skeleton::Skeleton() : root(nullptr) {
 }
@@ -27,7 +28,7 @@ std::map<std::string, double> Skeleton::getNodeOfssets() {
 		auto node = queue.front();
 		queue.pop();
 
-		for each (auto child in node->getChildren()) {
+		for (auto child: node->getChildren()) {
 			queue.push(child.second);
 		}
 

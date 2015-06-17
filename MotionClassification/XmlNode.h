@@ -3,7 +3,7 @@
 #define XMLNODE_H
 
 #include <vector>
-#include "pugi\pugixml.hpp"
+#include "pugi/pugixml.hpp"
 
 class XmlNode {
 public:

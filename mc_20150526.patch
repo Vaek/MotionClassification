@@ -1,0 +1,511 @@
+diff --git a/MotionClassification/CMakeLists.txt b/MotionClassification/CMakeLists.txt
+index 7077cdd..49ff3d0 100644
+--- a/MotionClassification/CMakeLists.txt
++++ b/MotionClassification/CMakeLists.txt
+@@ -7,25 +7,37 @@ Find_Package(GLUT REQUIRED)
+ add_executable( motion_classification
+             AnimationCurve.cpp
+             AnimationCurve.h
++            AnnotationXmlHelper.cpp
++            AnnotationXmlHelper.h
+             DataConvertor.cpp
+             DataConvertor.h
+             FbxSceneExporter.cpp
+             FbxSceneExporter.h
+             FbxSceneLoader.cpp
+             FbxSceneLoader.h
++            FbxSceneXmlHelper.cpp
++            FbxSceneXmlHelper.h
+             JoinBaseData.cpp
+             JoinBaseData.h
+             KeyFrameExtractor.cpp
+             KeyFrameExtractor.h
+             LearnDataContainer.cpp
+             LearnDataContainer.h
++            LearnDataXmlHelper.cpp
++            LearnDataXmlHelper.h
+             Main.cpp
+             MotionClassifier.cpp
+             MotionClassifier.h
++            MotionComparator.cpp
++            MotionComparator.h
+             Motion.cpp
+             MotionFrame.cpp
+             MotionFrame.h
+             Motion.h
++            MotionObject.cpp
++            MotionObject.h
++            MotionClassRecognizer.cpp
++            MotionClassRecognizer.h
+             MotionState.cpp
+             MotionState.h
+             MotionStateNode.h
+@@ -39,6 +51,8 @@ add_executable( motion_classification
+             Vector.h
+             XmlHelper.cpp
+             XmlHelper.h
++            XmlNode.cpp
++            XmlNode.h
+             )
+ 						
+ # PatternDetector.cpp PatternDetector.h						
+diff --git a/MotionClassification/DataConvertor.cpp b/MotionClassification/DataConvertor.cpp
+index a64cf7e..e9537b5 100644
+--- a/MotionClassification/DataConvertor.cpp
++++ b/MotionClassification/DataConvertor.cpp
+@@ -83,13 +83,13 @@ std::vector<SkeletonNode*> copyFbxNodeToSkeletonNode2(FbxNode* fbxNode, std::vec
+ 
+ 		std::vector<SkeletonNode*> children = copyFbxNodeToSkeletonNode2(childFbxNode, annotatedNodes, pathsNames);
+ 		if (skeletonNode) {
+-			for each (SkeletonNode* child in children) {
++			for (SkeletonNode* child: children) {
+ 				if (child) {
+ 					skeletonNode->addChild(child);
+ 				}
+ 			}
+ 		} else {
+-			for each (SkeletonNode* child in children) {
++			for (SkeletonNode* child: children) {
+ 				if (child) {
+ 					nodes.push_back(child);
+ 				}
+@@ -165,7 +165,7 @@ Skeleton* fbxToSkeleton(FbxScene* scene) {
+ }
+ 
+ std::string getAnnotatedName(std::vector<std::pair<std::string, std::string>> pathsNames, std::string fbxPath) {
+-	for each (auto pathName in pathsNames) {
++	for (auto pathName: pathsNames) {
+ 		if (pathName.first == fbxPath) {
+ 			return pathName.second;
+ 		}
+@@ -280,9 +280,9 @@ std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::pair<s
+ 		}
+ 	}
+ 	std::vector<std::string> notFoundannotatedNodes;
+-	for each (auto path in annotatedNodes) {
++	for (auto path: annotatedNodes) {
+ 		bool found = false;
+-		for each (auto nodeInfo in nodes) {
++		for (auto nodeInfo: nodes) {
+ 			if (nodeInfo.second == path.first) {
+ 				found = true;
+ 				break;
+@@ -292,7 +292,7 @@ std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::pair<s
+ 	}
+ 	if (!notFoundannotatedNodes.empty()) {
+ 		std::cout << "Can not find these nodes:" << std::endl;
+-		for each (auto path in notFoundannotatedNodes) {
++		for (auto path: notFoundannotatedNodes) {
+ 			std::cout << path << std::endl;
+ 		}
+ 	}
+@@ -445,4 +445,4 @@ Motion* fbxToMotion(FbxScene* scene, std::vector<node_info> nodes, std::vector<s
+ 		}
+ 	}
+ 	return motion;
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/FbxXmlNode.h b/MotionClassification/FbxXmlNode.h
+index e170702..d7aa6fb 100644
+--- a/MotionClassification/FbxXmlNode.h
++++ b/MotionClassification/FbxXmlNode.h
+@@ -7,7 +7,7 @@
+ 
+ class FbxXmlNode : public XmlNode {
+ public:
+-	FbxXmlNode::FbxXmlNode(pugi::xml_node _xmlNodeParent, FbxNode* _fbxNode, const std::string _fbxPath)
++	FbxXmlNode(pugi::xml_node _xmlNodeParent, FbxNode* _fbxNode, const std::string _fbxPath)
+ 		: XmlNode(_xmlNodeParent), fbxNode(_fbxNode), fbxPath(_fbxPath) {};
+ 
+ 	std::vector<FbxXmlNode> createXmlNode() {
+@@ -33,4 +33,4 @@ private:
+ };
+ 
+ 
+-#endif // FBXXMLNODE_H
+\ No newline at end of file
++#endif // FBXXMLNODE_H
+diff --git a/MotionClassification/JoinBaseData.cpp b/MotionClassification/JoinBaseData.cpp
+index 248419b..ba5996c 100644
+--- a/MotionClassification/JoinBaseData.cpp
++++ b/MotionClassification/JoinBaseData.cpp
+@@ -1,5 +1,6 @@
+ 
+ #include "JoinBaseData.h"
++#include <cmath>
+ 
+ JoinBaseData::JoinBaseData(std::string name) : name(name) {
+ }
+@@ -46,4 +47,4 @@ double JoinBaseData::getSize(std::array<double, 3> arr3d) {
+ 	}
+ 
+ 	return std::sqrt(size);
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/LearnDataContainer.cpp b/MotionClassification/LearnDataContainer.cpp
+index 3757ac0..e53a749 100644
+--- a/MotionClassification/LearnDataContainer.cpp
++++ b/MotionClassification/LearnDataContainer.cpp
+@@ -5,6 +5,7 @@
+ #include <fstream>
+ #include "LearnDataXmlHelper.h"
+ #include <iomanip>
++#include <climits>
+ 
+ #define EXPORT_FILE_NAME "./learned/learned_data.xml"
+ 
+@@ -26,7 +27,7 @@ std::pair<std::map<std::string, double>, MotionFrame> computeImportanceAndCreate
+ 	for (int i = 1; i < commonFrames.size(); i++) {
+ 		auto frameA = commonFrames.at(i - 1);
+ 		auto frameB = commonFrames.at(i);
+-		for each (auto statePair in frameA.getAllStates()) {
++		for (auto statePair: frameA.getAllStates()) {
+ 			auto state = statePair.second;
+ 			if (frameB.hasMotionState(state.getName())) {
+ 				double importance = 1.0 - MotionComparator::stateDifference(state, frameB.getMotionState(state.getName()));
+@@ -48,7 +49,7 @@ std::pair<std::map<std::string, double>, MotionFrame> computeImportanceAndCreate
+ 	}
+ 
+ 	std::map<std::string, double> finalImportances;
+-	for each (auto importance in privateImportances) {
++	for (auto importance: privateImportances) {
+ 		finalImportances.insert(std::pair<std::string, double>(importance.first, importance.second / (commonFrames.size() - 1)));
+ 	}
+ 	return std::pair<std::map<std::string, double>, MotionFrame> (finalImportances, finalFrame);
+@@ -59,10 +60,10 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
+ 	MotionObject combined;
+ 	std::map<std::string, double> combinedOffsets;
+ 	double maxNodeOffset = 0;
+-	for each (auto mo in keyframes) {
++	for (auto mo: keyframes) {
+ 		commonLength = std::min(commonLength, (int)mo.size());
+ 
+-		for each (auto offsetPair in mo.getNodeOffsets()) {
++		for (auto offsetPair: mo.getNodeOffsets()) {
+ 			if (offsetPair.second > maxNodeOffset) {
+ 				maxNodeOffset = offsetPair.second;
+ 			}
+@@ -76,7 +77,7 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
+ 		}
+ 	}
+ 
+-	for each (auto offsetPair in combinedOffsets) {
++	for (auto offsetPair: combinedOffsets) {
+ 		offsetPair.second = offsetPair.second / keyframes.size();
+ 		combined.setNodeOffset(offsetPair);
+ 	}
+@@ -85,13 +86,13 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
+ 
+ 	for (int i = 0; i < commonLength; i++) {
+ 		std::vector<MotionFrame> commonFrames;
+-		for each (auto mo in keyframes) {
++		for (auto mo: keyframes) {
+ 			commonFrames.push_back(mo.at(i));
+ 		}
+ 
+ 		auto importanceFramePair = computeImportanceAndCreateAverageFrame(commonFrames);
+ 
+-		for each (auto importance in importanceFramePair.first) {
++		for (auto importance: importanceFramePair.first) {
+ 			auto tmp = importances.find(importance.first);
+ 			if (tmp == importances.end()) {
+ 				importances.insert(importance);
+@@ -104,7 +105,7 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
+ 	}
+ 
+ 	std::cout << "Most important joints are:" << std::endl;
+-	for each (auto importance in importances) {
++	for (auto importance: importances) {
+ 		auto offsetQuatient = combined.getNodeOffset(importance.first) / maxNodeOffset;
+ 		auto finalCombinedImportance = importance.second / commonLength * offsetQuatient;
+ 		combined.setNodeImportance(importance.first, finalCombinedImportance);
+@@ -186,7 +187,7 @@ std::map<std::pair<long, long>, std::string> LearnDataContainer::recognizeMotion
+ 
+ 	for (auto recognizer : proccesedRecognizers) {
+ 		auto comparators = recognizer.getBestComparators();
+-		for each (auto comparator in comparators) {
++		for (auto comparator: comparators) {
+ 			if (comparator.getSimilarity() > MotionClassRecognizer::RECOGNIZE_LIMIT) {
+ 				auto range = comparator.getRange();
+ 				range.first = std::max(0L, range.first);
+@@ -216,4 +217,4 @@ bool LearnDataContainer::loadLearnedData() {
+ 	this->data = helper.readDocument();
+ 
+ 	return true;
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/LearnDataXmlHelper.cpp b/MotionClassification/LearnDataXmlHelper.cpp
+index 044fdb8..887f558 100644
+--- a/MotionClassification/LearnDataXmlHelper.cpp
++++ b/MotionClassification/LearnDataXmlHelper.cpp
+@@ -4,7 +4,7 @@
+ #include <fstream>
+ #include <stack>
+ #include <sstream>
+-
++#include <algorithm>
+ char* NODE_MOTION_CLASS = "motion_class";
+ char* ATTR_REPEAT = "repeat";
+ char* ATTR_ORDERED = "ordered";
+@@ -34,7 +34,7 @@ void LearnDataXmlHelper::createDocument(std::map<std::string, MotionObject> data
+ 		if (createMotionObjectFile(LEARNED_DATA_FOLDER + filePath, learned.second)) {
+ 			auto child = nodeScene.append_child(NODE_MOTION_OBJECT);
+ 			child.append_attribute(ATTR_NAME2) = learned.first.c_str();
+-			child.append_attribute(ATTR_LENGTH) = learned.second.size();
++			child.append_attribute(ATTR_LENGTH) = static_cast<unsigned>(learned.second.size());
+ 			child.append_attribute(ATTR_PATH2) = filePath.c_str();
+ 		}
+ 	}
+@@ -46,14 +46,14 @@ const std::string FRAME = "frame";
+ 
+ bool LearnDataXmlHelper::createMotionObjectFile(std::string filePath, MotionObject motionObject) {
+ 
+-	std::ofstream myfile(filePath, std::ios::beg);
++	std::ofstream myfile(filePath, std::ios::out);//std::ios::beg);
+ 	if (myfile.is_open()) {
+ 		myfile << IMPORTANCES << " " << motionObject.getNodeImportances().size() << std::endl;
+-		for each (auto importancePair in motionObject.getNodeImportances()) {
++		for (auto importancePair: motionObject.getNodeImportances()) {
+ 			myfile << importancePair.first << " : " << importancePair.second << std::endl;
+ 		}
+ 		myfile << OFFSETS << " " << motionObject.getNodeOffsets().size() << std::endl;
+-		for each (auto offsetPair in motionObject.getNodeOffsets()) {
++		for (auto offsetPair: motionObject.getNodeOffsets()) {
+ 			myfile << offsetPair.first << " : " << offsetPair.second << std::endl;
+ 		}
+ 		for (auto i = 0; i < motionObject.size(); i++) {
+@@ -108,7 +108,8 @@ void readImportances(std::ifstream& file, MotionObject& object, int nodes) {
+ 	std::string line;
+ 	for (auto i = 0; i < nodes; i++) {
+ 		std::getline(file, line);
+-		std::vector<std::string> tokens{ std::istream_iterator < std::string > {std::istringstream(line)}, std::istream_iterator < std::string > {} };
++		std::istringstream istr (line);
++		std::vector<std::string> tokens{ std::istream_iterator < std::string > {istr}, std::istream_iterator < std::string > {} };
+ 		object.setNodeImportance(tokens.at(0), std::stod(tokens.at(2)));
+ 	}
+ }
+@@ -117,7 +118,8 @@ void readOffsets(std::ifstream& file, MotionObject& object, int nodes) {
+ 	std::string line;
+ 	for (auto i = 0; i < nodes; i++) {
+ 		std::getline(file, line);
+-		std::vector<std::string> tokens{ std::istream_iterator < std::string > {std::istringstream(line)}, std::istream_iterator < std::string > {} };
++		std::istringstream istr (line);
++		std::vector<std::string> tokens{ std::istream_iterator < std::string > {istr}, std::istream_iterator < std::string > {} };
+ 		object.setNodeOffset(std::pair<std::string, double>(tokens.at(0), std::stod(tokens.at(2))));
+ 	}
+ }
+@@ -126,7 +128,8 @@ void readFrame(std::ifstream& file, MotionFrame& frame, int nodes) {
+ 	std::string line;
+ 	for (auto i = 0; i < nodes; i++) {
+ 		std::getline(file, line);
+-		std::vector<std::string> tokens{ std::istream_iterator < std::string > {std::istringstream(line)}, std::istream_iterator < std::string > {} };
++		std::istringstream istr (line);
++		std::vector<std::string> tokens{ std::istream_iterator < std::string > {istr}, std::istream_iterator < std::string > {} };
+ 
+ 		MotionState state(tokens.at(0));
+ 		std::array<double, 3> rotation = { std::stod(tokens.at(2)), std::stod(tokens.at(3)), std::stod(tokens.at(4)) };
+@@ -150,7 +153,8 @@ MotionObject LearnDataXmlHelper::loadMotionObject(std::string name, int lenght,
+ 		std::vector<std::string> tokens;
+ 		int reading = 0;
+ 		while (std::getline(file, line)) {
+-			std::vector<std::string> tokens{std::istream_iterator<std::string>{std::istringstream(line)}, std::istream_iterator<std::string>{}};
++			std::istringstream istr (line);
++			std::vector<std::string> tokens{std::istream_iterator<std::string>{istr}, std::istream_iterator<std::string>{}};
+ //			copyTokens(line, tokens);
+ 			
+ 			if (!tokens.empty()) {
+@@ -171,4 +175,4 @@ MotionObject LearnDataXmlHelper::loadMotionObject(std::string name, int lenght,
+ 		throw std::string("File "+filePath+" not found.");;
+ 	}
+ 	return mo;
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/Main.cpp b/MotionClassification/Main.cpp
+index 4dfdce3..000d2b3 100644
+--- a/MotionClassification/Main.cpp
++++ b/MotionClassification/Main.cpp
+@@ -2,7 +2,7 @@
+ #include <iostream>
+ #include <fstream>
+ #include <iomanip>
+-
++#include <climits>
+ // Math library glm
+ //#include <glm/glm.hpp> 
+ //#include <glm/gtc/type_ptr.hpp>
+@@ -23,7 +23,7 @@ std::vector<Scene*> loadedScenes;
+ 
+ // Clean up function called on end of program
+ void clearLoadedScenes() {
+-	for each (Scene* scene in loadedScenes) delete scene;
++	for (Scene* scene: loadedScenes) delete scene;
+ 	loadedScenes.clear();
+ }
+ 
+@@ -71,7 +71,7 @@ void recognizeMotion(Scene* scene) {
+ 		if (recognizes.empty()) {
+ 			std::cout << "\tNo motions recognized!" << std::endl;
+ 		} else {
+-			for each (auto recognize in recognizes) {
++			for (auto recognize: recognizes) {
+ 				std::cout << "\t" << std::setw(17) << recognize.second << " from: " << recognize.first.first << " to: " << recognize.first.second << std::endl;
+ 			}
+ 		}
+@@ -127,7 +127,7 @@ void loop(){
+ 			std::cin >> motionClass;
+ 			if (loadedScenes.size() > 1) {
+ 				std::vector<MotionObject> keyFrames;
+-				for each (Scene* scene in loadedScenes) keyFrames.push_back(scene->extractMotionKeyFrames());
++				for (Scene* scene: loadedScenes) keyFrames.push_back(scene->extractMotionKeyFrames());
+ 				container.combineAndUpdateLearnMotion(motionClass, keyFrames);
+ 			} else if (false && lastLoadedScene != nullptr) {
+ 				container.updateLearnMotion(motionClass, lastLoadedScene->extractMotionKeyFrames());
+@@ -244,7 +244,7 @@ int main(int argc, char** argv) {
+ 		std::cout << "Extracting keyframes" << std::endl;
+ 		std::vector<MotionObject> keyFrames;
+ 		if (loadedScenes.size() > 1) {
+-			for each (Scene* scene in loadedScenes) {
++			for (Scene* scene: loadedScenes) {
+ 				scenesLengt += scene->getMotion()->getMotionLength();
+ 				keyFrames.push_back(scene->extractMotionKeyFrames());
+ 			}
+diff --git a/MotionClassification/MotionClassRecognizer.cpp b/MotionClassification/MotionClassRecognizer.cpp
+index 7c00f61..16df5d2 100644
+--- a/MotionClassification/MotionClassRecognizer.cpp
++++ b/MotionClassification/MotionClassRecognizer.cpp
+@@ -65,7 +65,7 @@ bool MotionClassRecognizer::compareFrames() {
+ 	} while (goOn);
+ 
+ 	std::cout << "best comparators:" << std::endl;
+-	for each (auto comparator in bestComparators) {
++	for (auto comparator: bestComparators) {
+ 		std::cout << "\tsimilarity = " << comparator.getSimilarity() << std::endl;
+ 	}
+ 
+diff --git a/MotionClassification/MotionClassRecognizer.h b/MotionClassification/MotionClassRecognizer.h
+index 455ee50..612c6fb 100644
+--- a/MotionClassification/MotionClassRecognizer.h
++++ b/MotionClassification/MotionClassRecognizer.h
+@@ -31,7 +31,7 @@ public:
+ 	std::string getClassName();
+ 	std::vector<MotionComparator> getBestComparators();
+ 
+-	static const double MotionClassRecognizer::RECOGNIZE_LIMIT;
++	static const double RECOGNIZE_LIMIT;
+ 
+ private:
+ 	void createComparators();
+diff --git a/MotionClassification/MotionComparator.cpp b/MotionClassification/MotionComparator.cpp
+index 2cb1701..2aa2aa2 100644
+--- a/MotionClassification/MotionComparator.cpp
++++ b/MotionClassification/MotionComparator.cpp
+@@ -1,5 +1,6 @@
+ 
+ #include "MotionComparator.h"
++#include <cmath>
+ 
+ MotionComparator::MotionComparator(const int startOffset, const MotionObject& learnedData, const MotionObject& recognizingData)
+ 	: startOffset(startOffset), learnedData(learnedData), recognizingData(recognizingData), comparedFrames(0), difference(0.0), lastFrame(-1) {
+diff --git a/MotionClassification/MotionFrame.cpp b/MotionClassification/MotionFrame.cpp
+index 320d169..897fdaf 100644
+--- a/MotionClassification/MotionFrame.cpp
++++ b/MotionClassification/MotionFrame.cpp
+@@ -41,10 +41,11 @@ const MotionStateMap MotionFrame::getAllStates() {
+ 
+ MotionFrame MotionFrame::averageWithFrame(MotionFrame& frameB) {
+ 	MotionFrame averageFrame;
+-	for each (auto statePair in this->getAllStates()) {
++	for (auto statePair: this->getAllStates()) {
+ 		MotionState state = statePair.second;
+ 		if (frameB.hasMotionState(state.getName())) {
+-			auto averageState = state.averageWithState(frameB.getMotionState(state.getName()));
++			auto motionState= frameB.getMotionState(state.getName());
++			auto averageState = state.averageWithState(motionState);
+ 			averageFrame.addMotionState(averageState);
+ 		}
+ 		averageFrame.addMotionState(MotionState(state));
+@@ -59,4 +60,4 @@ std::ostream& operator<<(std::ostream& out, MotionFrame& frame) {
+     }
+ 	out << "]\n}";
+ 	return out;
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/Scene.cpp b/MotionClassification/Scene.cpp
+index 3f65cff..4da0216 100644
+--- a/MotionClassification/Scene.cpp
++++ b/MotionClassification/Scene.cpp
+@@ -29,7 +29,7 @@ Motion* Scene::getMotion() {
+ MotionObject Scene::extractMotionKeyFrames() {
+ 	auto mo = extractKeyFrames(getMotion());
+ 	if (this->skeleton) {
+-		for each (auto offsetPair in this->skeleton->getNodeOfssets()) {
++		for (auto offsetPair: this->skeleton->getNodeOfssets()) {
+ 			mo.setNodeOffset(offsetPair);
+ 		}			
+ 	}
+@@ -160,4 +160,4 @@ void Scene::exportMotion(const std::string filePath) {
+ 			motionFile.close();
+ 		}
+ 	}
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/Skeleton.cpp b/MotionClassification/Skeleton.cpp
+index 45d0b61..915d807 100644
+--- a/MotionClassification/Skeleton.cpp
++++ b/MotionClassification/Skeleton.cpp
+@@ -1,6 +1,7 @@
+ 
+ #include "Skeleton.h"
+ #include <queue>
++#include <cmath>
+ 
+ Skeleton::Skeleton() : root(nullptr) {
+ }
+@@ -27,7 +28,7 @@ std::map<std::string, double> Skeleton::getNodeOfssets() {
+ 		auto node = queue.front();
+ 		queue.pop();
+ 
+-		for each (auto child in node->getChildren()) {
++		for (auto child: node->getChildren()) {
+ 			queue.push(child.second);
+ 		}
+ 
+@@ -47,4 +48,4 @@ std::map<std::string, double> Skeleton::getNodeOfssets() {
+ std::ostream& operator<< (std::ostream& out, Skeleton& node) {
+ 	out << "{\"Skeleton\": " << *node.getRoot() << "}";
+ 	return out;
+-}
+\ No newline at end of file
++}
+diff --git a/MotionClassification/XmlHelper.h b/MotionClassification/XmlHelper.h
+index 6022173..f11b081 100644
+--- a/MotionClassification/XmlHelper.h
++++ b/MotionClassification/XmlHelper.h
+@@ -3,7 +3,7 @@
+ 
+ #include <string>
+ #include <vector>
+-#include "pugi\pugixml.hpp"
++#include "pugi/pugixml.hpp"
+ #include <fbxsdk.h>
+ 
+ class XmlHelper {
+diff --git a/MotionClassification/XmlNode.h b/MotionClassification/XmlNode.h
+index 98b0b08..212bcc5 100644
+--- a/MotionClassification/XmlNode.h
++++ b/MotionClassification/XmlNode.h
+@@ -3,7 +3,7 @@
+ #define XMLNODE_H
+ 
+ #include <vector>
+-#include "pugi\pugixml.hpp"
++#include "pugi/pugixml.hpp"
+ 
+ class XmlNode {
+ public:

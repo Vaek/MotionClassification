@@ -4,7 +4,7 @@
 #include <fstream>
 #include <stack>
 #include <sstream>
-
+#include <algorithm>
 char* NODE_MOTION_CLASS = "motion_class";
 char* ATTR_REPEAT = "repeat";
 char* ATTR_ORDERED = "ordered";
@@ -34,7 +34,7 @@ void LearnDataXmlHelper::createDocument(std::map<std::string, MotionObject> data
 		if (createMotionObjectFile(LEARNED_DATA_FOLDER + filePath, learned.second)) {
 			auto child = nodeScene.append_child(NODE_MOTION_OBJECT);
 			child.append_attribute(ATTR_NAME2) = learned.first.c_str();
-			child.append_attribute(ATTR_LENGTH) = learned.second.size();
+			child.append_attribute(ATTR_LENGTH) = static_cast<unsigned>(learned.second.size());
 			child.append_attribute(ATTR_PATH2) = filePath.c_str();
 		}
 	}
@@ -46,14 +46,14 @@ const std::string FRAME = "frame";
 
 bool LearnDataXmlHelper::createMotionObjectFile(std::string filePath, MotionObject motionObject) {
 
-	std::ofstream myfile(filePath, std::ios::beg);
+	std::ofstream myfile(filePath, std::ios::out);//std::ios::beg);
 	if (myfile.is_open()) {
 		myfile << IMPORTANCES << " " << motionObject.getNodeImportances().size() << std::endl;
-		for each (auto importancePair in motionObject.getNodeImportances()) {
+		for (auto importancePair: motionObject.getNodeImportances()) {
 			myfile << importancePair.first << " : " << importancePair.second << std::endl;
 		}
 		myfile << OFFSETS << " " << motionObject.getNodeOffsets().size() << std::endl;
-		for each (auto offsetPair in motionObject.getNodeOffsets()) {
+		for (auto offsetPair: motionObject.getNodeOffsets()) {
 			myfile << offsetPair.first << " : " << offsetPair.second << std::endl;
 		}
 		for (auto i = 0; i < motionObject.size(); i++) {
@@ -108,7 +108,8 @@ void readImportances(std::ifstream& file, MotionObject& object, int nodes) {
 	std::string line;
 	for (auto i = 0; i < nodes; i++) {
 		std::getline(file, line);
-		std::vector<std::string> tokens{ std::istream_iterator < std::string > {std::istringstream(line)}, std::istream_iterator < std::string > {} };
+		std::istringstream istr (line);
+		std::vector<std::string> tokens{ std::istream_iterator < std::string > {istr}, std::istream_iterator < std::string > {} };
 		object.setNodeImportance(tokens.at(0), std::stod(tokens.at(2)));
 	}
 }
@@ -117,7 +118,8 @@ void readOffsets(std::ifstream& file, MotionObject& object, int nodes) {
 	std::string line;
 	for (auto i = 0; i < nodes; i++) {
 		std::getline(file, line);
-		std::vector<std::string> tokens{ std::istream_iterator < std::string > {std::istringstream(line)}, std::istream_iterator < std::string > {} };
+		std::istringstream istr (line);
+		std::vector<std::string> tokens{ std::istream_iterator < std::string > {istr}, std::istream_iterator < std::string > {} };
 		object.setNodeOffset(std::pair<std::string, double>(tokens.at(0), std::stod(tokens.at(2))));
 	}
 }
@@ -126,7 +128,8 @@ void readFrame(std::ifstream& file, MotionFrame& frame, int nodes) {
 	std::string line;
 	for (auto i = 0; i < nodes; i++) {
 		std::getline(file, line);
-		std::vector<std::string> tokens{ std::istream_iterator < std::string > {std::istringstream(line)}, std::istream_iterator < std::string > {} };
+		std::istringstream istr (line);
+		std::vector<std::string> tokens{ std::istream_iterator < std::string > {istr}, std::istream_iterator < std::string > {} };
 
 		MotionState state(tokens.at(0));
 		std::array<double, 3> rotation = { std::stod(tokens.at(2)), std::stod(tokens.at(3)), std::stod(tokens.at(4)) };
@@ -150,7 +153,8 @@ MotionObject LearnDataXmlHelper::loadMotionObject(std::string name, int lenght, 
 		std::vector<std::string> tokens;
 		int reading = 0;
 		while (std::getline(file, line)) {
-			std::vector<std::string> tokens{std::istream_iterator<std::string>{std::istringstream(line)}, std::istream_iterator<std::string>{}};
+			std::istringstream istr (line);
+			std::vector<std::string> tokens{std::istream_iterator<std::string>{istr}, std::istream_iterator<std::string>{}};
 //			copyTokens(line, tokens);
 			
 			if (!tokens.empty()) {

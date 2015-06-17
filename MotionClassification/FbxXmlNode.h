@@ -7,7 +7,7 @@
 
 class FbxXmlNode : public XmlNode {
 public:
-	FbxXmlNode::FbxXmlNode(pugi::xml_node _xmlNodeParent, FbxNode* _fbxNode, const std::string _fbxPath)
+	FbxXmlNode(pugi::xml_node _xmlNodeParent, FbxNode* _fbxNode, const std::string _fbxPath)
 		: XmlNode(_xmlNodeParent), fbxNode(_fbxNode), fbxPath(_fbxPath) {};
 
 	std::vector<FbxXmlNode> createXmlNode() {

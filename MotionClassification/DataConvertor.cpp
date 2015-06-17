@@ -83,13 +83,13 @@ std::vector<SkeletonNode*> copyFbxNodeToSkeletonNode2(FbxNode* fbxNode, std::vec
 
 		std::vector<SkeletonNode*> children = copyFbxNodeToSkeletonNode2(childFbxNode, annotatedNodes, pathsNames);
 		if (skeletonNode) {
-			for each (SkeletonNode* child in children) {
+			for (SkeletonNode* child: children) {
 				if (child) {
 					skeletonNode->addChild(child);
 				}
 			}
 		} else {
-			for each (SkeletonNode* child in children) {
+			for (SkeletonNode* child: children) {
 				if (child) {
 					nodes.push_back(child);
 				}
@@ -165,7 +165,7 @@ Skeleton* fbxToSkeleton(FbxScene* scene) {
 }
 
 std::string getAnnotatedName(std::vector<std::pair<std::string, std::string>> pathsNames, std::string fbxPath) {
-	for each (auto pathName in pathsNames) {
+	for (auto pathName: pathsNames) {
 		if (pathName.first == fbxPath) {
 			return pathName.second;
 		}
@@ -280,9 +280,9 @@ std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::pair<s
 		}
 	}
 	std::vector<std::string> notFoundannotatedNodes;
-	for each (auto path in annotatedNodes) {
+	for (auto path: annotatedNodes) {
 		bool found = false;
-		for each (auto nodeInfo in nodes) {
+		for (auto nodeInfo: nodes) {
 			if (nodeInfo.second == path.first) {
 				found = true;
 				break;
@@ -292,7 +292,7 @@ std::vector<node_info> findAnnotatedNodes(FbxNode* root, std::vector<std::pair<s
 	}
 	if (!notFoundannotatedNodes.empty()) {
 		std::cout << "Can not find these nodes:" << std::endl;
-		for each (auto path in notFoundannotatedNodes) {
+		for (auto path: notFoundannotatedNodes) {
 			std::cout << path << std::endl;
 		}
 	}

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-
+#include <climits>
 // Math library glm
 //#include <glm/glm.hpp> 
 //#include <glm/gtc/type_ptr.hpp>
@@ -23,7 +23,7 @@ std::vector<Scene*> loadedScenes;
 
 // Clean up function called on end of program
 void clearLoadedScenes() {
-	for each (Scene* scene in loadedScenes) delete scene;
+	for (Scene* scene: loadedScenes) delete scene;
 	loadedScenes.clear();
 }
 
@@ -71,7 +71,7 @@ void recognizeMotion(Scene* scene) {
 		if (recognizes.empty()) {
 			std::cout << "\tNo motions recognized!" << std::endl;
 		} else {
-			for each (auto recognize in recognizes) {
+			for (auto recognize: recognizes) {
 				std::cout << "\t" << std::setw(17) << recognize.second << " from: " << recognize.first.first << " to: " << recognize.first.second << std::endl;
 			}
 		}
@@ -127,7 +127,7 @@ void loop(){
 			std::cin >> motionClass;
 			if (loadedScenes.size() > 1) {
 				std::vector<MotionObject> keyFrames;
-				for each (Scene* scene in loadedScenes) keyFrames.push_back(scene->extractMotionKeyFrames());
+				for (Scene* scene: loadedScenes) keyFrames.push_back(scene->extractMotionKeyFrames());
 				container.combineAndUpdateLearnMotion(motionClass, keyFrames);
 			} else if (false && lastLoadedScene != nullptr) {
 				container.updateLearnMotion(motionClass, lastLoadedScene->extractMotionKeyFrames());
@@ -244,7 +244,7 @@ int main(int argc, char** argv) {
 		std::cout << "Extracting keyframes" << std::endl;
 		std::vector<MotionObject> keyFrames;
 		if (loadedScenes.size() > 1) {
-			for each (Scene* scene in loadedScenes) {
+			for (Scene* scene: loadedScenes) {
 				scenesLengt += scene->getMotion()->getMotionLength();
 				keyFrames.push_back(scene->extractMotionKeyFrames());
 			}
