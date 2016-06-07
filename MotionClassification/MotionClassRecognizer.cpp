@@ -49,6 +49,7 @@ std::string MotionClassRecognizer::getClassName() {
 }
 
 bool MotionClassRecognizer::compareFrames() {
+	const clock_t begin_time = clock();
 	std::cout << "Comparing " << this->motionClassName << std::endl;
 	bool goOn;
 	do {
@@ -63,6 +64,7 @@ bool MotionClassRecognizer::compareFrames() {
 			comparators.push(comparator);
 		}
 	} while (goOn);
+	std::cout << "Compared in " << float(clock() - begin_time) / CLOCKS_PER_SEC << std::endl;
 
 	std::cout << "best comparators:" << std::endl;
 	for each (auto comparator in bestComparators) {

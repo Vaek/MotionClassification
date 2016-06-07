@@ -24,9 +24,9 @@ public:
 	bool saveLearnedData();
 	bool loadLearnedData();
 
+	std::map<std::string, MotionObject> data;
 private:
 	const std::string fileName;
-	std::map<std::string, MotionObject> data;
 
 	std::vector<MotionClassRecognizer> proccesRecognizing(MotionObject motionObject);
 };

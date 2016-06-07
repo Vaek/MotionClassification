@@ -15,6 +15,7 @@ LearnDataContainer::LearnDataContainer(const std::string _fileName) : fileName(_
 LearnDataContainer::~LearnDataContainer() { }
 
 void LearnDataContainer::updateLearnMotion(std::string motionClass, MotionObject motionObject) {
+	std::cout << "Learned motion class " << motionClass << " size: " << motionObject.size() << std::endl;
 	if (this->data.insert(std::pair<std::string, MotionObject>(motionClass, motionObject)).second == false) {
 		this->data[motionClass] = motionObject;
 	}
@@ -108,8 +109,8 @@ void LearnDataContainer::combineAndUpdateLearnMotion(std::string motionClass, st
 		auto offsetQuatient = combined.getNodeOffset(importance.first) / maxNodeOffset;
 		auto finalCombinedImportance = importance.second / commonLength * offsetQuatient;
 		combined.setNodeImportance(importance.first, finalCombinedImportance);
+		std::cout << "\t" << std::setw(17) << std::left << importance.first << finalCombinedImportance << std::endl;
 		if (finalCombinedImportance > MotionObject::IMPORTANCE_LIMIT) {
-			std::cout << "\t" << std::setw(17) << std::left << importance.first << finalCombinedImportance << std::endl;
 		}
 	}
 
